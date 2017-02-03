@@ -1,0 +1,21 @@
+{
+  "name": "Dentsu-SPP",
+  "version": "0.0.1",
+  "private": true,
+  "main": "views/index.html",
+  "dependencies": {
+    "express": "~3.2.6",
+    "fs": "0.0.2",
+    "grunt": "*",
+    "grunt-bower-installer": "*",
+    "grunt-contrib-requirejs": "*",
+    "grunt-npm-install": "*",
+    "moment": "*",
+    "mongoose": "*",
+    "mongoose-q": "*",
+    "node-uuid": "*",
+    "request": "^2.53.0",
+    "require": "^2.4.17",
+    "requirejs": "*"
+  }
+}

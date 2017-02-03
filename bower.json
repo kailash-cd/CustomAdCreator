@@ -1,0 +1,28 @@
+{
+  "name": "app",
+  "version": "0.0.2",
+  "dependencies": {
+    "angular": "*",
+    "angular-route": "*",
+    "angular-local-storage": "*",
+    "noty": "*",
+    "jquery": "*",
+    "bootstrap": "*",
+    "cryptojslib": "*",
+    "requirejs": "*",
+    "angular-google-maps": "*",
+    "venturocket-angular-slider": "*",
+    "angular-payments": "9643191f2359e18d543c4abf1581f91f6729445f",
+    "ng-table": "~0.5.1",
+    "angular-dropdowns": "~1.0.0",
+    "spinkit": "~1.0.1"
+  },
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
