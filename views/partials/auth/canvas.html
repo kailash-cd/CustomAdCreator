@@ -1,0 +1,86 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link href="./home/chalk/downlaod/Mamelon.otf" rel="stylesheet">
+<style>
+   .colorChange
+    {
+       width: 7%;
+       height: 17px;
+
+    }
+    .preview
+    {
+        margin:auto;
+        vertical-align: middle;
+         max-height: 50%;
+         max-width: 80%;
+           }
+    .pre{
+        margin:0px;
+        max-height: 40%;
+        max-width: 60%;
+
+    }
+     body{
+         margin: 0px;
+         padding: 0;
+         background-color: #e2d1d1;
+     }
+    input {
+        width: 65%;
+    }
+    th{
+        border-bottom: 2px solid black;
+    }
+</style>
+<div style="width: 99.8%;height: 100%;">
+<div ng-include src="'/partials/shared/navbar.html'"></div>
+<div>
+    <table style="border: 1px solid black; width:100%; height:479px; table-layout: fixed">
+        <th style="width:50%;">Editor</th>
+        <th style="width:20%;">Toolkit</th>
+        <th style="width:30%;">Templates</th>
+        <tr style="">
+            <td style="width:50%;height: 100%;background-color: white;">
+                <!--text editor start-->
+                <div ng-show="editorShow" style="width:40%;margin: auto;"><input type="color" title="color-chooser" ng-model="canvasJSON.colorPicker" class="colorChange"/><select title="font-face" ng-model="canvasJSON.selectFont" ng-init="canvasJSON.selectFont='Algerian'">
+                    <option ng-repeat="y in canvasJSON.fontArt">{{y}}</option>
+
+                </select><input type="color" title="font-color" class="colorChange" ng-model="canvasJSON.fontColor"><input type="number" title="font-size" ng-model="canvasJSON.fontSize"/><button ng-click="editor(0)">close</button></div>
+                <!--text editor end-->
+                <div  style="margin:auto;max-width: 500px;background-color:{{canvasJSON.colorPicker}}; max-height: 300px; width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;border: 2px solid black;vertical-align: middle">
+                    <button  ng-click="editor(1)">Edit</button>
+                    <p style="font-family: {{canvasJSON.selectFont}};color:{{canvasJSON.fontColor}};font-size: {{canvasJSON.fontSize}}px">this is editable area</p>
+                </div>
+            </td>
+            <td style="width:20%; height: 100%;background-color: lightgray ">
+
+                <div style="border:2px solid black; display:inline-block;width:100%; height: 100%; ">
+                    Width:<input  type="number"  ng-model="canvasJSON.widthCanvas" ng-keyup="checkOut()" ng-keypress="checkOut()" ng-mouseup="checkOut()" ng-mousedown="checkOut()" ng-keydown="checkOut()"><br><br>
+                    Height:<input type="number"  ng-model="canvasJSON.heightCanvas" ng-keyup="checkOut()" ng-keypress="checkOut()" ng-mouseup="checkOut()" ng-keydown="checkOut()" ng-mousedown="checkOut()"><br>
+                   <hr><br>
+                    <!--<span id="demo" style="color:red;"></span>-->
+                    <div>
+
+                    <button style="background-color: dimgrey;color:white; max-width:80px;font-size: 12px; text-align:center;" ng-repeat="x in canvasJSON.buttonName" ng-click="show($index)">{{x}}</button>
+                        <hr><br>
+
+                    </div>
+
+                </div>
+            </td>
+            <td style="width:30%;height: 100%;background-color: linen;" >
+
+                  <!--<image src="{{image}}" width="300px" height="45px" alt="image not upload" ng-model="image"/>-->
+                <div  class="preview">
+                <div  class="pre" ng-include src="'/partials/shared/headshot.html'" ng-show="canvasJSON.booleans == 0"></div>
+                <div   class="pre"ng-include src="'/partials/shared/clientLogo.html'" ng-show="canvasJSON.booleans == 1"></div>
+                <div class="pre" ng-include src="'/partials/shared/description.html'" ng-show="canvasJSON.booleans == 2"></div>
+                <div  class="pre" ng-include src="'/partials/shared/banner.html'"      ng-show="canvasJSON.booleans == 3"></div>
+                <div  class="pre" ng-include src="'/partials/shared/button.html'"      ng-show="canvasJSON.booleans == 4"></div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div ng-include src="'/partials/shared/footer.html'"></div>
+</div>

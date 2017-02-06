@@ -22,5 +22,4 @@ module.exports = function(app,serverInfo) {
         res.render('partials/shared/' + name);
 
     });
-    app.get('/api/home', home_api.listUsres);
 };

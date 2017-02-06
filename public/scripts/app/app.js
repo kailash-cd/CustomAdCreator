@@ -6,6 +6,7 @@ define([
     'Util',
     'navbarCtrl',
     'dashboardCtrl',
+    'canvasCtrl',
 
 
     
@@ -20,6 +21,7 @@ define([
         'Util',
         'navbarCtrl',
         'dashboardCtrl',
+        'canvasCtrl',
     ]);
 
     
@@ -38,8 +40,8 @@ define([
         function($routeProvider) {
             $routeProvider.
             when('/home', {
-                templateUrl: 'partials/auth/dashboard.html',
-                controller: 'dashboardCtrl',
+                templateUrl: 'partials/auth/canvas.html',
+                controller: 'canvasCtrl',
                 access: { requiredLogin: false }
             }).
                 otherwise({

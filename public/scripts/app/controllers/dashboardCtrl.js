@@ -10,4 +10,5 @@ define(['angular'],function(angular){
 
         }
     ]);
+    return newModule;
 });
