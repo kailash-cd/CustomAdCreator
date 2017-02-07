@@ -13,9 +13,14 @@ require.config({
         'navbarCtrl':'../app/controllers/navbarCtrl',
         'dashboardCtrl':'../app/controllers/dashboardCtrl',
         'canvasCtrl':'../app/controllers/canvasCtrl',
+
+
         /*Services*/
         'Util':'../app/services/Util',
         'DataServices':'../app/services/DataServices',
+        /*Directive*/
+        'draggable':'../app/directives/draggable',
+
 
 
     },

@@ -1,12 +1,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link href="./home/chalk/downlaod/Mamelon.otf" rel="stylesheet">
+<!--<link href="./home/chalk/downlaod/Mamelon.otf" rel="stylesheet">-->
 <style>
-   .colorChange
-    {
-       width: 7%;
-       height: 17px;
 
-    }
     .preview
     {
         margin:auto;
@@ -31,7 +26,11 @@
     th{
         border-bottom: 2px solid black;
     }
+    .errorClass {
+        border : 3px solid mediumspringgreen;
+    }
 </style>
+<div ng-if="canvasJSON.errorMessage" ng-include src="'/partials/shared/errorMessage.html'"></div>
 <div style="width: 99.8%;height: 100%;">
 <div ng-include src="'/partials/shared/navbar.html'"></div>
 <div>
@@ -39,15 +38,12 @@
         <th style="width:50%;">Editor</th>
         <th style="width:20%;">Toolkit</th>
         <th style="width:30%;">Templates</th>
-        <tr style="">
+        <tr style="" >
             <td style="width:50%;height: 100%;background-color: white;">
                 <!--text editor start-->
-                <div ng-show="editorShow" style="width:40%;margin: auto;"><input type="color" title="color-chooser" ng-model="canvasJSON.colorPicker" class="colorChange"/><select title="font-face" ng-model="canvasJSON.selectFont" ng-init="canvasJSON.selectFont='Algerian'">
-                    <option ng-repeat="y in canvasJSON.fontArt">{{y}}</option>
-
-                </select><input type="color" title="font-color" class="colorChange" ng-model="canvasJSON.fontColor"><input type="number" title="font-size" ng-model="canvasJSON.fontSize"/><button ng-click="editor(0)">close</button></div>
+                <div ng-include="'/partials/shared/editor.html'"></div>
                 <!--text editor end-->
-                <div  style="margin:auto;max-width: 500px;background-color:{{canvasJSON.colorPicker}}; max-height: 300px; width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;border: 2px solid black;vertical-align: middle">
+                <div ng-class='{errorClass:canvasJSON.errorMessage}'  style="margin:auto;max-width: 500px;background-color:{{canvasJSON.canvasBackground}}; max-height: 300px; width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;vertical-align: middle">
                     <button  ng-click="editor(1)">Edit</button>
                     <p style="font-family: {{canvasJSON.selectFont}};color:{{canvasJSON.fontColor}};font-size: {{canvasJSON.fontSize}}px">this is editable area</p>
                 </div>
@@ -72,15 +68,17 @@
 
                   <!--<image src="{{image}}" width="300px" height="45px" alt="image not upload" ng-model="image"/>-->
                 <div  class="preview">
-                <div  class="pre" ng-include src="'/partials/shared/headshot.html'" ng-show="canvasJSON.booleans == 0"></div>
-                <div   class="pre"ng-include src="'/partials/shared/clientLogo.html'" ng-show="canvasJSON.booleans == 1"></div>
-                <div class="pre" ng-include src="'/partials/shared/description.html'" ng-show="canvasJSON.booleans == 2"></div>
-                <div  class="pre" ng-include src="'/partials/shared/banner.html'"      ng-show="canvasJSON.booleans == 3"></div>
-                <div  class="pre" ng-include src="'/partials/shared/button.html'"      ng-show="canvasJSON.booleans == 4"></div>
+                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate" id="temp1"  ng-mouseover="templateChecker('temp1')" class="pre" ng-include src="'/partials/shared/headshot.html'" ng-show="canvasJSON.booleans == 0"></div>
+                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate" id="temp2"  ng-mouseover="templateChecker('temp2')" class="pre"ng-include src="'/partials/shared/clientLogo.html'" ng-show="canvasJSON.booleans == 1"></div>
+                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate" id="temp3"  ng-mouseover="templateChecker('temp3')" class="pre" ng-include src="'/partials/shared/description.html'" ng-show="canvasJSON.booleans == 2"></div>
+                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate" id="temp4"  ng-mouseover="templateChecker('temp4')" class="pre" ng-include src="'/partials/shared/banner.html'"      ng-show="canvasJSON.booleans == 3"></div>
+                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate" id="temp5"  ng-mouseover="templateChecker('temp5')" class="pre" ng-include src="'/partials/shared/button.html'"      ng-show="canvasJSON.booleans == 4"></div>
                 </div>
             </td>
         </tr>
     </table>
+
+
 </div>
 <div ng-include src="'/partials/shared/footer.html'"></div>
 </div>

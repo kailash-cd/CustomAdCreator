@@ -7,6 +7,7 @@ define([
     'navbarCtrl',
     'dashboardCtrl',
     'canvasCtrl',
+    'draggable',
 
 
     
@@ -22,6 +23,9 @@ define([
         'navbarCtrl',
         'dashboardCtrl',
         'canvasCtrl',
+        'draggable',
+
+
     ]);
 
     
