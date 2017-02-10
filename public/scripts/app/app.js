@@ -8,7 +8,8 @@ define([
     'dashboardCtrl',
     'canvasCtrl',
     'draggable',
-
+    'domResizeCtrl',
+    'resizable'
 
     
 
@@ -24,6 +25,8 @@ define([
         'dashboardCtrl',
         'canvasCtrl',
         'draggable',
+        'domResizeCtrl',
+        'resizable'
 
 
     ]);
@@ -46,6 +49,10 @@ define([
             when('/home', {
                 templateUrl: 'partials/auth/canvas.html',
                 controller: 'canvasCtrl',
+                access: { requiredLogin: false }
+            }). when('/resizeTest', {
+                templateUrl: 'partials/shared/resizableDemo.html',
+                controller: 'domResizeCtrl',
                 access: { requiredLogin: false }
             }).
                 otherwise({

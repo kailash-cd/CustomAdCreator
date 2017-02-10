@@ -6,7 +6,27 @@
 
     }
     </style>
-<div ng-show="editorShow" style="width:40%;margin: auto;"><input type="color" title="color-chooser" ng-model="canvasJSON.colorPickerCanvasBackground"  class="colorChange"/><select title="font-face" ng-model="canvasJSON.selectFont" ng-init="canvasJSON.selectFont='Algerian'">
+<div ng-show="editorShow" style="width:40%;margin: auto;">
+    <tr>
+        <td>
+    <input type="color" title="color-chooser" ng-model="canvasJSON.colorPickerCanvasBackground"  class="colorChange"/>
+        </td>
+        <td>
+    <select title="font-face" ng-model="canvasJSON.selectFont" ng-init="canvasJSON.selectFont='Algerian'">
     <option ng-repeat="y in canvasJSON.fontArt">{{y}}</option>
-
-</select><input type="color" title="font-color" class="colorChange" ng-model="canvasJSON.colorPickerFontColor"><input type="number" title="font-size" ng-model="canvasJSON.fontSize"/><button ng-click="editor(0)">close</button></div>
+    </select>
+        </td>
+    <td>
+    <input type="color" title="font-color" class="colorChange" ng-model="canvasJSON.colorPickerFontColor">
+        </td>
+        <td>
+    <input type="number" title="font-size" ng-model="canvasJSON.fontSize"/>
+        </td>
+    <td>
+        <button ng-click="divlistener()">resize</button>
+    </td>
+    <td>
+    <button ng-click="editor(0)">close</button>
+    </td>
+    </tr>
+</div>

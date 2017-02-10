@@ -1,20 +1,20 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <!--<link href="./home/chalk/downlaod/Mamelon.otf" rel="stylesheet">-->
 <style>
+    /*.preview*/
+    /*{*/
+        /*margin:auto;*/
+        /*vertical-align: middle;*/
+         /*max-height: 50%;*/
+         /*max-width: 80%;*/
+           /*}*/
+    /*.pre{*/
+        /*margin:0px;*/
+        /*max-height: 40%;*/
+        /*max-width: 60%;*/
 
-    .preview
-    {
-        margin:auto;
-        vertical-align: middle;
-         max-height: 50%;
-         max-width: 80%;
-           }
-    .pre{
-        margin:0px;
-        max-height: 40%;
-        max-width: 60%;
 
-    }
+    /*}*/
      body{
          margin: 0px;
          padding: 0;
@@ -24,7 +24,9 @@
         width: 65%;
     }
     th{
+
         border-bottom: 2px solid black;
+
     }
     .errorClass {
         border : 3px solid mediumspringgreen;
@@ -39,11 +41,22 @@
         <th style="width:20%;">Toolkit</th>
         <th style="width:30%;">Templates</th>
         <tr style="" >
-            <td style="width:50%;height: 100%;background-color: white;">
+            <td style="width:50%;height: 100%;background-color: #f5f7fa;">
                 <!--text editor start-->
                 <div ng-include="'/partials/shared/editor.html'"></div>
                 <!--text editor end-->
-                <div ng-class='{errorClass:canvasJSON.errorMessage}'  style="margin:auto;max-width: 500px;background-color:{{canvasJSON.canvasBackground}}; max-height: 300px; width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;vertical-align: middle">
+                <div
+                     resizable
+                     id="maincanvas"
+                     resize-enable="canvasJSON.domBoolsJSON.resizeEnableTemplate"
+                     r-directions="['right','bottom', 'left', 'top']"
+                     r-centered-x="true"
+                     r-centered-y="true"
+                     r-width="300"
+                     r-height="dynamicSize.height"
+                     ng-click="divListener('maincanvas')"
+                     ng-class='{errorClass:canvasJSON.errorMessage}'
+                     style="margin:auto;max-width: 500px;background-color:{{canvasJSON.canvasBackground}}; max-height: 300px; width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;vertical-align: middle">
                     <button  ng-click="editor(1)">Edit</button>
                     <p style="font-family: {{canvasJSON.selectFont}};color:{{canvasJSON.fontColor}};font-size: {{canvasJSON.fontSize}}px">this is editable area</p>
                 </div>
@@ -54,7 +67,7 @@
                     Width:<input  type="number"  ng-model="canvasJSON.widthCanvas" ng-keyup="checkOut()" ng-keypress="checkOut()" ng-mouseup="checkOut()" ng-mousedown="checkOut()" ng-keydown="checkOut()"><br><br>
                     Height:<input type="number"  ng-model="canvasJSON.heightCanvas" ng-keyup="checkOut()" ng-keypress="checkOut()" ng-mouseup="checkOut()" ng-keydown="checkOut()" ng-mousedown="checkOut()"><br>
                    <hr><br>
-                    <!--<span id="demo" style="color:red;"></span>-->
+                    <span id="demo" style="color:red;"></span>
                     <div>
 
                     <button style="background-color: dimgrey;color:white; max-width:80px;font-size: 12px; text-align:center;" ng-repeat="x in canvasJSON.buttonName" ng-click="show($index)">{{x}}</button>
@@ -68,11 +81,11 @@
 
                   <!--<image src="{{image}}" width="300px" height="45px" alt="image not upload" ng-model="image"/>-->
                 <div  class="preview">
-                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate" id="temp1"  ng-mouseover="templateChecker('temp1')" class="pre" ng-include src="'/partials/shared/headshot.html'" ng-show="canvasJSON.booleans == 0"></div>
-                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate" id="temp2"  ng-mouseover="templateChecker('temp2')" class="pre"ng-include src="'/partials/shared/clientLogo.html'" ng-show="canvasJSON.booleans == 1"></div>
-                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate" id="temp3"  ng-mouseover="templateChecker('temp3')" class="pre" ng-include src="'/partials/shared/description.html'" ng-show="canvasJSON.booleans == 2"></div>
-                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate" id="temp4"  ng-mouseover="templateChecker('temp4')" class="pre" ng-include src="'/partials/shared/banner.html'"      ng-show="canvasJSON.booleans == 3"></div>
-                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate" id="temp5"  ng-mouseover="templateChecker('temp5')" class="pre" ng-include src="'/partials/shared/button.html'"      ng-show="canvasJSON.booleans == 4"></div>
+                    <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   class="pre" ng-include src="'/partials/shared/headshot.html'"   ng-show="canvasJSON.booleans == 0"></div>
+                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   class="pre"ng-include src="'/partials/shared/clientLogo.html'"   ng-show="canvasJSON.booleans == 1"></div>
+                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"  class="pre" ng-include src="'/partials/shared/description.html'" ng-show="canvasJSON.booleans == 2"></div>
+                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"  class="pre" ng-include src="'/partials/shared/banner.html'"      ng-show="canvasJSON.booleans == 3"></div>
+                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"  class="pre" ng-include src="'/partials/shared/button.html'"      ng-show="canvasJSON.booleans == 4"></div>
                 </div>
             </td>
         </tr>
