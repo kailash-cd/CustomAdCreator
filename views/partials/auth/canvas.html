@@ -15,10 +15,22 @@
 
 
     /*}*/
+    #imageLoader
+    {
+        display: none;
+    }
+    .placeholderImage{
+        height: 150px;
+        width: 300px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("{{canvasJSON.imagePath}}");
+    }
      body{
          margin: 0px;
          padding: 0;
-         background-color: #e2d1d1;
+
      }
     input {
         width: 65%;
@@ -33,6 +45,7 @@
     }
 </style>
 <div ng-if="canvasJSON.errorMessage" ng-include src="'/partials/shared/errorMessage.html'"></div>
+<div ng-if="openCroppableImage" ng-include src="'/partials/shared/crop.html'"></div>
 <div style="width: 99.8%;height: 100%;">
 <div ng-include src="'/partials/shared/navbar.html'"></div>
 <div>
@@ -46,19 +59,34 @@
                 <div ng-include="'/partials/shared/editor.html'"></div>
                 <!--text editor end-->
                 <div
-                     resizable
-                     id="maincanvas"
-                     resize-enable="canvasJSON.domBoolsJSON.resizeEnableTemplate"
-                     r-directions="['right','bottom', 'left', 'top']"
-                     r-centered-x="true"
-                     r-centered-y="true"
-                     r-width="300"
-                     r-height="dynamicSize.height"
-                     ng-click="divListener('maincanvas')"
+                         id="maincanvas"
+                         ng-dblclick="divListener('maincanvas')"
+                        resizable
+
+                        resize-enable="canvasJSON.domBoolsJSON.resizeEnableTemplate"
+
+                        r-directions="['right','bottom', 'left', 'top']"
+
+
                      ng-class='{errorClass:canvasJSON.errorMessage}'
-                     style="margin:auto;max-width: 500px;background-color:{{canvasJSON.canvasBackground}}; max-height: 300px; width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;vertical-align: middle">
+                     style="margin-top: 250px; margin-left:75px;max-width:500px;max-height:300px;background-color:{{canvasJSON.canvasBackground}};  width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;vertical-align: middle;table-layout: fixed">
                     <button  ng-click="editor(1)">Edit</button>
-                    <p style="font-family: {{canvasJSON.selectFont}};color:{{canvasJSON.fontColor}};font-size: {{canvasJSON.fontSize}}px">this is editable area</p>
+                    <div draggable enabled="true" style="overflow: visible ;"><p style="font-family: {{canvasJSON.selectFont}};color:{{canvasJSON.fontColor}};font-size: {{canvasJSON.fontSize}}px; word-wrap: break-word;overflow: visible; overflow-x: visible;
+">{{canvasJSON.editableText}}</p></div>
+
+                     <div draggable enabled="true">
+                       <div
+                             id="divImage"
+                               resizable
+                         resize-enable="true"
+                         r-directions="['right','bottom', 'left', 'top']"
+                          class="placeholderImage"
+                             ng-show="canvasJSON.imageShow";
+                             style="margin-top: 34px;max-width:{{canvasJSON.widthCanvas}}px;max-height:{{canvasJSON.heightCanvas-100}}px;">
+
+                        </div>
+                     </div>
+
                 </div>
             </td>
             <td style="width:20%; height: 100%;background-color: lightgray ">

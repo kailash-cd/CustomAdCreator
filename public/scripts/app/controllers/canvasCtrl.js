@@ -9,8 +9,11 @@ define(['angular'],function(angular){
                 "booleans": 0,
                 "domBoolsJSON":{
                     "enableTemplate":true,
-                    "resizeEnableTemplate":false,
+                    "resizeEnableTemplate":false
                 },
+                "openCroppableImage":false,
+                "imageShow":false,
+                "editableText":"write your text here and move  any where",
                 "widthCanvas":300,
                 "heightCanvas":250,
                 "colorPickerCanvasBackground":"red",
@@ -22,6 +25,7 @@ define(['angular'],function(angular){
                 "errorMessage":"",
                 "templateWidth":"",
                 "templateHeight":"",
+                "imagePath":"./images/placeholder.jpg",
                 // "templateName":[{tempName:'headShot.html',tempId:'temp1',number:0},
                 //                 {tempName:'clientLogo.html',tempId:'temp2',number:1},
                 //                  {tempName:'decription.html',tempId:'temp3',number:2},
@@ -165,9 +169,50 @@ define(['angular'],function(angular){
                 if(divId =="maincanvas")
                  {
                      $log.info("div lister is working");
-                     $scope.canvasJSON.domBoolsJSON.resizeEnableTemplate = true;
+                     $scope.canvasJSON.domBoolsJSON.resizeEnableTemplate =true;
                      $log.info("$scope.canvasJSON.domBoolsJSON.resizeEnableTemplate ::: ",$scope.canvasJSON.domBoolsJSON.resizeEnableTemplate)
                  }
+            }
+            /*
+            * this is text box editor code
+            * */
+            $scope.editableTextBox = []
+            $scope.addEditableTextBox = function() {
+                $scope.editableTextBox.push({
+                })
+            }
+        /* image uploading code start*/
+             window.openFile = function(event) {
+                var input = event.target;
+
+                var reader = new FileReader();
+                reader.onload = function(){
+                    $scope.canvasJSON.imagePath = reader.result;
+                    $log.debug($scope.canvasJSON.imagePath);
+                    document.getElementById('divImage').style.backgroundImage="url("+$scope.canvasJSON.imagePath+")";
+                    // output.src = dataURL;
+                };
+                reader.readAsDataURL(input.files[0]);
+            };
+            /*image uploaded code end*/
+
+
+            /* image crop  code start
+             */
+            $scope.cropper = {};
+            $scope.cropper.sourceImage = null;
+            $scope.cropper.croppedImage   = null;
+            $scope.bounds = {};
+            $scope.bounds.left = 0;
+            $scope.bounds.right = 0;
+            $scope.bounds.top = 0;
+            $scope.bounds.bottom = 0;
+            $scope.cropImage=function () {
+                $scope.openCroppableImage=true;
+
+            }
+            $scope.closeCroppableImage=function () {
+                $scope.openCroppableImage=false;
             }
 
         }

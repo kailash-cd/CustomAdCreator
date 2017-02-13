@@ -74,15 +74,13 @@
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <span class="close" ng-click="closeAlert()">&times;</span>
-            <h2>Error</h2>
+            <span class="close" ng-click="closeCroppableImage()">&times;</span>
+            <h2>crop your image</h2>
         </div>
-        <div class="modal-body">
-
-            <div>
-                <canvas width="500" height="300" id="canvas" image-cropper image="canvasJSON.imagePath" cropped-image="cropper.croppedImage" crop-width="400" crop-height="200" keep-aspect="true" touch-radius="30" crop-area-bounds="bounds"></canvas>
-            </div>
+        <div class="main-body">
+            <canvas width="500" height="300" id="canvas" image-cropper image="canvasJSON.imagePath" cropped-image="cropper.croppedImage" crop-width="400" crop-height="200" keep-aspect="true" touch-radius="30" crop-area-bounds="bounds"></canvas>
         </div>
+        <div ng-show="cropper.croppedImage!=null"><img ng-src="{{cropper.croppedImage}}" /></div>
         <div class="modal-footer">
             <h3>Chalk Ads.</h3>
         </div>

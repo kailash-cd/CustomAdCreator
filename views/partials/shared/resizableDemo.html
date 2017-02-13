@@ -1,10 +1,13 @@
 <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-<link href='https://rawgit.com/Reklino/gromlicons/master/style.css' rel='stylesheet' type='text/css'>
+<!--<link href='https://rawgit.com/Reklino/gromlicons/master/style.css' rel='stylesheet' type='text/css'>-->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="./css/resizableStyle.css" rel="stylesheet" type="text/css">
 <div class="container1"  ng-class="{active:flexbox}">
-    <div id="temp2"   ng-mouseleave="templateChecker('temp2')" resizable
+    <div draggable enabled="true">
+    <div id="temp2"   ng-mouseleave="templateChecker('temp2')"
+         resizable
          id="standard-box"
+         resize-enable="true"
          r-directions="['right','bottom', 'left', 'top']"
          r-centered-x="true"
          r-centered-y="true"
@@ -13,6 +16,7 @@
         <div class="inner">
             <p>this is resizable</p>
         </div>
+    </div>
     </div>
 </div>
 

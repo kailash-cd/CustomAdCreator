@@ -11,13 +11,14 @@
 }
 .resizable {
       margin: auto;
+    /*margin-top:34px;*/
     top: 0; left: 0; right: 0; bottom: 15%;
     text-align: center;
     box-sizing: border-box;
     width: 300px;
-    height: 250px;
+    height: 160px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 .inner {
     box-sizing: border-box;
@@ -35,7 +36,7 @@
 
 .no-transition {
     transition: none !important;
-    background-color: blue;
+    /*background-color: blue;*/
 }
 .rg-right, .rg-left, .rg-top, .rg-bottom {
     display: block;

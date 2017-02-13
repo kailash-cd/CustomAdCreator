@@ -9,11 +9,14 @@ require.config({
 		'LocalStorageModule' : 'angular-local-storage/dist/angular-local-storage.min',
         'ngTouch':'ngTouch/ngTouch',
         'nvd3ChartDirectives':'charts/angularjs-nvd3-directives.min',
+        'angular-img-cropper':'imageCropper/angular-img-cropper',
+
         /*Controllers*/
         'navbarCtrl':'../app/controllers/navbarCtrl',
         'dashboardCtrl':'../app/controllers/dashboardCtrl',
         'canvasCtrl':'../app/controllers/canvasCtrl',
          'domResizeCtrl':'../app/controllers/domResizeCtrl',
+
 
         /*Services*/
         'Util':'../app/services/Util',

@@ -6,7 +6,7 @@
 
     }
     </style>
-<div ng-show="editorShow" style="width:40%;margin: auto;">
+<div ng-show="editorShow" style="width:40%;margin-bottom: 360px;">
     <tr>
         <td>
     <input type="color" title="color-chooser" ng-model="canvasJSON.colorPickerCanvasBackground"  class="colorChange"/>
@@ -22,11 +22,33 @@
         <td>
     <input type="number" title="font-size" ng-model="canvasJSON.fontSize"/>
         </td>
+        <td>
+            <ol>
+            <li  ng-repeat="contact in editableTextBox">
+            <div draggable >
+                <input type="text" ng-model="canvasJSON.editableText" />
+            </div>
+            </li>
+            </ol>
+        </td>
+        <td>
+            <button type="button" ng-click="addEditableTextBox()">addText</button>
+        </td>
     <td>
         <button ng-click="divlistener()">resize</button>
     </td>
+        <td colspan="2">
+            <button ng-click="canvasJSON.imageShow =!canvasJSON.imageShow">Image</button>
+        </td>
+        <td>
+            <input type="file"  img-cropper-fileread image="cropper.sourceImage" ng-show="canvasJSON.imageShow" accept="image/*"  onchange="openFile(event)" >
+        </td>
+        <td>
+            <button ng-click="cropImage()">corpImage</button>
+        </td>
     <td>
     <button ng-click="editor(0)">close</button>
     </td>
     </tr>
+
 </div>

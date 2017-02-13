@@ -9,7 +9,8 @@ define([
     'canvasCtrl',
     'draggable',
     'domResizeCtrl',
-    'resizable'
+    'resizable',
+    'angular-img-cropper',
 
     
 
@@ -26,7 +27,8 @@ define([
         'canvasCtrl',
         'draggable',
         'domResizeCtrl',
-        'resizable'
+        'resizable',
+        'angular-img-cropper',
 
 
     ]);
