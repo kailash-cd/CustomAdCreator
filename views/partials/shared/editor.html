@@ -1,4 +1,5 @@
 <style>
+
     .colorChange
     {
         width: 7%;
@@ -6,10 +7,10 @@
 
     }
     </style>
-<div ng-show="editorShow" style="width:40%;margin-bottom: 360px;">
+<div ng-show="editorShowDisable" style="width:40%;margin-bottom: 360px;">
     <tr>
         <td>
-    <input type="color" title="color-chooser" ng-model="canvasJSON.colorPickerCanvasBackground"  class="colorChange"/>
+    <input type="color" title="canvas-color-chooser" ng-model="canvasJSON.colorPickerCanvasBackground"  class="colorChange"/>
         </td>
         <td>
     <select title="font-face" ng-model="canvasJSON.selectFont" ng-init="canvasJSON.selectFont='Algerian'">
@@ -23,17 +24,25 @@
     <input type="number" title="font-size" ng-model="canvasJSON.fontSize"/>
         </td>
         <td>
-            <ol>
-            <li  ng-repeat="contact in editableTextBox">
-            <div draggable >
-                <input type="text" ng-model="canvasJSON.editableText" />
-            </div>
-            </li>
-            </ol>
+            <input type="color" class="colorChange" ng-model="canvasJSON.colorPickerFontBackgroundColor" title="font-background-color">
         </td>
         <td>
-            <button type="button" ng-click="addEditableTextBox()">addText</button>
+            <!--<ol>-->
+            <!--<li  ng-repeat="contact in editableTextBox">-->
+            <!--<div draggable >-->
+                <!--<input type="text" ng-model="canvasJSON.editableText" />-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--</ol>-->
+            <br>
+            <input type="text" ng-model="canvasJSON.editableTitle"  title="insert your title here" placeholder="Title"/><br>
+            <input type="text" ng-model="canvasJSON.editableDescription"  title="insert your description here" placeholder="Description"/><br>
+            <input type="text" ng-model="canvasJSON.editableMessage"  title="insert your message here" placeholder="Message"/><br>
+
         </td>
+        <!--<td>-->
+            <!--<button type="button" ng-click="addEditableTextBox()">addText</button>-->
+        <!--</td>-->
     <td>
         <button ng-click="divlistener()">resize</button>
     </td>
@@ -41,7 +50,7 @@
             <button ng-click="canvasJSON.imageShow =!canvasJSON.imageShow">Image</button>
         </td>
         <td>
-            <input type="file"  img-cropper-fileread image="cropper.sourceImage" ng-show="canvasJSON.imageShow" accept="image/*"  onchange="openFile(event)" >
+            <input type="file"  img-cropper-fileread image="canvasJSON.imagePath" ng-show="canvasJSON.imageShow" accept="image/*"  onchange="openFile(event)"  id="imgInp" >
         </td>
         <td>
             <button ng-click="cropImage()">corpImage</button>

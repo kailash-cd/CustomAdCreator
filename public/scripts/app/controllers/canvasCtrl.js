@@ -13,13 +13,17 @@ define(['angular'],function(angular){
                 },
                 "openCroppableImage":false,
                 "imageShow":false,
-                "editableText":"write your text here and move  any where",
+                "editableMessage":"",
+                "editableTitle":"",
+                "editableDescription":"",
                 "widthCanvas":300,
                 "heightCanvas":250,
                 "colorPickerCanvasBackground":"red",
-                "colorPickerFontColor":"black",
+                "colorPickerFontColor":"white",
+                "colorPickerFontBackgroundColor":"green",
                 "selectFont":"Roman",
-                "fontColor":"white",
+                "fontColor":"black",
+                "fontBackgroundColor":"white",
                 "fontArt":['Algerian','Arial','Sans-Serif','Roboto','Verdana','Mamelon'],
                 "fontSize":12,
                 "errorMessage":"",
@@ -59,16 +63,22 @@ define(['angular'],function(angular){
                     }
                     else
                     {
-                        document.getElementById("demo").innerText=msg;
-                    }
 
+                    }
+                    document.getElementById("demo").innerText=msg;
 
 
                 }
+                /* pop up close funtion*/
                   $scope.closeAlert=function()
                   {
-                       $scope.canvasJSON.errorMessage="";
+                      $scope.canvasJSON.errorMessage="";
                   }
+                  /*editor close funtion*/
+            $scope.closeEditor=function()
+            {
+                $scope.editorShow=false;
+            }
    /* here is variable height and width declaration*/
 
 /*=================================================*/
@@ -124,17 +134,37 @@ define(['angular'],function(angular){
                     $scope.canvasJSON.canvasBackground = $scope.canvasJSON.colorPickerCanvasBackground
                 }
             })
+            // $scope.$watch("canvasJSON.colorPickerFontColor",function () {
+            //     $scope.canvasJSON.errorMessage = "";
+            //     if($scope.canvasJSON.canvasBackground === $scope.canvasJSON.colorPickerFontColor) {
+            //         $log.debug("font and canvas background color can not be same.");
+            //         $scope.canvasJSON.errorMessage = "font and canvas background color can not be same."
+            //         return 0;
+            //     } else {
+            //         $scope.canvasJSON.fontColor = $scope.canvasJSON.colorPickerFontColor
+            //     }
+            // })
+            $scope.$watch("canvasJSON.colorPickerFontBackgroundColor",function () {
+                $scope.canvasJSON.errorMessage = "";
+                if($scope.canvasJSON.fontColor=== $scope.canvasJSON.colorPickerFontBackgroundColor) {
+                    $log.debug("font and canvas background color can not be same.");
+                    $scope.canvasJSON.errorMessage = "fontbackground and fontColor  can not be same."
+                    return 0;
+                } else {
+                    $scope.canvasJSON.fontBackgroundColor = $scope.canvasJSON.colorPickerFontBackgroundColor
+                }
+            })
             $scope.$watch("canvasJSON.colorPickerFontColor",function () {
                 $scope.canvasJSON.errorMessage = "";
-                if($scope.canvasJSON.canvasBackground === $scope.canvasJSON.colorPickerFontColor) {
+                if($scope.canvasJSON.fontBackgroundColor=== $scope.canvasJSON.colorPickerFontColor) {
                     $log.debug("font and canvas background color can not be same.");
                     $scope.canvasJSON.errorMessage = "font and canvas background color can not be same."
                     return 0;
                 } else {
+
                     $scope.canvasJSON.fontColor = $scope.canvasJSON.colorPickerFontColor
                 }
             })
-
             //resize element code begins
             $scope.dynamicSize = {
                 'width' : 350,
@@ -176,11 +206,11 @@ define(['angular'],function(angular){
             /*
             * this is text box editor code
             * */
-            $scope.editableTextBox = []
-            $scope.addEditableTextBox = function() {
-                $scope.editableTextBox.push({
-                })
-            }
+            // $scope.editableTextBox = []
+            // $scope.addEditableTextBox = function() {
+            //     $scope.editableTextBox.push({
+            //     })
+            // }
         /* image uploading code start*/
              window.openFile = function(event) {
                 var input = event.target;

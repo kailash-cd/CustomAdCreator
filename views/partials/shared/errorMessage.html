@@ -70,7 +70,7 @@
     }
 </style>
 <!-- The Modal -->
-<div class="modal">
+<div  class="modal">
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
@@ -78,10 +78,7 @@
             <h2>Error</h2>
         </div>
         <div class="modal-body">
-
-            <div>
-                <canvas width="500" height="300" id="canvas" image-cropper image="canvasJSON.imagePath" cropped-image="cropper.croppedImage" crop-width="400" crop-height="200" keep-aspect="true" touch-radius="30" crop-area-bounds="bounds"></canvas>
-            </div>
+            <span style="color:red;font-size: 15px;" ng-bind="canvasJSON.errorMessage"></span>
         </div>
         <div class="modal-footer">
             <h3>Chalk Ads.</h3>

@@ -1,32 +1,15 @@
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<!--<link href="./home/chalk/downlaod/Mamelon.otf" rel="stylesheet">-->
+
 <style>
-    /*.preview*/
-    /*{*/
-        /*margin:auto;*/
-        /*vertical-align: middle;*/
-         /*max-height: 50%;*/
-         /*max-width: 80%;*/
-           /*}*/
-    /*.pre{*/
-        /*margin:0px;*/
-        /*max-height: 40%;*/
-        /*max-width: 60%;*/
 
-
-    /*}*/
-    #imageLoader
-    {
-        display: none;
-    }
     .placeholderImage{
         height: 150px;
         width: 300px;
-        background-size: cover;
+        background-size: 100% auto;
         background-repeat: no-repeat;
         background-position: center;
-        background-image: url("{{canvasJSON.imagePath}}");
+        background-image: url({{canvasJSON.imagePath}});
     }
+
      body{
          margin: 0px;
          padding: 0;
@@ -46,6 +29,7 @@
 </style>
 <div ng-if="canvasJSON.errorMessage" ng-include src="'/partials/shared/errorMessage.html'"></div>
 <div ng-if="openCroppableImage" ng-include src="'/partials/shared/crop.html'"></div>
+<div ng-if="editorShow" ng-include  src="'/partials/shared/popUpEditor.html'"></div>
 <div style="width: 99.8%;height: 100%;">
 <div ng-include src="'/partials/shared/navbar.html'"></div>
 <div>
@@ -69,12 +53,26 @@
 
 
                      ng-class='{errorClass:canvasJSON.errorMessage}'
-                     style="margin-top: 250px; margin-left:75px;max-width:500px;max-height:300px;background-color:{{canvasJSON.canvasBackground}};  width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;vertical-align: middle;table-layout: fixed">
-                    <button  ng-click="editor(1)">Edit</button>
-                    <div draggable enabled="true" style="overflow: visible ;"><p style="font-family: {{canvasJSON.selectFont}};color:{{canvasJSON.fontColor}};font-size: {{canvasJSON.fontSize}}px; word-wrap: break-word;overflow: visible; overflow-x: visible;
-">{{canvasJSON.editableText}}</p></div>
+                         style="margin-top: 250px; margin-left:75px;max-width:500px;max-height:300px;background-color:{{canvasJSON.canvasBackground}};  width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;vertical-align: middle;table-layout: fixed">
 
+                    <button  ng-click="editor(1)">Edit</button>
+                    <!-- this is Title div start-->
+                    <div draggable enabled="true" style="overflow: visible ;">
+
+
+                        <p style="font-family: {{canvasJSON.selectFont}};color:{{canvasJSON.fontColor}};font-size: {{canvasJSON.fontSize}}px; word-wrap: break-word;overflow: visible; overflow-x: visible;background-color: {{canvasJSON.fontBackgroundColor}};
+">{{canvasJSON.editableTitle}}
+                        </p>
+
+
+
+                    </div>
+                    <!--title div end-->
+                    <!--image div start-->
                      <div draggable enabled="true">
+                         <div style=" background-color:rosybrown;margin-top: 34px;max-width:{{canvasJSON.widthCanvas}}px;max-height:{{canvasJSON.heightCanvas-100}}px; z-index: 2;">
+
+                         </div>
                        <div
                              id="divImage"
                                resizable
@@ -82,11 +80,23 @@
                          r-directions="['right','bottom', 'left', 'top']"
                           class="placeholderImage"
                              ng-show="canvasJSON.imageShow";
-                             style="margin-top: 34px;max-width:{{canvasJSON.widthCanvas}}px;max-height:{{canvasJSON.heightCanvas-100}}px;">
+                             style="margin-top: 34px;max-width:{{canvasJSON.widthCanvas}}px;max-height:{{canvasJSON.heightCanvas-100}}px; z-index: 1;">
+                          <!--message div start-->
+                           <div draggable enabled="false">
+                               <div style="cursor: pointer">
+                               <p>{{canvasJSON.editableMessage}}</p>
+                               </div>
+                           </div>
+                           <!--message div end-->
 
                         </div>
                      </div>
-
+                    <!--image div end-->
+                    <!--description div start-->
+                   <div draggable enabled="true" style="bottom: 5px;">
+                       <p>{{canvasJSON.editableDescription}}</p>
+                   </div>
+                    <!--description div end-->
                 </div>
             </td>
             <td style="width:20%; height: 100%;background-color: lightgray ">
