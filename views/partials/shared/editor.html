@@ -7,7 +7,7 @@
 
     }
     </style>
-<div ng-show="editorShowDisable" style="width:40%;margin-bottom: 360px;">
+<div ng-show="editorShow" style="width:40%;margin-bottom: 360px;">
     <tr>
         <td>
     <input type="color" title="canvas-color-chooser" ng-model="canvasJSON.colorPickerCanvasBackground"  class="colorChange"/>
@@ -47,10 +47,10 @@
         <button ng-click="divlistener()">resize</button>
     </td>
         <td colspan="2">
-            <button ng-click="canvasJSON.imageShow =!canvasJSON.imageShow">Image</button>
+            <button>Image</button>
         </td>
         <td>
-            <input type="file"  img-cropper-fileread image="canvasJSON.imagePath" ng-show="canvasJSON.imageShow" accept="image/*"  onchange="openFile(event)"  id="imgInp" >
+            <input type="file"  img-cropper-fileread image="canvasJSON.imagePath" ng-show="canvasJSON.imageShow" accept="image/*"  onchange="openFile(event)"   >
         </td>
         <td>
             <button ng-click="cropImage()">corpImage</button>

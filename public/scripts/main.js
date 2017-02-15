@@ -24,7 +24,7 @@ require.config({
         /*Directive*/
         'draggable':'../app/directives/draggable',
         'resizable':'../app/directives/resizable',
-
+        'tookit':'../app/directives/tookit'
 
 
     },

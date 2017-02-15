@@ -20,6 +20,10 @@ module.exports = function(app,serverInfo) {
         var name = req.params.name;
         console.log("Route [" + name + "]");
         res.render('partials/shared/' + name);
-
+    });
+    app.get('/partials/shared/toolkit/:name', function (req, res) {
+        var name = req.params.name;
+        console.log("Route [" + name + "]");
+        res.render('partials/shared/toolkit/' + name);
     });
 };

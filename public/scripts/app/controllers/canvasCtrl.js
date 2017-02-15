@@ -12,7 +12,7 @@ define(['angular'],function(angular){
                     "resizeEnableTemplate":false
                 },
                 "openCroppableImage":false,
-                "imageShow":false,
+
                 "editableMessage":"",
                 "editableTitle":"",
                 "editableDescription":"",
@@ -29,7 +29,12 @@ define(['angular'],function(angular){
                 "errorMessage":"",
                 "templateWidth":"",
                 "templateHeight":"",
-                "imagePath":"./images/placeholder.jpg",
+                "imagePath":"",
+                "imagePlaceHolder":"./images/placeholder.png",
+
+
+
+
                 // "templateName":[{tempName:'headShot.html',tempId:'temp1',number:0},
                 //                 {tempName:'clientLogo.html',tempId:'temp2',number:1},
                 //                  {tempName:'decription.html',tempId:'temp3',number:2},
@@ -37,13 +42,8 @@ define(['angular'],function(angular){
                 //                   {tempName:'button.html',tempId:'temp5',number:4}]
 
             }
-               $scope.editor=function(number)
-               {
-                  $scope.editorShow=number;
 
-
-               }
-
+                 /*canvas size check function*/
                 $scope.checkOut=function()
                 {
                     var msg="";
@@ -74,11 +74,7 @@ define(['angular'],function(angular){
                   {
                       $scope.canvasJSON.errorMessage="";
                   }
-                  /*editor close funtion*/
-            $scope.closeEditor=function()
-            {
-                $scope.editorShow=false;
-            }
+
    /* here is variable height and width declaration*/
 
 /*=================================================*/
@@ -203,27 +199,43 @@ define(['angular'],function(angular){
                      $log.info("$scope.canvasJSON.domBoolsJSON.resizeEnableTemplate ::: ",$scope.canvasJSON.domBoolsJSON.resizeEnableTemplate)
                  }
             }
-            /*
-            * this is text box editor code
-            * */
-            // $scope.editableTextBox = []
-            // $scope.addEditableTextBox = function() {
-            //     $scope.editableTextBox.push({
-            //     })
-            // }
-        /* image uploading code start*/
-             window.openFile = function(event) {
-                var input = event.target;
+            /* main canvas refresh*/
+              $scope.mainCanvasRefresh=function()
+              {
+                  $log.info("main canvas refresh function is working");
+                  document.getElementById('mainCanvasRefreshId').click();
+              }
+            /*main canvas image upload*/
+                $scope.imageUploadFunction=function () {
+                    $log.info("file chooser is working");
+                    document.getElementById('imageId').click();
+                }
+                /* create imagePlaceHolder function start*/
+                   $scope.createPlaceHolder=function()
+                   { $log.info("createPlaceHolder function is working");
+                          document.getElementById('maincanvasVisible').style.visibility="hidden";
 
-                var reader = new FileReader();
-                reader.onload = function(){
-                    $scope.canvasJSON.imagePath = reader.result;
-                    $log.debug($scope.canvasJSON.imagePath);
-                    document.getElementById('divImage').style.backgroundImage="url("+$scope.canvasJSON.imagePath+")";
-                    // output.src = dataURL;
-                };
-                reader.readAsDataURL(input.files[0]);
-            };
+                       var direction="['right','bottom','left','bottom']"
+                        document.getElementById('dynamicImagePlaceHolder').innerHTML=("<div draggable enabled='true'><div class='placeholderImage' id='imageHover' style=';max-width: "+$scope.canvasJSON.widthCanvas+"px;max-height:"+$scope.canvasJSON.heightCanvas+"px;z-index: 60;background-image: url("+$scope.canvasJSON.imagePlaceHolder+");height: 250px;' resizable resize-enabled='true' r-directions='"+direction+"' ><div tookit role='image'></div></div></div>");
+
+                   }
+                /*imageplaceHolderfucntionend*/
+        /* image uploading code start*/
+
+
+                   window.openFile = function (event) {
+                       var input = event.target;
+
+                       var reader = new FileReader();
+                       reader.onload = function () {
+                           $scope.canvasJSON.imagePath = reader.result;
+
+                           document.getElementById('maincanvas').style.backgroundImage = "url(" + $scope.canvasJSON.imageMainCanvas + ")";
+
+                       };
+                       reader.readAsDataURL(input.files[0]);
+                   };
+
             /*image uploaded code end*/
 
 

@@ -1,15 +1,26 @@
 
 <style>
 
-    .placeholderImage{
-        height: 150px;
-        width: 300px;
+    .placeholderImage {
         background-size: 100% auto;
         background-repeat: no-repeat;
         background-position: center;
-        background-image: url({{canvasJSON.imagePath}});
+        /*background-image: url({{canvasJSON.imagePlaceHolder}});*/
     }
+    #maincanvas:hover
+    {
+        z-index: 1;
+        visibility: visible;
+         transition: .5s;
 
+    }
+    #imageHover:hover{
+        z-index: 2;
+        visibility: visible;
+        transition: .5s;
+
+
+    }
      body{
          margin: 0px;
          padding: 0;
@@ -29,7 +40,7 @@
 </style>
 <div ng-if="canvasJSON.errorMessage" ng-include src="'/partials/shared/errorMessage.html'"></div>
 <div ng-if="openCroppableImage" ng-include src="'/partials/shared/crop.html'"></div>
-<div ng-if="editorShow" ng-include  src="'/partials/shared/popUpEditor.html'"></div>
+
 <div style="width: 99.8%;height: 100%;">
 <div ng-include src="'/partials/shared/navbar.html'"></div>
 <div>
@@ -40,10 +51,11 @@
         <tr style="" >
             <td style="width:50%;height: 100%;background-color: #f5f7fa;">
                 <!--text editor start-->
-                <div ng-include="'/partials/shared/editor.html'"></div>
+                <div  ng-include="'/partials/shared/editor.html'"></div>
                 <!--text editor end-->
                 <div
                          id="maincanvas"
+
                          ng-dblclick="divListener('maincanvas')"
                         resizable
 
@@ -53,9 +65,9 @@
 
 
                      ng-class='{errorClass:canvasJSON.errorMessage}'
-                         style="margin-top: 250px; margin-left:75px;max-width:500px;max-height:300px;background-color:{{canvasJSON.canvasBackground}};  width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;vertical-align: middle;table-layout: fixed">
+                         style="margin-top: 250px; margin-left:75px;max-width:500px;max-height:300px;background-color:{{canvasJSON.canvasBackground}};  width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;background-size:100% auto;background-repeat:no-repeat;vertical-align: middle;table-layout: fixed">
+                    <div tookit role="maincanvas"></div>
 
-                    <button  ng-click="editor(1)">Edit</button>
                     <!-- this is Title div start-->
                     <div draggable enabled="true" style="overflow: visible ;">
 
@@ -69,34 +81,35 @@
                     </div>
                     <!--title div end-->
                     <!--image div start-->
-                     <div draggable enabled="true">
-                         <div style=" background-color:rosybrown;margin-top: 34px;max-width:{{canvasJSON.widthCanvas}}px;max-height:{{canvasJSON.heightCanvas-100}}px; z-index: 2;">
+                     <!--<div draggable enabled="true">-->
 
-                         </div>
-                       <div
-                             id="divImage"
-                               resizable
-                         resize-enable="true"
-                         r-directions="['right','bottom', 'left', 'top']"
-                          class="placeholderImage"
-                             ng-show="canvasJSON.imageShow";
-                             style="margin-top: 34px;max-width:{{canvasJSON.widthCanvas}}px;max-height:{{canvasJSON.heightCanvas-100}}px; z-index: 1;">
-                          <!--message div start-->
-                           <div draggable enabled="false">
-                               <div style="cursor: pointer">
-                               <p>{{canvasJSON.editableMessage}}</p>
-                               </div>
-                           </div>
-                           <!--message div end-->
+                       <!--<div -->
+                             <!--id="divImage"-->
+                               <!--resizable-->
+                         <!--resize-enable="true"-->
+                         <!--r-directions="['right','bottom', 'left', 'top']"-->
+                          <!--class="placeholderImage"-->
 
-                        </div>
-                     </div>
+                             <!--style="margin-top: 34px;max-width:{{canvasJSON.widthCanvas}}px;max-height:{{canvasJSON.heightCanvas-100}}px; background-image:{{canvasJSON.imagePlaceHolder}};z-index: 1;">-->
+
+                          <!--&lt;!&ndash;message div start&ndash;&gt;-->
+                           <!--<div draggable enabled="false">-->
+                               <!--<div style="cursor: pointer">-->
+                               <!--<p>{{canvasJSON.editableMessage}}</p>-->
+                               <!--</div>-->
+                           <!--</div>-->
+                           <!--&lt;!&ndash;message div end&ndash;&gt;-->
+
+                        <!--</div>-->
+                     <!--</div>-->
+                    <div  id="dynamicImagePlaceHolder"></div>
                     <!--image div end-->
                     <!--description div start-->
                    <div draggable enabled="true" style="bottom: 5px;">
                        <p>{{canvasJSON.editableDescription}}</p>
                    </div>
                     <!--description div end-->
+
                 </div>
             </td>
             <td style="width:20%; height: 100%;background-color: lightgray ">
