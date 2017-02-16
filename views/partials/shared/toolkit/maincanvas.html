@@ -1,6 +1,4 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <style>
     .hoverIcon
     {
@@ -17,10 +15,10 @@
 </style>
 <div class="hoverIcon"  id="maincanvasVisible">
 
-    <p style="color:whitesmoke;margin-top: 30%"><span   ng-click="createPlaceHolder()" class="glyphicon glyphicon-picture" title="add Picture"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit" title="edit"></span></p>
+    <p style="color:whitesmoke;margin-top: 30%"><span ng-click="createPlaceHolder()"  class="glyphicon glyphicon-picture" title="add Picture"></span>&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-size"></span></p>
     <p style="color:whitesmoke;margin-top: 4%"><span ng-click="mainCanvasRefresh()" class="glyphicon glyphicon-refresh" title="refresh"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-font" title="font"></span></p>
     <p style="color:whitesmoke;margin-top: 4%"><span ng-click="" class="glyphicon glyphicon-text-height" title="text-height"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-background" title="text-background"></span></p>
-    <p style="color:whitesmoke;margin-top: 4%">&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-size"></span></p>
+
     <input type="file" id="imageId" style="visibility: hidden" onchange="openFile(event)">
     <!--main canvas refresh start-->
     <input type="reset"  style="visibility: hidden" id="mainCanvasRefreshId">

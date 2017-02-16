@@ -31,7 +31,14 @@ define(['angular'],function(angular){
                 "templateHeight":"",
                 "imagePath":"",
                 "imagePlaceHolder":"./images/placeholder.png",
-
+                "newImage":false,
+                "newImageId":"",
+                "editToolkit":false,
+                "canvasLayer":[{
+                    "layertype":"",
+                    "layerId":"",
+                    "layerIndex":""
+                }]
 
 
 
@@ -205,36 +212,70 @@ define(['angular'],function(angular){
                   $log.info("main canvas refresh function is working");
                   document.getElementById('mainCanvasRefreshId').click();
               }
+              /*createIdFunction start*/
+                 $scope.createIdFunction=function(dynamicDivId)
+                {
+                     $scope.canvasJSON.newImageId=dynamicDivId;
+                }
+              /*createidFunction end*/
             /*main canvas image upload*/
                 $scope.imageUploadFunction=function () {
                     $log.info("file chooser is working");
                     document.getElementById('imageId').click();
                 }
+
                 /* create imagePlaceHolder function start*/
-                   $scope.createPlaceHolder=function()
+                   $scope.createPlaceHolder=function(canvasLayerId)
                    { $log.info("createPlaceHolder function is working");
                           document.getElementById('maincanvasVisible').style.visibility="hidden";
+                          $scope.canvasJSON.newImage=true;
+                          $scope.canvasJSON.editToolkit=true;
+                       //    var dynamicDivImage=document.createElement('img');
+                       // var direction=['right','bottom','left','bottom'];
+                       //     // dynamicDivImage.innerHTML='<div draggable enabled="true" resizable resize-enable="true" r-directions='+direction+' class="placeholderImage" id="test"></div>';
+                       //     dynamicDivImage.setAttribute("draggable","")
+                       //     dynamicDivImage.setAttribute("enabled", false)
+                       //     dynamicDivImage.setAttribute("resizable","")
+                       //     dynamicDivImage.setAttribute("resize-enable", true)
+                       //     dynamicDivImage.setAttribute("r-directions", direction)
+                       //     dynamicDivImage.setAttribute("class", "placeholderImage")
+                       //     document.getElementById('maincanvas').appendChild(dynamicDivImage);
+                        // document.getElementById('dynamicImagePlaceHolder').innerHTML=(");
+                       window.openFile = function (event) {
+                           var input = event.target;
 
-                       var direction="['right','bottom','left','bottom']"
-                        document.getElementById('dynamicImagePlaceHolder').innerHTML=("<div draggable enabled='true'><div class='placeholderImage' id='imageHover' style=';max-width: "+$scope.canvasJSON.widthCanvas+"px;max-height:"+$scope.canvasJSON.heightCanvas+"px;z-index: 60;background-image: url("+$scope.canvasJSON.imagePlaceHolder+");height: 250px;' resizable resize-enabled='true' r-directions='"+direction+"' ><div tookit role='image'></div></div></div>");
+                           var reader = new FileReader();
+                           reader.onload = function () {
+                               $scope.canvasJSON.imagePath = reader.result;
+
+                               document.getElementById(canvasLayerId).style.backgroundImage = "url(" + $scope.canvasJSON.imagePath + ")";
+
+                           };
+                           reader.readAsDataURL(input.files[0]);
+                       };
+
+
+
+
+
 
                    }
                 /*imageplaceHolderfucntionend*/
         /* image uploading code start*/
 
 
-                   window.openFile = function (event) {
-                       var input = event.target;
-
-                       var reader = new FileReader();
-                       reader.onload = function () {
-                           $scope.canvasJSON.imagePath = reader.result;
-
-                           document.getElementById('maincanvas').style.backgroundImage = "url(" + $scope.canvasJSON.imageMainCanvas + ")";
-
-                       };
-                       reader.readAsDataURL(input.files[0]);
-                   };
+                   // window.openFile = function (event) {
+                   //     var input = event.target;
+                   //
+                   //     var reader = new FileReader();
+                   //     reader.onload = function () {
+                   //         $scope.canvasJSON.imagePath = reader.result;
+                   //         $scope.canvasJSON.imagePlaceHolder=$scope.canvasJSON.imagePath;
+                   //         document.getElementById('maincanvas').style.backgroundImage = "url(" + $scope.canvasJSON.imagePlaceHolder + ")";
+                   //
+                   //     };
+                   //     reader.readAsDataURL(input.files[0]);
+                   // };
 
             /*image uploaded code end*/
 
