@@ -8,16 +8,15 @@
         background: rgba(233, 77, 81,0.68);
         position:absolute;
         opacity: 2;
-        z-index:-1;
+        z-index:-2;
         cursor: pointer;
         transition: .2s;
     }
 </style>
 <div class="hoverIcon"  id="maincanvasVisible">
 
-    <p style="color:whitesmoke;margin-top: 30%"><span ng-click="createPlaceHolder()"  class="glyphicon glyphicon-picture" title="add Picture"></span>&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-size"></span></p>
-    <p style="color:whitesmoke;margin-top: 4%"><span ng-click="mainCanvasRefresh()" class="glyphicon glyphicon-refresh" title="refresh"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-font" title="font"></span></p>
-    <p style="color:whitesmoke;margin-top: 4%"><span ng-click="" class="glyphicon glyphicon-text-height" title="text-height"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-background" title="text-background"></span></p>
+    <p style="color:whitesmoke;margin-top: 8%"><span ng-click="createPlaceHolder()"  class="glyphicon glyphicon-picture" title="add Picture"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-size" title="text-size"></span>&nbsp;&nbsp;&nbsp;<span ng-click="mainCanvasRefresh()" class="glyphicon glyphicon-refresh" title="refresh"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-font" title="font"></span>
+        &nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-height" title="text-height"></span>&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-background" title="text-background"></span></p>
 
     <input type="file" id="imageId" style="visibility: hidden" onchange="openFile(event)">
     <!--main canvas refresh start-->

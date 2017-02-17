@@ -16,14 +16,14 @@
 }
 
 .wrapper .toolkitIcon {
-    background: grey;
+    /*background: transparent;*/
     bottom: 100%;
     color: #fff;
     display: block;
     left: 5px;
     margin-bottom: 8px;
     opacity: 0;
-    padding: 20px;
+    padding: 10px;
     pointer-events: none;
     position: absolute;
     width: 100%;
@@ -37,11 +37,11 @@
     -ms-transition: all .25s ease-out;
     -o-transition: all .25s ease-out;
     transition: all .25s ease-out;
-    -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-    -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-    -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-    -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+    /*-webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);*/
+    /*-moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);*/
+    /*-ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);*/
+    /*-o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);*/
+    /*box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);*/
 }
 
 /* This bridges the gap so you can mouse into the tooltip without it disappearing */
@@ -61,7 +61,7 @@
     border-right: solid transparent 10px;
     border-top: solid #1496bb 10px;
     bottom: -10px;
-    content: " ";
+    /*content: " ";*/
     height: 0;
     left: 95%;
     margin-left: -13px;

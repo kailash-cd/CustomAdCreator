@@ -11,8 +11,9 @@ define([
     'domResizeCtrl',
     'resizable',
     'angular-img-cropper',
-    'tookit'
-    
+    'tookit',
+    'dynamic',
+
 
 ], function (angular) {
     'use strict';
@@ -29,7 +30,8 @@ define([
         'domResizeCtrl',
         'resizable',
         'angular-img-cropper',
-        'tookit'
+        'tookit',
+        'dynamic'
 
 
     ]);

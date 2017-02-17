@@ -1,8 +1,8 @@
 define(['angular'],function(angular){
     'use strict';
     var newModule = angular.module('canvasCtrl', []);
-    newModule.controller('canvasCtrl', ['$scope', '$location','$log','DataServices','Util',
-        function ($scope, $location,$log,DataServices,Util) {
+    newModule.controller('canvasCtrl', ['$scope','$compile', '$location','$log','DataServices','Util',
+        function ($scope,$compile, $location,$log,DataServices,Util) {
             $log.info("At canvasCtrl");
             $scope.canvasJSON = {
                 "buttonName":['headShot','clientLogo','description','banner','clickButton'],
@@ -34,19 +34,9 @@ define(['angular'],function(angular){
                 "newImage":false,
                 "newImageId":"",
                 "editToolkit":false,
-                "canvasLayer":[{
-                    "layertype":"",
-                    "layerId":"",
-                    "layerIndex":""
-                }]
+                "maincanvasHoverEnable":"hover",
+                "canvasLayer":[{}], //{ "layertype":"", "layerId":"", "layerIndex":"" }
 
-
-
-                // "templateName":[{tempName:'headShot.html',tempId:'temp1',number:0},
-                //                 {tempName:'clientLogo.html',tempId:'temp2',number:1},
-                //                  {tempName:'decription.html',tempId:'temp3',number:2},
-                //                   {tempName:'banner.html',tempId:'temp4',number:3},
-                //                   {tempName:'button.html',tempId:'temp5',number:4}]
 
             }
 
@@ -214,47 +204,47 @@ define(['angular'],function(angular){
               }
               /*createIdFunction start*/
                  $scope.createIdFunction=function(dynamicDivId)
-                {
+                {   $log.info("new dynamic id",dynamicDivId);
                      $scope.canvasJSON.newImageId=dynamicDivId;
                 }
               /*createidFunction end*/
             /*main canvas image upload*/
-                $scope.imageUploadFunction=function () {
+                $scope.imageUploadFunction=function (canvasLayerId) {
                     $log.info("file chooser is working");
                     document.getElementById('imageId').click();
+                    window.openFile = function (event) {
+                        var input = event.target;
+
+                        var reader = new FileReader();
+                        reader.onload = function () {
+                            $scope.canvasJSON.imagePath = reader.result;
+
+                            document.getElementById(canvasLayerId).style.backgroundImage = "url(" + $scope.canvasJSON.imagePath + ")";
+
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    };
                 }
 
                 /* create imagePlaceHolder function start*/
-                   $scope.createPlaceHolder=function(canvasLayerId)
+                   $scope.createPlaceHolder=function()
                    { $log.info("createPlaceHolder function is working");
-                          document.getElementById('maincanvasVisible').style.visibility="hidden";
-                          $scope.canvasJSON.newImage=true;
+                       $scope.canvasJSON.maincanvasHoverEnable=" ";
+                       var id = "Image"+($scope.canvasJSON.canvasLayer.length+1);
+                       $scope.canvasJSON.canvasLayer.push({
+                                                            "layerType":"Image",
+                                                            "layerId":id,
+                                                            "layerIndex":($scope.canvasJSON.canvasLayer.length+1) });
+                                    $log.info("layerId::",$scope.canvasJSON.canvasLayer.layerId);
                           $scope.canvasJSON.editToolkit=true;
-                       //    var dynamicDivImage=document.createElement('img');
-                       // var direction=['right','bottom','left','bottom'];
-                       //     // dynamicDivImage.innerHTML='<div draggable enabled="true" resizable resize-enable="true" r-directions='+direction+' class="placeholderImage" id="test"></div>';
-                       //     dynamicDivImage.setAttribute("draggable","")
-                       //     dynamicDivImage.setAttribute("enabled", false)
-                       //     dynamicDivImage.setAttribute("resizable","")
-                       //     dynamicDivImage.setAttribute("resize-enable", true)
-                       //     dynamicDivImage.setAttribute("r-directions", direction)
-                       //     dynamicDivImage.setAttribute("class", "placeholderImage")
-                       //     document.getElementById('maincanvas').appendChild(dynamicDivImage);
-                        // document.getElementById('dynamicImagePlaceHolder').innerHTML=(");
-                       window.openFile = function (event) {
-                           var input = event.target;
+                       var dynamicImage = angular.element(document.createElement('dynamic'));
 
-                           var reader = new FileReader();
-                           reader.onload = function () {
-                               $scope.canvasJSON.imagePath = reader.result;
+                       var el = $compile( dynamicImage )( $scope );
 
-                               document.getElementById(canvasLayerId).style.backgroundImage = "url(" + $scope.canvasJSON.imagePath + ")";
+                       //where do you want to place the new element?
+                       angular.element(document.getElementById('maincanvas')).append(dynamicImage);
 
-                           };
-                           reader.readAsDataURL(input.files[0]);
-                       };
-
-
+                       $scope.insertHere = el;
 
 
 

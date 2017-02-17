@@ -8,12 +8,11 @@
         background: rgba(233, 77, 81,0.68);
         opacity: 2;
         z-index:-1;
-
+        position: absolute;
         cursor: pointer;
         transition: .2s;
     }
 </style>
 <div class="hoverIcon">
-<p style="color:whitesmoke;margin-top: 30%"><span type="file" ng-click="imageUploadFunction();createPlaceHolder(canvasJSON.newImageId)" class="glyphicon glyphicon-upload" title="add Picture"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit" title="edit"></span></p>
-<p style="color:whitesmoke;margin-top: 4%"><span ng-click="mainCanvasRefresh()" class="glyphicon glyphicon-refresh" title="refresh"></span>
+<p style="color:whitesmoke;margin-top: 10%"><span type="file" ng-click="imageUploadFunction(canvasJSON.newImageId)" class="glyphicon glyphicon-upload" title="add Picture"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-edit" title="edit"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="mainCanvasRefresh()" class="glyphicon glyphicon-refresh" title="refresh"></span>
 </div>
