@@ -1,8 +1,8 @@
 define(['angular'],function(angular){
     'use strict';
     var newModule = angular.module('canvasCtrl', []);
-    newModule.controller('canvasCtrl', ['$scope','$compile', '$location','$log','DataServices','Util',
-        function ($scope,$compile, $location,$log,DataServices,Util) {
+    newModule.controller('canvasCtrl', ['$scope','$compile', '$location','$log','DataServices','Util','$http',
+        function ($scope,$compile, $location,$log,DataServices,Util,$http) {
             $log.info("At canvasCtrl");
             $scope.canvasJSON = {
                 "buttonName":['headShot','clientLogo','description','banner','clickButton'],
@@ -35,8 +35,8 @@ define(['angular'],function(angular){
                 "newImageId":"",
                 "editToolkit":false,
                 "maincanvasHoverEnable":"hover",
-                "canvasLayer":[{}], //{ "layertype":"", "layerId":"", "layerIndex":"" }
-
+                "canvasLayer":[], //{ "layertype":"", "layerId":"", "layerIndex":"" }
+                 "count":0,
 
             }
 
@@ -229,46 +229,22 @@ define(['angular'],function(angular){
                 /* create imagePlaceHolder function start*/
                    $scope.createPlaceHolder=function()
                    { $log.info("createPlaceHolder function is working");
-                       $scope.canvasJSON.maincanvasHoverEnable=" ";
-                       var id = "Image"+($scope.canvasJSON.canvasLayer.length+1);
-                       $scope.canvasJSON.canvasLayer.push({
-                                                            "layerType":"Image",
-                                                            "layerId":id,
-                                                            "layerIndex":($scope.canvasJSON.canvasLayer.length+1) });
-                                    $log.info("layerId::",$scope.canvasJSON.canvasLayer.layerId);
+
+                        $scope.canvasJSON.maincanvasHoverEnable=" ";
+                        // $scope.canvasJSON.canvasLayer.push({
+                        //                                     "layerType":"Image",
+                        //                                     "layerId":$scope.canvasJSON.dynamicImageId,
+                        //                                     "layerIndex":($scope.canvasJSON.canvasLayer.length+1) });
+                        //             $log.info("layerId::",$scope.canvasJSON.canvasLayer.layerId);
+
                           $scope.canvasJSON.editToolkit=true;
-                       var dynamicImage = angular.element(document.createElement('dynamic'));
-
-                       var el = $compile( dynamicImage )( $scope );
-
-                       //where do you want to place the new element?
-                       angular.element(document.getElementById('maincanvas')).append(dynamicImage);
-
-                       $scope.insertHere = el;
-
-
-
+                          $scope.canvasJSON.newImage=true;
+                           // $scope.canvasJSON.count=$scope.canvasJSON.count+1;
+                          $scope.canvasJSON.canvasLayer.push({"layerId":$scope.canvasJSON.newImageId,"layerType":"Image"});
+                          // $log.info("layer Id",$scope.canvasJSON.canvasLayer.layerId);
+                          // $log.info("layerType",$scope.canvasJSON.canvasLayer.layerType);
 
                    }
-                /*imageplaceHolderfucntionend*/
-        /* image uploading code start*/
-
-
-                   // window.openFile = function (event) {
-                   //     var input = event.target;
-                   //
-                   //     var reader = new FileReader();
-                   //     reader.onload = function () {
-                   //         $scope.canvasJSON.imagePath = reader.result;
-                   //         $scope.canvasJSON.imagePlaceHolder=$scope.canvasJSON.imagePath;
-                   //         document.getElementById('maincanvas').style.backgroundImage = "url(" + $scope.canvasJSON.imagePlaceHolder + ")";
-                   //
-                   //     };
-                   //     reader.readAsDataURL(input.files[0]);
-                   // };
-
-            /*image uploaded code end*/
-
 
             /* image crop  code start
              */

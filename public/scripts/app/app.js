@@ -12,7 +12,7 @@ define([
     'resizable',
     'angular-img-cropper',
     'tookit',
-    'dynamic',
+
 
 
 ], function (angular) {
@@ -31,7 +31,7 @@ define([
         'resizable',
         'angular-img-cropper',
         'tookit',
-        'dynamic'
+
 
 
     ]);

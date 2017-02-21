@@ -1,7 +1,13 @@
 
 <style>
 
+    .placeholderImage:hover{
+                    z-index: 2;
+                    visibility: visible;
+                    transition: .5s;
 
+
+                }
     #maincanvas:{{canvasJSON.maincanvasHoverEnable}}
     {
         z-index: 2;
@@ -41,7 +47,14 @@
         <tr style="" >
 
             <td style="width:50%;height: 100%;background-color: #f5f7fa;">
-                <div ng-show="canvasJSON.editToolkit" class="wrapper" style="margin-left:175px;margin-bottom: 221px;"><span style="margin-left:{{canvasJSON.widthCanvas-130}}px" class="glyphicon glyphicon-edit" title="edit"></span><div class="toolkitIcon" style="color: whitesmoke; width: 280px;height: 60px;"><span tookit role="maincanvas" ></span></div></div>
+                <div ng-show="canvasJSON.editToolkit" class="wrapper" style="margin-left:175px;margin-bottom: 221px;">
+                    <span style="margin-left:{{canvasJSON.widthCanvas-130}}px" class="glyphicon glyphicon-edit" title="edit"></span>
+                    <div class="toolkitIcon" style="color: whitesmoke; width: 280px;height: 60px;">
+                        <span tookit role="maincanvas" >
+
+                        </span>
+                    </div>
+                </div>
                 <div
                          id="maincanvas"
 
@@ -58,7 +71,7 @@
                     <div tookit role="maincanvas"></div>
 
                     <!-- this is Title div start-->
-                    <div draggable enabled="true" style="overflow: visible ;">
+                    <div draggable enabled="true">
 
 
                         <p style="font-family: {{canvasJSON.selectFont}};color:{{canvasJSON.fontColor}};font-size: {{canvasJSON.fontSize}}px; word-wrap: break-word;overflow: visible; overflow-x: visible;background-color: {{canvasJSON.fontBackgroundColor}};
@@ -70,9 +83,31 @@
                     </div>
                     <!--title div end-->
                     <!--image div start-->
+                    <div ng-show="canvasJSON.newImage" ng-repeat=" i in canvasJSON.canvasLayer" draggable enabled="true">
+
+                        <div
+                                id= {{'image-'+$index}}
+
+                                resizable
+                                resize-enable="true"
+                                r-directions="['right','bottom', 'left', 'top']"
+                                class="placeholderImage"
+                                ng-mouseover="createIdFunction('image-'+$index)"
+                                style="margin-top: 34px;max-width:{{canvasJSON.widthCanvas}}px;max-height:{{canvasJSON.heightCanvas-100}}px;background-repeat: no-repeat;background-size: 100% auto;background-position:center;width: 400px;height: 400px;background-image: url({{canvasJSON.imagePlaceHolder}})">
+                            <div  tookit role="image"></div>
+                            <!--message div start-->
+                            <div draggable enabled="false">
+                                <div style="cursor: pointer">
+                                    <p>{{canvasJSON.editableMessage}}</p>
+                                </div>
+                            </div>
+                            <!--message div end-->
+
+                        </div>
+                    </div>
 
 
-                    <!--<dynamic id="newImageId" ng-mouseover="createIdFunction('newImageId')"></dynamic>-->
+                    <!--<dynamic></dynamic>-->
                     <!--image div end-->
                     <!--description div start-->
                    <div draggable enabled="true" style="bottom: 5px;">
