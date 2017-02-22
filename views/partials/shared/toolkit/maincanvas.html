@@ -12,14 +12,23 @@
         cursor: pointer;
         transition: .2s;
     }
+    .colorChange
+    {
+        width: 7%;
+        height: 17px;
+
+    }
 </style>
 <div class="hoverIcon"  id="maincanvasVisible">
 
     <p style="color:whitesmoke;margin-top: 8%"><span ng-click="createPlaceHolder()"  class="glyphicon glyphicon-picture" title="add Picture"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-size" title="text-size"></span>&nbsp;&nbsp;&nbsp;<span ng-click="mainCanvasRefresh()" class="glyphicon glyphicon-refresh" title="refresh"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-font" title="font"></span>
-        &nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-height" title="text-height"></span>&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-background" title="text-background"></span></p>
+        &nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-height" title="text-height"></span>&nbsp;&nbsp;&nbsp;<span ng-click="openFontBackgroundChooser()"   class="glyphicon glyphicon-text-background" title="text-background"></span>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil" ng-click="editableTextMessage()" title="write text"></span></p>
 
     <input type="file" id="imageId" style="visibility: hidden" onchange="openFile(event)">
     <!--main canvas refresh start-->
     <input type="reset"  style="visibility: hidden" id="mainCanvasRefreshId">
     <!--main canvas refresh end-->
+    <!--font background start-->
+    <input type="color" style="visibility: hidden;" id="fontBackground" class="colorChange" ng-model="canvasJSON.colorPickerFontBackgroundColor" title="font-background-color">
+    <!--font background end-->
 </div>

@@ -10,6 +10,7 @@ require.config({
         'ngTouch':'ngTouch/ngTouch',
         'nvd3ChartDirectives':'charts/angularjs-nvd3-directives.min',
         'angular-img-cropper':'imageCropper/angular-img-cropper',
+        'xeditable':'xeditable/xeditable',
 
         /*Controllers*/
         'navbarCtrl':'../app/controllers/navbarCtrl',
@@ -26,6 +27,7 @@ require.config({
         'resizable':'../app/directives/resizable',
         'tookit':'../app/directives/tookit',
         'dynamic':'../app/directives/dynamic',
+
 
 
     },
@@ -46,13 +48,17 @@ require.config({
             deps: ['angular'],
             exports : 'ngTouch'
         },
+        'xeditable' :{
+            deps: ['angular'],
+            exports : 'xeditable'
+        }
 
        
     }
 });
 
 
-require(['require','angular','angularRoute','LocalStorageModule','ngTouch','app',], function () {
+require(['require','angular','angularRoute','LocalStorageModule','ngTouch','app','xeditable'], function () {
     angular.element(document).ready(function() {
         angular.bootstrap(document, ['mainApp']);
     });

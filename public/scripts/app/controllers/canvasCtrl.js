@@ -1,6 +1,7 @@
 define(['angular'],function(angular){
     'use strict';
-    var newModule = angular.module('canvasCtrl', []);
+    var newModule = angular.module('canvasCtrl',["xeditable"]);
+
     newModule.controller('canvasCtrl', ['$scope','$compile', '$location','$log','DataServices','Util','$http',
         function ($scope,$compile, $location,$log,DataServices,Util,$http) {
             $log.info("At canvasCtrl");
@@ -12,10 +13,7 @@ define(['angular'],function(angular){
                     "resizeEnableTemplate":false
                 },
                 "openCroppableImage":false,
-
-                "editableMessage":"",
-                "editableTitle":"",
-                "editableDescription":"",
+                "editableMessage":"write your message here and drag any where",
                 "widthCanvas":300,
                 "heightCanvas":250,
                 "colorPickerCanvasBackground":"red",
@@ -35,8 +33,11 @@ define(['angular'],function(angular){
                 "newImageId":"",
                 "editToolkit":false,
                 "maincanvasHoverEnable":"hover",
+                "imageHoverEnable":"hover",
                 "canvasLayer":[], //{ "layertype":"", "layerId":"", "layerIndex":"" }
-                 "count":0,
+                "textEditLayer":[],
+
+                "newTextBox":false,
 
             }
 
@@ -179,7 +180,7 @@ define(['angular'],function(angular){
                     $scope.dynamicSize.height = args.height;
             });
             $scope.$on("angular-resizable.resizeStart", function (event, args) {
-                $scope.msg = 'Woooohoooo!';
+
                 $scope.events.unshift(event);
             });
             //resize element code ends
@@ -263,7 +264,32 @@ define(['angular'],function(angular){
             $scope.closeCroppableImage=function () {
                 $scope.openCroppableImage=false;
             }
+            /*editable text code*/
+            $scope.editableTextMessage=function () {
+                $scope.canvasJSON.maincanvasHoverEnable=" ";
+                $scope.canvasJSON.newTextBox=true;
+                $scope.canvasJSON.editToolkit=true;
 
+                $scope.canvasJSON.textEditLayer.push($scope.canvasJSON.editableMessage);
+
+            }
+            /*editable text code end*/
+            $scope.openFontBackgroundChooser=function () {
+                $log.info("background color function  is working")
+                var xxx=document.getElementById('fontBackground');
+                xxx.focus();
+                xxx.click();
+            }
+            /*editable text enable on image*/
+            $scope.enableTextOnImage=function()
+            {
+                $scope.canvasJSON.imageHoverEnable=" ";
+                $log.info('enableTextOnImage funtion is working properly');
+            }
+            $scope.enableHoverOnImage=function()
+            {
+                $scope.canvasJSON.imageHoverEnable="hover";
+            }
         }
     ])
     return newModule;

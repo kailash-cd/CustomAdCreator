@@ -12,6 +12,7 @@ define([
     'resizable',
     'angular-img-cropper',
     'tookit',
+    'xeditable'
 
 
 
@@ -31,7 +32,7 @@ define([
         'resizable',
         'angular-img-cropper',
         'tookit',
-
+        'xeditable'
 
 
     ]);

@@ -7,7 +7,6 @@ define(['angular'],function(angular){
     newModule.controller('dashboardCtrl', ['$scope', '$location','$log','DataServices','Util',
         function ($scope, $location,$log,DataServices,Util) {
             $log.info("At dashboardCtrl");
-
         }
     ]);
     return newModule;
