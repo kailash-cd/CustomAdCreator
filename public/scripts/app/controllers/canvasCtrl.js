@@ -17,8 +17,8 @@ define(['angular'],function(angular){
                 "widthCanvas":300,
                 "heightCanvas":250,
                 "colorPickerCanvasBackground":"red",
-                "colorPickerFontColor":"white",
-                "colorPickerFontBackgroundColor":"green",
+                "colorPickerFontColor":"black",
+                "colorPickerFontBackgroundColor":"#AARRGGBB",
                 "selectFont":"Roman",
                 "fontColor":"black",
                 "fontBackgroundColor":"white",
@@ -36,7 +36,8 @@ define(['angular'],function(angular){
                 "imageHoverEnable":"hover",
                 "canvasLayer":[], //{ "layertype":"", "layerId":"", "layerIndex":"" }
                 "textEditLayer":[],
-
+                "imageWidth":400,
+                "imageHeight":400,
                 "newTextBox":false,
 
             }
@@ -205,7 +206,8 @@ define(['angular'],function(angular){
               }
               /*createIdFunction start*/
                  $scope.createIdFunction=function(dynamicDivId)
-                {   $log.info("new dynamic id",dynamicDivId);
+                {
+                    // $log.info("new dynamic id",dynamicDivId);
                      $scope.canvasJSON.newImageId=dynamicDivId;
                 }
               /*createidFunction end*/
@@ -269,13 +271,11 @@ define(['angular'],function(angular){
                 $scope.canvasJSON.maincanvasHoverEnable=" ";
                 $scope.canvasJSON.newTextBox=true;
                 $scope.canvasJSON.editToolkit=true;
-
                 $scope.canvasJSON.textEditLayer.push($scope.canvasJSON.editableMessage);
 
             }
             /*editable text code end*/
             $scope.openFontBackgroundChooser=function () {
-                $log.info("background color function  is working")
                 var xxx=document.getElementById('fontBackground');
                 xxx.focus();
                 xxx.click();
@@ -284,11 +284,21 @@ define(['angular'],function(angular){
             $scope.enableTextOnImage=function()
             {
                 $scope.canvasJSON.imageHoverEnable=" ";
-                $log.info('enableTextOnImage funtion is working properly');
+
             }
             $scope.enableHoverOnImage=function()
             {
                 $scope.canvasJSON.imageHoverEnable="hover";
+            }
+            $scope.mainCanvasBackgroundColor=function()
+            {
+                document.getElementById('maincanvasbackground').click();
+
+            }
+            $scope.fontColorChange=function()
+            {
+                document.getElementById('fontColor').click();
+                $log.info("this is font color change function");
             }
         }
     ])
