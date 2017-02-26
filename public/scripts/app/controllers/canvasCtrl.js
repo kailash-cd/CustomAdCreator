@@ -2,8 +2,8 @@ define(['angular'],function(angular){
     'use strict';
     var newModule = angular.module('canvasCtrl',["xeditable"]);
 
-    newModule.controller('canvasCtrl', ['$scope','$compile', '$location','$log','DataServices','Util','$http',
-        function ($scope,$compile, $location,$log,DataServices,Util,$http) {
+    newModule.controller('canvasCtrl', ['$scope','$compile', '$location','$log','$timeout','DataServices','Util','$http',
+        function ($scope,$compile, $location,$log,$timeout,DataServices,Util,$http) {
             $log.info("At canvasCtrl");
             $scope.canvasJSON = {
                 "buttonName":['headShot','clientLogo','description','banner','clickButton'],
@@ -17,10 +17,13 @@ define(['angular'],function(angular){
                 "widthCanvas":300,
                 "heightCanvas":250,
                 "colorPickerCanvasBackground":"red",
+
                 "colorPickerFontColor":"black",
                 "colorPickerFontBackgroundColor":"#AARRGGBB",
                 "selectFont":"Roman",
                 "fontColor":"black",
+                "fontOption":false,
+                "fontSizeOption":false,
                 "fontBackgroundColor":"white",
                 "fontArt":['Algerian','Arial','Sans-Serif','Roboto','Verdana','Mamelon'],
                 "fontSize":12,
@@ -30,17 +33,39 @@ define(['angular'],function(angular){
                 "imagePath":"",
                 "imagePlaceHolder":"./images/placeholder.png",
                 "newImage":false,
-                "newImageId":"",
+                "newImageId":"image-0",
                 "editToolkit":false,
                 "maincanvasHoverEnable":"hover",
                 "imageHoverEnable":"hover",
-                "canvasLayer":[], //{ "layertype":"", "layerId":"", "layerIndex":"" }
-                "textEditLayer":[],
+                "canvasLayer": [
+                    {
+                        "images": [],
+                        "text":[]
+                    }
+                ],
+
+
+                // "canvasLayer":
+                //     [
+                //         {"text":[{"id":1, "value":"This is test", formatting: {"font":"arial", size:12}},
+                //             {"id":2, "value":"this is test2", formatting: {"font":"roboto", size:18}}]},
+                //         {images: [{},{}]}
+                //
+                //     ],
+
                 "imageWidth":400,
                 "imageHeight":400,
                 "newTextBox":false,
+                "newTextBoxId":"textBox-0",
 
             }
+            // $scope.canvasJSON.canvasLayer[0].images.push({id:1, type:"image", formatting:{font:"arial", size:"12px", color:"red"}});
+            // {"text":[{"id":1, "value":"This is test", formatting: {"font":"arial", size:12}},
+            // {"id":2, "value":"this is test2", formatting: {"font":"roboto", size:18}}]},
+            // canvasLayer[0].text.push({id:3, value:canvasJson.editableMessage, formatting:{''}});
+            // canvasLayer[0].text[$index].value
+            // cavasLayer[0].text[$index].value
+
 
                  /*canvas size check function*/
                 $scope.checkOut=function()
@@ -207,7 +232,7 @@ define(['angular'],function(angular){
               /*createIdFunction start*/
                  $scope.createIdFunction=function(dynamicDivId)
                 {
-                    // $log.info("new dynamic id",dynamicDivId);
+                    $log.info("new dynamic id",dynamicDivId);
                      $scope.canvasJSON.newImageId=dynamicDivId;
                 }
               /*createidFunction end*/
@@ -243,7 +268,9 @@ define(['angular'],function(angular){
                           $scope.canvasJSON.editToolkit=true;
                           $scope.canvasJSON.newImage=true;
                            // $scope.canvasJSON.count=$scope.canvasJSON.count+1;
-                          $scope.canvasJSON.canvasLayer.push({"layerId":$scope.canvasJSON.newImageId,"layerType":"Image"});
+                          $scope.canvasJSON.canvasLayer[0].images.push({"imageId":$scope.canvasJSON.newImageId,"type":"Image"});
+                          $log.info("ImageId in Json::::",$scope.canvasJSON.canvasLayer[0].images);
+
                           // $log.info("layer Id",$scope.canvasJSON.canvasLayer.layerId);
                           // $log.info("layerType",$scope.canvasJSON.canvasLayer.layerType);
 
@@ -271,15 +298,22 @@ define(['angular'],function(angular){
                 $scope.canvasJSON.maincanvasHoverEnable=" ";
                 $scope.canvasJSON.newTextBox=true;
                 $scope.canvasJSON.editToolkit=true;
-                $scope.canvasJSON.textEditLayer.push($scope.canvasJSON.editableMessage);
+                $scope.canvasJSON.canvasLayer[0].text.push({"textBoxId":$scope.canvasJSON.newTextBoxId,"value":$scope.canvasJSON.editableMessage,formatting:{"backgroundColor":$scope.canvasJSON.fontBackgroundColor,"color":$scope.canvasJSON.fontColor,"size":24}});
 
             }
             /*editable text code end*/
+            /*font background color change function start*/
             $scope.openFontBackgroundChooser=function () {
-                var xxx=document.getElementById('fontBackground');
-                xxx.focus();
-                xxx.click();
+                $timeout(function () {
+                    var xxx=document.getElementById('fontBackground').click();
+                });
+                // document.getElementById($scope.canvasJSON.newTextBoxId).style.backgroundColor=$scope.canvasJSON.fontBackgroundColor;
             }
+            $scope.$watch("canvasJSON.fontBackgroundColor",function () {
+                document.getElementById($scope.canvasJSON.newTextBoxId).style.backgroundColor=$scope.canvasJSON.fontBackgroundColor
+                 document.getElementById($scope.canvasJSON.newTextBoxId).style.border="1px solid "+$scope.canvasJSON.fontBackgroundColor;
+            });
+               /*font background color change function end*/
             /*editable text enable on image*/
             $scope.enableTextOnImage=function()
             {
@@ -290,16 +324,58 @@ define(['angular'],function(angular){
             {
                 $scope.canvasJSON.imageHoverEnable="hover";
             }
+            /*main canvas background color change function  start*/
             $scope.mainCanvasBackgroundColor=function()
             {
-                document.getElementById('maincanvasbackground').click();
+                $timeout(function () {
+                    document.getElementById('maincanvasbackground').click();
+                });
+               $log.info("This is maincanvasBackgroundFunction");
 
             }
+            $scope.$watch("canvasJSON.canvasBackground",function () {
+                document.getElementById('maincanvas').style.backgroundColor=$scope.canvasJSON.canvasBackground;
+            });
+            /*main canvas background color change function end*/
+            /*font color change function start*/
             $scope.fontColorChange=function()
             {
-                document.getElementById('fontColor').click();
-                $log.info("this is font color change function");
+                $timeout(function () {
+                    document.getElementById('fontColor').click();
+                });
+
             }
+            $scope.$watch("canvasJSON.fontColor",function () {
+                document.getElementById($scope.canvasJSON.newTextBoxId).style.color=$scope.canvasJSON.fontColor
+            });
+            /*font color change function end*/
+            /*font size change function start*/
+            $scope.$watch("canvasJSON.fontSize",function () {
+                document.getElementById($scope.canvasJSON.newTextBoxId).style.fontSize=$scope.canvasJSON.fontSize;
+            });
+            /*font size change function end*/
+            /*font face change function start*/
+            $scope.$watch("canvasJSON.selectFont",function () {
+                document.getElementById($scope.canvasJSON.newTextBoxId).style.fontFamily=$scope.canvasJSON.selectFont
+            });
+            /*font face change function end*/
+            $scope.deleteImage=function(){
+                var del=document.getElementById($scope.canvasJSON.newImageId);
+                del.remove();
+            }
+            $scope.createTextBoxId=function (dynamicTextBoxId) {
+
+                $scope.canvasJSON.newTextBoxId=dynamicTextBoxId;
+
+            }
+            $scope.deleteTextBox=function()
+            {
+                var delTextBox=document.getElementById($scope.canvasJSON.newTextBoxId);
+                delTextBox.remove();
+
+            }
+
+
         }
     ])
     return newModule;

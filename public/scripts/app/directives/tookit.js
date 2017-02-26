@@ -16,6 +16,10 @@ define(['angular'],function(angular){
                       case "image":
                           url =  "/partials/shared/toolkit/Image.html";
                           break;
+                      case "text":
+                          url =   "/partials/shared/toolkit/text.html";
+                          break;
+
                       default:
                           url =  "/partials/shared/toolkit/maincanvas.html";
                           break;

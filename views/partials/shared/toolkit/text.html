@@ -1,0 +1,43 @@
+
+<style>
+    .textIcon
+    {
+        visibility: visible;
+        width: 180px;
+        height: 36px;
+        background: rgba(233, 77, 81,0.68);
+        position:absolute;
+        opacity: 2;
+        z-index:-2;
+        cursor: pointer;
+        transition: .2s;
+    }
+
+    .colorChange
+    {
+        width: 7%;
+      margin-top: -20px;
+        vertical-align: top;
+    }
+#fontSize{
+    width:50px;
+    float: left;
+    height:18px;
+}
+</style>
+<div  class="textIcon" >
+
+    <p style="color:whitesmoke;margin-top: 4%"><span   class="glyphicon glyphicon-text-size" ng-click="canvasJSON.fontSizeOption=!canvasJSON.fontSizeOption" title="text-size"></span>&nbsp;&nbsp;&nbsp;<span ng-click="canvasJSON.fontOption =! canvasJSON.fontOption;changeFontStyle()" class="glyphicon glyphicon-font" title="font-face"></span>&nbsp;&nbsp;&nbsp;<span ng-click="fontColorChange()"class="glyphicon glyphicon-text-color" title="text-color"></span>&nbsp;&nbsp;&nbsp;<span ng-click="openFontBackgroundChooser()"class="glyphicon glyphicon-text-background" title="text-background"></span>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-text-height" title="text-height"></span>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-text-width" title="text-width"></span>&nbsp;&nbsp;&nbsp;<span ng-click="deleteTextBox(canvasJSON.newTextBoxId)" class="glyphicon glyphicon-trash" title="delete"></span></p>
+    <p style="background-color: #b23b3b; padding: 5px; margin-top: -10px"><input type="number" ng-show="canvasJSON.fontSizeOption" title="font-size" id="fontSize" ng-model="canvasJSON.fontSize"/><select style="margin-top: 0px" ng-show="canvasJSON.fontOption" style="margin-left: 71px" title="font-face" ng-model="canvasJSON.selectFont"><option ng-repeat="y in canvasJSON.fontArt">{{y}}</option></select></p>
+    <!--font background start-->
+    <input type="color" style="visibility: hidden;" id="fontBackground" class="colorChange" ng-model="canvasJSON.colorPickerFontBackgroundColor" title="font-background-color" onchange="openFontBackgroundChooser()">
+    <!--font background end-->
+    <!--main canvas background start-->
+    <input type="color" style="visibility: hidden;" id="maincanvasbackground" ng-model="canvasJSON.colorPickerCanvasBackground"  class="colorChange"/>
+    <!--main canvas background end-->
+    <!--font color change start-->
+    <input type="color" style="visibility: hidden;"  id="fontColor" class="colorChange" ng-model="canvasJSON.colorPickerFontColor">
+
+
+    <!--font color change end-->
+</div>

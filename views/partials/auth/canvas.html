@@ -2,7 +2,7 @@
 <style>
 
     .placeholderImage:{{canvasJSON.imageHoverEnable}}{
-                    z-index: 2;
+                    z-index: 1;
                     visibility: visible;
                     transition: .5s;
 
@@ -14,6 +14,12 @@
         visibility: visible;
          transition: .5s;
 
+    }
+    #editTextBox:hover
+    {
+        z-index: 1;
+        visibility: visible;
+        transition: .5s;
     }
 
      body{
@@ -45,16 +51,17 @@
         <th style="width:20%;">Toolkit</th>
         <th style="width:30%;">Templates</th>
         <tr style="" >
+            <td style="width:50%;height: 100%;background-color: #d2b5b5;">
 
-            <td style="width:50%;height: 100%;background-color: #f5f7fa;">
                 <div ng-show="canvasJSON.editToolkit" class="wrapper" style="margin-left:175px;margin-bottom: 221px;">
                     <span style="margin-left:{{canvasJSON.widthCanvas-130}}px" class="glyphicon glyphicon-edit" title="edit"></span>
-                    <div class="toolkitIcon" style="color: whitesmoke; width: 320px;height: 60px    ;">
+                    <div class="toolkitIcon" style="color: whitesmoke; width: 200px;height:60px ;">
                         <span tookit role="maincanvas" >
 
                         </span>
                     </div>
                 </div>
+                <!--main canvas div start-->
                 <div
                          id="maincanvas"
 
@@ -65,22 +72,21 @@
 
                         r-directions="['right','bottom', 'left', 'top']"
 
-
                      ng-class='{errorClass:canvasJSON.errorMessage}'
-                         style="margin-top: 250px; margin-left:75px;max-width:500px;max-height:300px;background-color:{{canvasJSON.canvasBackground}};  width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;background-size:100% auto;background-repeat:no-repeat;vertical-align: middle;table-layout: fixed">
-                    <div tookit role="maincanvas"></div>
+                         style="margin-top: 250px; margin-left:75px;max-width:500px;max-height:300px;  width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;background-size:100% auto;background-repeat:no-repeat;vertical-align: middle;table-layout: fixed">
+                    <div><span tookit role="maincanvas"></span></div>
 
 
                     <!--image div start-->
-                    <div ng-show="canvasJSON.newImage" ng-repeat=" i in canvasJSON.canvasLayer" draggable enabled="true">
+                    <div ng-show="canvasJSON.newImage" ng-repeat=" i in canvasJSON.canvasLayer[0].images" draggable enabled="true">
 
                         <div
-                                id= {{'image-'+$index}}
+                                id= {{'image-'+($index+1)}}
                                 resizable
                                 resize-enable="true"
                                 r-directions="['right','bottom', 'left', 'top']"
                                 class="placeholderImage"
-                                ng-mouseover="createIdFunction('image-'+$index)"
+                                ng-mouseover="createIdFunction('image-'+($index+1))"
                                 ng-mouseleave="enableHoverOnImage()"
                                 style="margin-top: 34px;max-width:{{canvasJSON.widthCanvas}}px;max-height:{{canvasJSON.heightCanvas-100}}px;background-repeat: no-repeat;background-size: 100% auto;background-position:center;width:{{canvasJSON.imageWidth}}px;height:{{canvasJSON.imageHeight}}px;background-image: url({{canvasJSON.imagePlaceHolder}})">
                             <div  tookit role="image"></div>
@@ -88,26 +94,25 @@
 
                         </div>
                     </div>
-
-
-                    <!--<dynamic></dynamic>-->
                     <!--image div end-->
                     <!--Text Editor div start-->
-                    <div draggable enabled="true" ng-repeat="t in canvasJSON.textEditLayer">
+                    {{canvasJSON.canvasLayer[0].images[0].formatting.color}}
+                     <div id="editTextBox"  draggable enabled="true" ng-repeat="t in canvasJSON.canvasLayer[0].text">
 
-
-                        <p  ng-show="canvasJSON.newTextBox" editable-text="canvasJSON.textEditLayer[$index]" style=" z-index:800    ;font-family: {{canvasJSON.selectFont}};color:{{canvasJSON.fontColor}};
+                        <div  id="{{'textBox-'+($index+1)}}" ng-mouseover="createTextBoxId('textBox-'+($index+1))" ng-show="canvasJSON.newTextBox" editable-text="canvasJSON.canvasLayer[0].text[$index].value"
+                            style="
                         font-size: {{canvasJSON.fontSize}}px; word-wrap: break-word;overflow:
-                         visible; overflow-x: visible;background-color: {{canvasJSON.fontBackgroundColor}};
-                           " >{{canvasJSON.textEditLayer[$index]||'empty'}}
-                        </p>
-
-
+                         visible; overflow-x: visible  ;
+                         box-sizing: border-box;padding: 2px;
+                           " >{{t}}
+                        </div>
+                        <span  tookit role="text"></span>
 
                     </div>
 
                     <!--Text Editor div end-->
                 </div>
+                <!--main canvas div end-->
             </td>
             <td style="width:20%; height: 100%;background-color: lightgray ">
 

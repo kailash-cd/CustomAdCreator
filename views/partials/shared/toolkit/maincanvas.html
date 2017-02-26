@@ -21,10 +21,9 @@
 </style>
 <div class="hoverIcon"  id="maincanvasVisible">
 
-    <p style="color:whitesmoke;margin-top: 8%"><span ng-click="createPlaceHolder()"  class="glyphicon glyphicon-picture" title="add Picture"></span>&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-text-size" title="text-size"></span>&nbsp;&nbsp;&nbsp;<span ng-click="mainCanvasRefresh()" class="glyphicon glyphicon-refresh" title="refresh"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span ng-click="" class="glyphicon glyphicon-font" title="font"></span>&nbsp;&nbsp;&nbsp;<span ng-click="fontColorChange()" class="glyphicon glyphicon-text-color" title="text-color"></span>
-        &nbsp;&nbsp;&nbsp;<span ng-click="openFontBackgroundChooser()"   class="glyphicon glyphicon-text-background" title="text-background"></span>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil" ng-click="editableTextMessage()" title="add text"></span>&nbsp;&nbsp;&nbsp; <span ng-click="mainCanvasBackgroundColor()" class="glyphicon glyphicon-star" title="canvas-background"></span></p>
+    <p style="color:whitesmoke;margin-top: 8%"><span ng-click="createPlaceHolder()"  class="glyphicon glyphicon-picture" title="add Picture"></span>&nbsp;&nbsp;&nbsp;<span ng-click="mainCanvasRefresh()" class="glyphicon glyphicon-refresh" title="refresh"></span>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil" ng-click="editableTextMessage()" title="add text"></span>&nbsp;&nbsp;&nbsp;<span ng-click="mainCanvasBackgroundColor()" class="glyphicon glyphicon-star" title="canvas-background"></span>&nbsp;&nbsp;&nbsp;<span ng-click="createIdFunction('maincanvas');imageUploadFunction(canvasJSON.newImageId)" class="glyphicon glyphicon-upload" title="upload picture"></span></p>
 
-    <input type="file" id="imageId" style="visibility: hidden" onchange="openFile(event)">
+    <input type="file" img-cropper-fileread image="canvasJSON.imagePath"  id="imageId" style="visibility: hidden" onchange="openFile(event)">
     <!--main canvas refresh start-->
     <input type="reset"  style="visibility: hidden" id="mainCanvasRefreshId">
     <!--main canvas refresh end-->
@@ -32,7 +31,7 @@
     <input type="color" style="visibility: hidden;" id="fontBackground" class="colorChange" ng-model="canvasJSON.colorPickerFontBackgroundColor" title="font-background-color">
     <!--font background end-->
     <!--main canvas background start-->
-    <input type="color" style="visibility: hidden;" id="maincanvasbackground" ng-model="canvasJSON.colorPickerCanvasBackground"  class="colorChange"/>
+    <input type="color" style="visibility: hidden;" id="maincanvasbackground" ng-model="canvasJSON.colorPickerCanvasBackground"   class="colorChange"/>
     <!--main canvas background end-->
     <!--font color change start-->
     <input type="color" style="visibility: hidden;"  id="fontColor" class="colorChange" ng-model="canvasJSON.colorPickerFontColor">
