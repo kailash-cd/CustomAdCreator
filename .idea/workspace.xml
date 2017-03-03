@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bfbd165b-73b0-4ed3-9030-32216d60d042" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CustomAdCreator" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="canvas.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/partials/auth/canvas.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+              <folding>
+                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crop.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/partials/shared/crop.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="canvasCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/scripts/app/controllers/canvasCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4305">
+              <caret line="287" column="37" lean-forward="false" selection-start-line="287" selection-start-column="37" selection-end-line="287" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="maincanvas.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/partials/shared/toolkit/maincanvas.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="73" lean-forward="false" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#546#552#0" expanded="true" />
+                <element signature="e#552#558#0" expanded="true" />
+                <element signature="e#558#564#0" expanded="true" />
+                <element signature="e#660#666#0" expanded="true" />
+                <element signature="e#666#672#0" expanded="true" />
+                <element signature="e#672#678#0" expanded="true" />
+                <element signature="e#776#782#0" expanded="true" />
+                <element signature="e#782#788#0" expanded="true" />
+                <element signature="e#788#794#0" expanded="true" />
+                <element signature="e#905#911#0" expanded="true" />
+                <element signature="e#911#917#0" expanded="true" />
+                <element signature="e#917#923#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Image.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/partials/shared/toolkit/Image.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="218" lean-forward="true" selection-start-line="16" selection-start-column="218" selection-end-line="16" selection-end-column="218" />
+              <folding>
+                <element signature="e#827#833#0" expanded="true" />
+                <element signature="e#833#839#0" expanded="true" />
+                <element signature="e#839#845#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="text.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/partials/shared/toolkit/text.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#652#658#0" expanded="true" />
+                <element signature="e#658#664#0" expanded="true" />
+                <element signature="e#664#670#0" expanded="true" />
+                <element signature="e#810#816#0" expanded="true" />
+                <element signature="e#816#822#0" expanded="true" />
+                <element signature="e#822#828#0" expanded="true" />
+                <element signature="e#927#933#0" expanded="true" />
+                <element signature="e#933#939#0" expanded="true" />
+                <element signature="e#939#945#0" expanded="true" />
+                <element signature="e#1064#1070#0" expanded="true" />
+                <element signature="e#1070#1076#0" expanded="true" />
+                <element signature="e#1076#1082#0" expanded="true" />
+                <element signature="e#1155#1161#0" expanded="true" />
+                <element signature="e#1161#1167#0" expanded="true" />
+                <element signature="e#1167#1173#0" expanded="true" />
+                <element signature="e#1244#1250#0" expanded="true" />
+                <element signature="e#1250#1256#0" expanded="true" />
+                <element signature="e#1256#1262#0" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#p#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#1;n#select#0;n#p#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editor.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/partials/shared/editor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="50" column="86" lean-forward="false" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>angular-img</find>
+      <find>link</find>
+      <find>$</find>
+      <find>close</find>
+      <find>crop.angular-img-cropper</find>
+      <find>img-cropper-fileread</find>
+      <find>img-cropper</find>
+      <find>filtered</find>
+      <find>editor</find>
+      <find>hoverImageIcon</find>
+      <find>can not drag out side the canvas</find>
+      <find>draggable</find>
+      <find>direction</find>
+      <find>function is working</find>
+      <find>imageUploadFunction(canvasJSON.newImageId)</find>
+      <find>createPlaceHolder</find>
+      <find>imageUploadFunction</find>
+      <find>createp</find>
+      <find>createIdFunction</find>
+      <find>$http</find>
+      <find>htt</find>
+      <find>newImage</find>
+      <find>Text</find>
+      <find>das</find>
+      <find>imageId</find>
+      <find>editable-text</find>
+      <find>ng-click=</find>
+      <find>canvasLayer[0]</find>
+      <find>canvasJSON.textEditLayer</find>
+      <find>openCroppableImage</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>colorPickerCanvasBackground</replace>
+      <replace>angularResizableCtrl</replace>
+      <replace>343e3d</replace>
+      <replace>tookit</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/draggable.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/directives/resize.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/resizeableCtrl.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/directives/resizer.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/angularResizable.js" />
+        <option value="$PROJECT_DIR$/views/partials/shared/ImageColorPicker.html" />
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/colorPickerCtrl.js" />
+        <option value="$PROJECT_DIR$/views/partials/shared/imageColorPicker.html" />
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/angularResizableCtrl.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/directives/resizableDirective.js" />
+        <option value="$PROJECT_DIR$/public/css/resizableCss.css" />
+        <option value="$PROJECT_DIR$/public/scripts/app/directives/resizable.js" />
+        <option value="$PROJECT_DIR$/views/partials/shared/description.html" />
+        <option value="$PROJECT_DIR$/views/partials/shared/button.html" />
+        <option value="$PROJECT_DIR$/views/partials/shared/headshot.html" />
+        <option value="$PROJECT_DIR$/views/partials/shared/banner.html" />
+        <option value="$PROJECT_DIR$/public/scripts/app/directives/draggable.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/editableText.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/domResizeCtrl.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/editableCtrl.js" />
+        <option value="$PROJECT_DIR$/public/css/editableStyle.css" />
+        <option value="$PROJECT_DIR$/public/css/resizableStyle.css" />
+        <option value="$PROJECT_DIR$/public/scripts/lib/imageCropper/angular-img-cropper.js" />
+        <option value="$PROJECT_DIR$/views/partials/shared/errorMessage.html" />
+        <option value="$PROJECT_DIR$/views/partials/shared/popUpEditor.html" />
+        <option value="$PROJECT_DIR$/views/partials/shared/resizableDemo.html" />
+        <option value="$PROJECT_DIR$/public/scripts/app/directives/hovericons.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/directives/hoverImageIcon.js" />
+        <option value="$PROJECT_DIR$/app/routes.js" />
+        <option value="$PROJECT_DIR$/views/partials/shared/hoverEditIcon.html" />
+        <option value="$PROJECT_DIR$/views/partials/shared/clientLogo.html" />
+        <option value="$PROJECT_DIR$/views/partials/shared/toolkit/editbutton.html" />
+        <option value="$PROJECT_DIR$/public/scripts/app/directives/dynamicimage.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/dynamicImageCtrl.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/directives/dynamic.js" />
+        <option value="$PROJECT_DIR$/views/partials/shared/dynamicImage.html" />
+        <option value="$PROJECT_DIR$/views/index.html" />
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/dashboardCtrl.js" />
+        <option value="$PROJECT_DIR$/public/scripts/app/app.js" />
+        <option value="$PROJECT_DIR$/public/scripts/main.js" />
+        <option value="$PROJECT_DIR$/public/css/xeditable.css" />
+        <option value="$PROJECT_DIR$/public/scripts/app/directives/tookit.js" />
+        <option value="$PROJECT_DIR$/public/scripts/lib/xeditable/xeditable.js" />
+        <option value="$PROJECT_DIR$/public/css/toolkit.css" />
+        <option value="$PROJECT_DIR$/views/partials/shared/editor.html" />
+        <option value="$PROJECT_DIR$/public/scripts/app/controllers/canvasCtrl.js" />
+        <option value="$PROJECT_DIR$/views/partials/shared/toolkit/text.html" />
+        <option value="$PROJECT_DIR$/views/partials/shared/toolkit/Image.html" />
+        <option value="$PROJECT_DIR$/views/partials/shared/toolkit/maincanvas.html" />
+        <option value="$PROJECT_DIR$/views/partials/auth/canvas.html" />
+        <option value="$PROJECT_DIR$/views/partials/shared/crop.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER">
+    <gruntfile path="$PROJECT_DIR$/Gruntfile.js" />
+  </component>
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/backup/CustomAdCreator/node_modules" />
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1215" />
+    <option name="height" value="776" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CustomAdCreator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CustomAdCreator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/angular-xeditable-0.6.0" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="nodejs_interpreter_path" value="/usr/bin/node" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="js.buildTools.grunt.grunt-cli.package" value="" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/css" />
+      <recent name="$PROJECT_DIR$/public/scripts/lib" />
+      <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/views/partials/shared" />
+      <recent name="$PROJECT_DIR$/public/scripts/lib/imageCropper" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/scripts/lib/jquery/dist" />
+      <recent name="$PROJECT_DIR$/public/scripts/lib/imageCropper" />
+      <recent name="$PROJECT_DIR$/public/scripts/app/directives" />
+      <recent name="$PROJECT_DIR$/public/scripts/app/controllers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.canvas.html">
+    <configuration default="false" name="canvas.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/CustomAdCreator/views/partials/auth/canvas.html">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.canvas.html" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.canvas.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bfbd165b-73b0-4ed3-9030-32216d60d042" name="Default" comment="" />
+      <created>1486113106692</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1486113106692</updated>
+      <workItem from="1486113108654" duration="23151000" />
+      <workItem from="1486205427284" duration="3345000" />
+      <workItem from="1486224195987" duration="7923000" />
+      <workItem from="1486233614855" duration="1113000" />
+      <workItem from="1486265141834" duration="18306000" />
+      <workItem from="1486359391435" duration="32548000" />
+      <workItem from="1486397817293" duration="3289000" />
+      <workItem from="1486439096349" duration="4061000" />
+      <workItem from="1486445222430" duration="33010000" />
+      <workItem from="1486489083989" duration="5570000" />
+      <workItem from="1486531892970" duration="6197000" />
+      <workItem from="1486538671944" duration="26370000" />
+      <workItem from="1486569492082" duration="7960000" />
+      <workItem from="1486607486405" duration="4962000" />
+      <workItem from="1486619081350" duration="36316000" />
+      <workItem from="1486703905502" duration="29451000" />
+      <workItem from="1486739534992" duration="9300000" />
+      <workItem from="1486796218299" duration="6101000" />
+      <workItem from="1486831954767" duration="4293000" />
+      <workItem from="1486868297441" duration="5575000" />
+      <workItem from="1486902878202" duration="5541000" />
+      <workItem from="1486961611279" duration="34235000" />
+      <workItem from="1487049727929" duration="98347000" />
+      <workItem from="1487222596258" duration="37345000" />
+      <workItem from="1487266289178" duration="2424000" />
+      <workItem from="1487310314146" duration="27166000" />
+      <workItem from="1487339613232" duration="151000" />
+      <workItem from="1487396196945" duration="4980000" />
+      <workItem from="1487419875606" duration="1705000" />
+      <workItem from="1487573903204" duration="27948000" />
+      <workItem from="1487654141469" duration="34903000" />
+      <workItem from="1487740814808" duration="34139000" />
+      <workItem from="1487827694931" duration="2868000" />
+      <workItem from="1487831418341" duration="47543000" />
+      <workItem from="1488004992109" duration="29891000" />
+      <workItem from="1488088236726" duration="14706000" />
+      <workItem from="1488111932311" duration="2400000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="675133000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="24" width="1215" height="776" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19295302" sideWeight="0.4923077" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26426175" sideWeight="0.50769234" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2020649" sideWeight="0.13590604" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7876923" sideWeight="0.86409396" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3430769" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39970502" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2020649" sideWeight="0.13590604" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19076923" sideWeight="0.86409396" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.031879194" sideWeight="0.4923077" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26426175" sideWeight="0.50769234" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3430769" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39970502" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/directives/resizer.js" />
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/controllers/navbarCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/imageColorPicker.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/controllers/angularResizableCtrl.js" />
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/controllers/colorPickerCtrl.js" />
+    <entry file="file://$PROJECT_DIR$/public/css/nv.d3.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="541" column="0" lean-forward="true" selection-start-line="541" selection-start-column="0" selection-end-line="541" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/resizableCss.css" />
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/description.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/button.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="36" lean-forward="false" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/headshot.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/controllers/editableCtrl.js" />
+    <entry file="file://$PROJECT_DIR$/public/css/editableStyle.css" />
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/banner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/lib/jQuery/jquery.min.js" />
+    <entry file="file://$PROJECT_DIR$/public/scripts/lib/imageCropper/angular-img-cropper.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="1" column="2125" lean-forward="false" selection-start-line="1" selection-start-column="2125" selection-end-line="1" selection-end-column="2125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/lib/imageCropper/angular-img-cropper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="1368" column="40" lean-forward="false" selection-start-line="1368" selection-start-column="40" selection-end-line="1368" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/popUpEditor.html" />
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/resizableDemo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/placeholder.jpg" />
+    <entry file="file://$PROJECT_DIR$/public/images/hoverimage.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/hoverEditIcon.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/clientLogo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/toolkit/editbutton.html" />
+    <entry file="file://$PROJECT_DIR$/public/css/resizableStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/controllers/dynamicImageCtrl.js" />
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/directives/draggable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/controllers/domResizeCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/directives/dynamic.js" />
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/directives/resizable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1755">
+          <caret line="117" column="41" lean-forward="true" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/dynamicImage.html" />
+    <entry file="file://$PROJECT_DIR$/public/css/xeditable.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="70" lean-forward="true" selection-start-line="6" selection-start-column="70" selection-end-line="6" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/controllers/dashboardCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="42" lean-forward="false" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/xeditable.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-203">
+          <caret line="116" column="24" lean-forward="true" selection-start-line="116" selection-start-column="24" selection-end-line="116" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/errorMessage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="72" column="5" lean-forward="false" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/directives/tookit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="60" lean-forward="false" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/toolkit.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/lib/xeditable/xeditable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5896">
+          <caret line="2587" column="9" lean-forward="true" selection-start-line="2587" selection-start-column="9" selection-end-line="2587" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/lib/xeditable/xeditable.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" column="2731" lean-forward="false" selection-start-line="5" selection-start-column="2730" selection-end-line="5" selection-end-column="2731" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/toolkit/text.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#652#658#0" expanded="true" />
+            <element signature="e#658#664#0" expanded="true" />
+            <element signature="e#664#670#0" expanded="true" />
+            <element signature="e#810#816#0" expanded="true" />
+            <element signature="e#816#822#0" expanded="true" />
+            <element signature="e#822#828#0" expanded="true" />
+            <element signature="e#927#933#0" expanded="true" />
+            <element signature="e#933#939#0" expanded="true" />
+            <element signature="e#939#945#0" expanded="true" />
+            <element signature="e#1064#1070#0" expanded="true" />
+            <element signature="e#1070#1076#0" expanded="true" />
+            <element signature="e#1076#1082#0" expanded="true" />
+            <element signature="e#1155#1161#0" expanded="true" />
+            <element signature="e#1161#1167#0" expanded="true" />
+            <element signature="e#1167#1173#0" expanded="true" />
+            <element signature="e#1244#1250#0" expanded="true" />
+            <element signature="e#1250#1256#0" expanded="true" />
+            <element signature="e#1256#1262#0" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#p#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#1;n#select#0;n#p#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/app/controllers/canvasCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4305">
+          <caret line="287" column="37" lean-forward="false" selection-start-line="287" selection-start-column="37" selection-end-line="287" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/editor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="86" lean-forward="false" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/toolkit/maincanvas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="73" lean-forward="false" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#546#552#0" expanded="true" />
+            <element signature="e#552#558#0" expanded="true" />
+            <element signature="e#558#564#0" expanded="true" />
+            <element signature="e#660#666#0" expanded="true" />
+            <element signature="e#666#672#0" expanded="true" />
+            <element signature="e#672#678#0" expanded="true" />
+            <element signature="e#776#782#0" expanded="true" />
+            <element signature="e#782#788#0" expanded="true" />
+            <element signature="e#788#794#0" expanded="true" />
+            <element signature="e#905#911#0" expanded="true" />
+            <element signature="e#911#917#0" expanded="true" />
+            <element signature="e#917#923#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/toolkit/Image.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="218" lean-forward="true" selection-start-line="16" selection-start-column="218" selection-end-line="16" selection-end-column="218" />
+          <folding>
+            <element signature="e#827#833#0" expanded="true" />
+            <element signature="e#833#839#0" expanded="true" />
+            <element signature="e#839#845#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/auth/canvas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/shared/crop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

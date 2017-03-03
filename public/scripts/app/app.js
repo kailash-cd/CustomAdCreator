@@ -12,7 +12,8 @@ define([
     'resizable',
     'angular-img-cropper',
     'tookit',
-    'xeditable'
+    'xeditable',
+    'csvCtrl',
 
 
 
@@ -32,7 +33,8 @@ define([
         'resizable',
         'angular-img-cropper',
         'tookit',
-        'xeditable'
+        'xeditable',
+        'csvCtrl',
 
 
     ]);
@@ -59,6 +61,10 @@ define([
             }). when('/resizeTest', {
                 templateUrl: 'partials/shared/resizableDemo.html',
                 controller: 'domResizeCtrl',
+                access: { requiredLogin: false }
+            }).when('/csvProject', {
+                templateUrl: 'partials/shared/CSVDemo.html',
+                controller: 'csvCtrl',
                 access: { requiredLogin: false }
             }).
                 otherwise({

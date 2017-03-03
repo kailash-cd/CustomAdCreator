@@ -1,0 +1,32 @@
+<style>
+    #table{
+        width: 100%;
+
+    }
+    tr,th,td{
+        border: 1px solid black;
+    }
+
+</style>
+<table id="table" >
+    <tr>
+        <th>BusinessName</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Country</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+    </tr>
+    <tr ng-repeat="i in csvJSON">
+        <td>{{i.businessName}}</td>
+        <td>{{i.street}}</td>
+        <td>{{i.city}}</td>
+        <td>{{i.state}}</td>
+        <td>{{i.zip}}</td>
+        <td>{{i.country}}</td>
+        <td>{{i.latitude}}</td>
+        <td>{{i.longitude}}</td>
+    </tr>
+</table>

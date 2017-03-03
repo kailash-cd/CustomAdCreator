@@ -21,12 +21,10 @@
 </style>
 <div class="hoverIcon"  id="maincanvasVisible">
 
-    <p style="color:whitesmoke;margin-top: 8%"><span ng-click="createPlaceHolder()"  class="glyphicon glyphicon-picture" title="add Picture"></span>&nbsp;&nbsp;&nbsp;<span ng-click="mainCanvasRefresh()" class="glyphicon glyphicon-refresh" title="refresh"></span>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil" ng-click="editableTextMessage()" title="add text"></span>&nbsp;&nbsp;&nbsp;<span ng-click="mainCanvasBackgroundColor()" class="glyphicon glyphicon-star" title="canvas-background"></span>&nbsp;&nbsp;&nbsp;<span ng-click="createIdFunction('maincanvas');imageUploadFunction(canvasJSON.newImageId)" class="glyphicon glyphicon-upload" title="upload picture"></span></p>
+
+    <p style="color:whitesmoke;margin-top: 8%"><span ng-click="createPlaceHolder()"  class="glyphicon glyphicon-picture" title="add Picture"></span>&nbsp;&nbsp;&nbsp;<span ng-click="mainCanvasRefresh()" class="glyphicon glyphicon-refresh" title="reset"></span>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-pencil" ng-click="editableTextMessage()" title="add text"></span>&nbsp;&nbsp;&nbsp;<span ng-click="mainCanvasBackgroundColor()" class="glyphicon glyphicon-star" title="canvas-background"></span>&nbsp;&nbsp;&nbsp;<span ng-click="createIdFunction('maincanvas');imageUploadFunction(canvasJSON.newImageId)" class="glyphicon glyphicon-upload" title="upload picture"></span></p>
 
     <input type="file" img-cropper-fileread image="canvasJSON.imagePath"  id="imageId" style="visibility: hidden" onchange="openFile(event)">
-    <!--main canvas refresh start-->
-    <input type="reset"  style="visibility: hidden" id="mainCanvasRefreshId">
-    <!--main canvas refresh end-->
     <!--font background start-->
     <input type="color" style="visibility: hidden;" id="fontBackground" class="colorChange" ng-model="canvasJSON.colorPickerFontBackgroundColor" title="font-background-color">
     <!--font background end-->

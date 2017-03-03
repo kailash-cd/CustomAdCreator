@@ -17,6 +17,7 @@ require.config({
         'dashboardCtrl':'../app/controllers/dashboardCtrl',
         'canvasCtrl':'../app/controllers/canvasCtrl',
          'domResizeCtrl':'../app/controllers/domResizeCtrl',
+        'csvCtrl':'../app/controllers/csvCtrl',
 
 
         /*Services*/

@@ -26,4 +26,7 @@ module.exports = function(app,serverInfo) {
         console.log("Route [" + name + "]");
         res.render('partials/shared/toolkit/' + name);
     });
+    var geoCodeApi=require('./geoCode.js')(serverInfo)
+    app.post('/api/getApi',geoCodeApi.getIoGeocode);
 };
+

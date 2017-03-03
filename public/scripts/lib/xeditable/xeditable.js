@@ -2522,20 +2522,20 @@ angular.module('xeditable').factory('editableIcons', function() {
     //Icon-set to use, defaults to bootstrap icons
     default: {
       'bs2': {
-        ok: 'icon-ok icon-white',
-        cancel: 'icon-remove',
+        // ok: 'icon-ok icon-white',
+        // cancel: 'icon-remove',
         clear: 'icon-trash'
       },
       'bs3': {
-        ok: 'glyphicon glyphicon-ok',
-        cancel: 'glyphicon glyphicon-remove',
+        // ok: 'glyphicon glyphicon-ok',
+        // cancel: 'glyphicon glyphicon-remove',
         clear: 'glyphicon glyphicon-trash'
       }
     },
     external: {
       'font-awesome': {
-        ok: 'fa fa-check',
-        cancel: 'fa fa-times',
+        // ok: 'fa fa-check',
+        // cancel: 'fa fa-times',
         clear: 'fa fa-trash'
       }
     }
@@ -2563,9 +2563,9 @@ angular.module('xeditable').factory('editableThemes', function() {
       controlsTpl:  '<span class="editable-controls"></span>',
       inputTpl:     '',
       errorTpl:     '<div class="editable-error" data-ng-if="$error" data-ng-bind="$error"></div>',
-      buttonsTpl:   '<span class="editable-buttons"></span>',
-      submitTpl:    '<button type="submit">save</button>',
-      cancelTpl:    '<button type="button" ng-click="$form.$cancel()">cancel</button>',
+      // buttonsTpl:   '<span class="editable-buttons"></span>',
+      // submitTpl:    '<button type="submit">save</button>',
+      // cancelTpl:    '<button type="button" ng-click="$form.$cancel()">cancel</button>',
       resetTpl:    '<button type="reset">clear</button>'
     },
 
@@ -2576,11 +2576,11 @@ angular.module('xeditable').factory('editableThemes', function() {
       controlsTpl: '<div class="editable-controls controls control-group" ng-class="{\'error\': $error}"></div>',
       inputTpl:    '',
       errorTpl:    '<div class="editable-error help-block" data-ng-if="$error" data-ng-bind="$error"></div>',
-      buttonsTpl:  '<span class="editable-buttons"></span>',
-      submitTpl:   '<button type="submit" class="btn btn-primary"><span></span></button>',
-      cancelTpl:   '<button type="button" class="btn" ng-click="$form.$cancel()">'+
-                      '<span></span>'+
-                   '</button>',
+      // buttonsTpl:  '<span class="editable-buttons"></span>',
+      // submitTpl:   '<button type="submit" class="btn btn-primary"><span></span></button>',
+      // cancelTpl:   '<button type="button" class="btn" ng-click="$form.$cancel()">'+
+      //                 '<span></span>'+
+      //              '</button>',
       resetTpl:    '<button type="reset" class="btn btn-danger">clear</button>'
 
     },
@@ -2592,11 +2592,11 @@ angular.module('xeditable').factory('editableThemes', function() {
       controlsTpl: '<div class="editable-controls form-group" ng-class="{\'has-error\': $error}"></div>',
       inputTpl:    '',
       errorTpl:    '<div class="editable-error help-block" data-ng-if="$error" data-ng-bind="$error"></div>',
-      buttonsTpl:  '<span class="editable-buttons"></span>',
-      submitTpl:   '<button type="submit" class="btn btn-primary"><span></span></button>',
-      cancelTpl:   '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">'+
-                     '<span></span>'+
-                   '</button>',
+      // buttonsTpl:  '<span class="editable-buttons"></span>',
+      // submitTpl:   '<button type="submit" class="btn btn-primary"><span></span></button>',
+      // cancelTpl:   '<button type="button" class="btn btn-default" ng-click="$form.$cancel()">'+
+      //                '<span></span>'+
+      //              '</button>',
       resetTpl:    '<button type="reset" class="btn btn-danger">clear</button>',
 
       //bs3 specific prop to change buttons class: btn-sm, btn-lg
@@ -2639,7 +2639,7 @@ angular.module('xeditable').factory('editableThemes', function() {
 
         //apply buttonsClass (bs3 specific!)
         if(this.buttonsEl && this.theme.buttonsClass) {
-          this.buttonsEl.find('button').addClass(this.theme.buttonsClass);
+          // this.buttonsEl.find('button').addClass(this.theme.buttonsClass);
         }
       }
     },
@@ -2652,10 +2652,10 @@ angular.module('xeditable').factory('editableThemes', function() {
       inputTpl:    '',
       errorTpl:    '<div class="editable-error ui error message" data-ng-if="$error" data-ng-bind="$error"></div>',
       buttonsTpl:  '<span class="mini ui buttons"></span>',
-      submitTpl:   '<button type="submit" class="ui primary button"><i class="ui check icon"></i></button>',
-      cancelTpl:   '<button type="button" class="ui button" ng-click="$form.$cancel()">'+
-                      '<i class="ui cancel icon"></i>'+
-                   '</button>',
+      // submitTpl:   '<button type="submit" class="ui primary button"><i class="ui check icon"></i></button>',
+      // cancelTpl:   '<button type="button" class="ui button" ng-click="$form.$cancel()">'+
+      //                 '<i class="ui cancel icon"></i>'+
+      //              '</button>',
       resetTpl:    '<button type="reset" class="ui button">clear</button>'
     }
   };

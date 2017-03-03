@@ -18,7 +18,7 @@ console.log("Application Environment :::",environment)
 
 var serverInfo = {};
 serverInfo.environment = environment;
-serverInfo.apiHost = "localhost"; //"54.225.122.8";
+ serverInfo.apiHost ="54.225.122.8"; //"localhost";//;
 
 if(environment === "production") {
     serverInfo.selfPort = 80;

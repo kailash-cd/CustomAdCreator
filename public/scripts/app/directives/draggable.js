@@ -18,12 +18,18 @@ directive('draggable', ['$document','$log' , function($document,$log) {
             $log.debug("dragable enabled status ::",scope.enabled);
             if(scope.enabled) {
                 elm.bind('mousedown', function($event) {
+
                     startX = elm.prop('offsetLeft');
                     startY = elm.prop('offsetTop');
                     initialMouseX = $event.clientX;
                     initialMouseY = $event.clientY;
                     $document.bind('mousemove', mousemove);
                     $document.bind('mouseup', mouseup);
+
+                       // $event.target.element.select;
+                       $event.target.select();
+                       $event.target.input();
+
                     return false;
                 });
             } else {
@@ -33,6 +39,7 @@ directive('draggable', ['$document','$log' , function($document,$log) {
             function mousemove($event) {
                 var dx = $event.clientX - initialMouseX;
                 var dy = $event.clientY - initialMouseY;
+
                 elm.css({
                     top:  startY + dy + 'px',
                     left: startX + dx + 'px'
@@ -44,6 +51,7 @@ directive('draggable', ['$document','$log' , function($document,$log) {
                 $document.unbind('mousemove', mousemove);
                 $document.unbind('mouseup', mouseup);
             }
+
 
         }
     };

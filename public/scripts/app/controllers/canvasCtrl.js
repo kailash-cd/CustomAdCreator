@@ -2,8 +2,8 @@ define(['angular'],function(angular){
     'use strict';
     var newModule = angular.module('canvasCtrl',["xeditable"]);
 
-    newModule.controller('canvasCtrl', ['$scope','$compile', '$location','$log','$timeout','DataServices','Util','$http',
-        function ($scope,$compile, $location,$log,$timeout,DataServices,Util,$http) {
+    newModule.controller('canvasCtrl', ['$scope','$rootScope','$compile', '$location','$log','$timeout','DataServices','Util','$http',
+        function ($scope,$rootScope,$compile, $location,$log,$timeout,DataServices,Util,$http) {
             $log.info("At canvasCtrl");
             $scope.canvasJSON = {
                 "buttonName":['headShot','clientLogo','description','banner','clickButton'],
@@ -57,7 +57,10 @@ define(['angular'],function(angular){
                 "imageHeight":400,
                 "newTextBox":false,
                 "newTextBoxId":"textBox-0",
-
+                "textBoxHeight":30,
+                "textBoxWidth":300,
+                "textTookitMargin":30,
+                "textBoxResizeId":"textBoxResizable-0"
             }
             // $scope.canvasJSON.canvasLayer[0].images.push({id:1, type:"image", formatting:{font:"arial", size:"12px", color:"red"}});
             // {"text":[{"id":1, "value":"This is test", formatting: {"font":"arial", size:12}},
@@ -67,6 +70,10 @@ define(['angular'],function(angular){
             // cavasLayer[0].text[$index].value
 
 
+
+
+
+
                  /*canvas size check function*/
                 $scope.checkOut=function()
                 {
@@ -74,9 +81,7 @@ define(['angular'],function(angular){
                     if(parseInt($scope.canvasJSON.widthCanvas)>500 || parseInt($scope.canvasJSON.widthCanvas)<250)
                     {
                         msg="min to max width can be 250px to 500px";
-
                         $scope.canvasJSON.widthCanvas=300;
-
 
                     }
                      else
@@ -227,7 +232,8 @@ define(['angular'],function(angular){
               $scope.mainCanvasRefresh=function()
               {
                   $log.info("main canvas refresh function is working");
-                  document.getElementById('mainCanvasRefreshId').click();
+                  document.getElementById('maincanvas').style.backgroundImage="url()";
+                  document.getElementById('maincanvas').style.backgroundColor="white";
               }
               /*createIdFunction start*/
                  $scope.createIdFunction=function(dynamicDivId)
@@ -239,7 +245,10 @@ define(['angular'],function(angular){
             /*main canvas image upload*/
                 $scope.imageUploadFunction=function (canvasLayerId) {
                     $log.info("file chooser is working");
-                    document.getElementById('imageId').click();
+                    $timeout(function () {
+                        document.getElementById('imageId').click();
+                    });
+
                     window.openFile = function (event) {
                         var input = event.target;
 
@@ -298,7 +307,7 @@ define(['angular'],function(angular){
                 $scope.canvasJSON.maincanvasHoverEnable=" ";
                 $scope.canvasJSON.newTextBox=true;
                 $scope.canvasJSON.editToolkit=true;
-                $scope.canvasJSON.canvasLayer[0].text.push({"textBoxId":$scope.canvasJSON.newTextBoxId,"value":$scope.canvasJSON.editableMessage,formatting:{"backgroundColor":$scope.canvasJSON.fontBackgroundColor,"color":$scope.canvasJSON.fontColor,"size":24}});
+                $scope.canvasJSON.canvasLayer[0].text.push({"textBoxId":$scope.canvasJSON.newTextBoxId,"value":$scope.canvasJSON.editableMessage,formatting:{"backgroundColor":$scope.canvasJSON.fontBackgroundColor,"color":$scope.canvasJSON.fontColor,"size":$scope.canvasJSON.fontSize}});
 
             }
             /*editable text code end*/
@@ -310,8 +319,12 @@ define(['angular'],function(angular){
                 // document.getElementById($scope.canvasJSON.newTextBoxId).style.backgroundColor=$scope.canvasJSON.fontBackgroundColor;
             }
             $scope.$watch("canvasJSON.fontBackgroundColor",function () {
-                document.getElementById($scope.canvasJSON.newTextBoxId).style.backgroundColor=$scope.canvasJSON.fontBackgroundColor
-                 document.getElementById($scope.canvasJSON.newTextBoxId).style.border="1px solid "+$scope.canvasJSON.fontBackgroundColor;
+
+                var checkNull=document.getElementById($scope.canvasJSON.textBoxResizeId);
+                if(checkNull!=null) {
+                    document.getElementById($scope.canvasJSON.textBoxResizeId).style.backgroundColor = $scope.canvasJSON.fontBackgroundColor
+                    // document.getElementById($scope.canvasJSON.newTextBoxId).style.border="1px solid "+$scope.canvasJSON.fontBackgroundColor;
+                }
             });
                /*font background color change function end*/
             /*editable text enable on image*/
@@ -346,17 +359,31 @@ define(['angular'],function(angular){
 
             }
             $scope.$watch("canvasJSON.fontColor",function () {
-                document.getElementById($scope.canvasJSON.newTextBoxId).style.color=$scope.canvasJSON.fontColor
+                var checkNull=document.getElementById($scope.canvasJSON.newTextBoxId);
+                if(checkNull!=null) {
+                    document.getElementById($scope.canvasJSON.newTextBoxId).style.color = $scope.canvasJSON.fontColor
+                }
             });
             /*font color change function end*/
             /*font size change function start*/
             $scope.$watch("canvasJSON.fontSize",function () {
-                document.getElementById($scope.canvasJSON.newTextBoxId).style.fontSize=$scope.canvasJSON.fontSize;
+                var checkNull=document.getElementById($scope.canvasJSON.newTextBoxId);
+                if(checkNull!=null) {
+                    document.getElementById($scope.canvasJSON.newTextBoxId).style.fontSize=$scope.canvasJSON.fontSize;
+                   // var result= $scope.canvasJSON.editableMessage.fontsize($scope.canvasJSON.fontSize);
+                   //   document.getElementById($scope.canvasJSON.newTextBoxId).innerHTML=result;
+
+                    $log.info("fontsize",$scope.canvasJSON.fontSize);
+                }
             });
             /*font size change function end*/
             /*font face change function start*/
             $scope.$watch("canvasJSON.selectFont",function () {
-                document.getElementById($scope.canvasJSON.newTextBoxId).style.fontFamily=$scope.canvasJSON.selectFont
+
+               var checkNull =document.getElementById($scope.canvasJSON.newTextBoxId);
+                 if(checkNull!=null) {
+                     document.getElementById($scope.canvasJSON.newTextBoxId).style.fontFamily = $scope.canvasJSON.selectFont
+                 }
             });
             /*font face change function end*/
             $scope.deleteImage=function(){
@@ -370,11 +397,22 @@ define(['angular'],function(angular){
             }
             $scope.deleteTextBox=function()
             {
-                var delTextBox=document.getElementById($scope.canvasJSON.newTextBoxId);
+                var delTextBox=document.getElementById($scope.canvasJSON.textBoxResizeId);
                 delTextBox.remove();
 
             }
+            $scope.textBoxRefresh=function () {
+                document.getElementById($scope.canvasJSON.textBoxResizeId).style.backgroundColor="transparent";
+                document.getElementById($scope.canvasJSON.newTextBoxId).style.color="#2a7ccc";
+                document.getElementById($scope.canvasJSON.newTextBoxId).style.border=" ";
 
+
+            }
+            $scope.resizeBoxId=function(tbId)
+            {
+                 $scope.canvasJSON.textBoxResizeId=tbId;
+
+            }
 
         }
     ])

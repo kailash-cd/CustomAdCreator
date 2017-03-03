@@ -2,7 +2,7 @@
 <style>
 
     .placeholderImage:{{canvasJSON.imageHoverEnable}}{
-                    z-index: 1;
+                    z-index: 50;
                     visibility: visible;
                     transition: .5s;
 
@@ -78,7 +78,7 @@
 
 
                     <!--image div start-->
-                    <div ng-show="canvasJSON.newImage" ng-repeat=" i in canvasJSON.canvasLayer[0].images" draggable enabled="true">
+                    <div ng-show="canvasJSON.newImage" ng-repeat=" i in canvasJSON.canvasLayer[0].images" draggable enabled="true" style="position: absolute">
 
                         <div
                                 id= {{'image-'+($index+1)}}
@@ -96,23 +96,34 @@
                     </div>
                     <!--image div end-->
                     <!--Text Editor div start-->
-                    {{canvasJSON.canvasLayer[0].images[0].formatting.color}}
-                     <div id="editTextBox"  draggable enabled="true" ng-repeat="t in canvasJSON.canvasLayer[0].text">
 
-                        <div  id="{{'textBox-'+($index+1)}}" ng-mouseover="createTextBoxId('textBox-'+($index+1))" ng-show="canvasJSON.newTextBox" editable-text="canvasJSON.canvasLayer[0].text[$index].value"
-                            style="
+                    <div id="editTextBox" style="position: absolute" draggable enabled="true" ng-repeat="t in canvasJSON.canvasLayer[0].text">
+                        <div  id="{{'textBoxResizable-'+($index+1)}}" resizable
+                              resize-enable="true"
+                              r-directions="['right','bottom','left','top']" ng-mouseover="resizeBoxId('textBoxResizable-'+($index+1))" style="width: {{canvasJSON.textBoxWidth}}px;height: {{canvasJSON.textBoxHeight}}px;background-color: transparent;margin-top:initial;min-height: 23px;min-width: 30px;max-width:{{canvasJSON.widthCanvas}}px;max-height: {{canvasJSON.heightCanvas}}px " >
+
+                            <div
+                                    id="{{'textBox-'+($index+1)}}"
+                                    ng-mouseover="createTextBoxId('textBox-'+($index+1))" ng-show="canvasJSON.newTextBox" editable-text="canvasJSON.canvasLayer[0].text[$index].value"
+                                    style="
                         font-size: {{canvasJSON.fontSize}}px; word-wrap: break-word;overflow:
-                         visible; overflow-x: visible  ;
-                         box-sizing: border-box;padding: 2px;
-                           " >{{t}}
+                         hidden ;
+                         box-sizing: border-box;padding: 2px;overflow: hidden;overflow-y: hidden;
+                           " >{{t.value||'empty'}}
+                            </div>
+                            <div tookit role="text"></div>
                         </div>
-                        <span  tookit role="text"></span>
 
                     </div>
+
+
+
+
 
                     <!--Text Editor div end-->
                 </div>
                 <!--main canvas div end-->
+
             </td>
             <td style="width:20%; height: 100%;background-color: lightgray ">
 
