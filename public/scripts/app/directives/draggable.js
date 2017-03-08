@@ -17,6 +17,7 @@ directive('draggable', ['$document','$log' , function($document,$log) {
             elm.css({position: 'absolute'});
             $log.debug("dragable enabled status ::",scope.enabled);
             if(scope.enabled) {
+
                 elm.bind('mousedown', function($event) {
 
                     startX = elm.prop('offsetLeft');
@@ -25,10 +26,9 @@ directive('draggable', ['$document','$log' , function($document,$log) {
                     initialMouseY = $event.clientY;
                     $document.bind('mousemove', mousemove);
                     $document.bind('mouseup', mouseup);
-
-                       // $event.target.element.select;
-                       $event.target.select();
-                       $event.target.input();
+                   /* $event.target.select();
+                    $event.target.input();*/
+                    
 
                     return false;
                 });
@@ -49,7 +49,7 @@ directive('draggable', ['$document','$log' , function($document,$log) {
 
             function mouseup() {
                 $document.unbind('mousemove', mousemove);
-                $document.unbind('mouseup', mouseup);
+                $document.unbind('mouseu$event.target.p', mouseup);
             }
 
 

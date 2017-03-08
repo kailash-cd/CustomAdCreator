@@ -1,44 +1,70 @@
 <style>
+    .csvRecordsTable
+    {
+        margin-top: 181px;
+        margin: auto;
+        width: 60%;
+        border: 1px solid black
+
+    }
     th,td{
-        border:1px solid black;
+
+        padding: 10px;
+    }
+    th{
+        background-color: #f08519;
+        text-align: center;
+        color: whitesmoke;
+    }
+    tr:nth-child(odd)
+    {
+        background-color:lightgray;
+    }
+    tr,td,th{
+        border: 1px solid black;
+        text-align: center;
+    }
+    .tableContainer{
+        margin-top: 140px;
+    }
+    button{
+        width: 150px;
+        height: 50px;
+        background-color: grey;
+        border-radius: 5px;
     }
 </style>
-
-<div>
-    <input type="file" ng-model-instant id="fileToUpload" name="file" accept=".csv" onchange="angular.element(this).scope().uplaodFile(event)" />
-</div>
-<div>
-    <input type="checkbox" ng-model="business" ng-change="selectHeader()">Business
-    <input type="checkbox" ng-model="street" ng-change="selectHeader()">Street
-    <input type="checkbox" ng-model="city" ng-change="selectHeader()">City
-    <input type="checkbox" ng-model="state" ng-change="selectHeader()">State
-    <input type="checkbox" ng-model="zip" ng-change="selectHeader()">Zip
-    <input type="checkbox" ng-model="country" ng-change="selectHeader()">Country
-    <input type="checkbox" ng-model="lat" ng-change="selectHeader()">Lat
-    <input type="checkbox" ng-model="long" ng-change="selectHeader()">Long
-</div>
-<div style="margin-top: 10px">
-    <table style="width: 100%; border:1px solid black;;">
+<div class="tableContainer">
+    <table class="csvRecordsTable">
         <tr>
-            <th>Business</th>
-            <th>Street</th>
-            <th>City</th>
-            <th>State</th>
-            <th>zip</th>
-            <th>country</th>
-            <th>latitude</th>
-            <th>longitude</th>
+            <th>Sr</th>
+            <th>FileName</th>
+            <th>Headers</th>
+            <th>Actions</th>
         </tr>
-        <tr ng-repeat="x in list">
-            <td>{{x.business}}</td>
-            <td>{{x.street}}</td>
-            <td>{{x.city}}</td>
-            <td>{{x.state}}</td>
-            <td>{{x.zip}}</td>
-            <td>{{x.country}}</td>
-            <td>{{x.lat}}</td>
-            <td>{{x.long}}</td>
+        <tr>
+            <td>1</td>
+            <td>shiv.csv<br>0 records</td>
+            <td>street, city,state,zip,country</td>
+            <td><button>view/edit data</button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>ram.csv</td>
+            <td>street, city,state,zip,country</td>
+            <td><button>view</button></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>rahim.csv</td>
+            <td>street, city,state,zip,country</td>
+            <td><button>view</button></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>tata.csv</td>
+            <td>street, city,state,zip,country</td>
+            <td><button>view</button></td>
         </tr>
     </table>
-</div>
 </div>

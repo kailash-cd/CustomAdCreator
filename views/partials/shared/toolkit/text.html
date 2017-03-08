@@ -5,13 +5,13 @@
         visibility: visible;
         width: 180px;
         height: 36px;
-        background: rgba(233, 77, 81,0.68);
+        background: rgba(51, 46, 46, 0.68);
         opacity: 2;
         z-index: -1;
         position: absolute;
         cursor: pointer;
         transition: .2s;
-        top: 30px;
+        top:{{canvasJSON.textToolkitMargin}}px;
 
     }
 
@@ -23,13 +23,12 @@
     }
 </style>
 <div  class="textIcon" >
-
     <p style="color:whitesmoke;margin-top: 4%"><span   class="glyphicon glyphicon-text-size" ng-click="canvasJSON.fontSizeOption=!canvasJSON.fontSizeOption" title="text-size"></span>&nbsp;
         &nbsp;&nbsp;<span ng-click="canvasJSON.fontOption =! canvasJSON.fontOption;changeFontStyle()" class="glyphicon glyphicon-font" title="font-face"></span>
         &nbsp;&nbsp;&nbsp;<span ng-click="fontColorChange()"class="glyphicon glyphicon-text-color" title="text-color"></span>&nbsp;&nbsp;&nbsp;<span ng-click="openFontBackgroundChooser()"class="glyphicon glyphicon-text-background" title="text-background"></span>&nbsp;
         &nbsp;&nbsp;<span class="glyphicon glyphicon-refresh" ng-click="textBoxRefresh(0)" title="reset"></span>&nbsp;
         &nbsp;&nbsp;<span ng-click="deleteTextBox(canvasJSON.newTextBoxId)" class="glyphicon glyphicon-trash" title="delete"></span>
-    <div style="background-color: #b23b3b; padding: 5px; margin-top: -10px">
+    <div style="background-color: rgba(226, 124, 19, 0.75); padding: 5px; margin-top: -10px">
         <input type="number" ng-show="canvasJSON.fontSizeOption" title="font-size" id="fontSize" ng-model="canvasJSON.fontSize"/>
         <select style="margin-top: 0px" ng-show="canvasJSON.fontOption" style="margin-left: 71px" title="font-face" ng-model="canvasJSON.selectFont">
             <option ng-repeat="y in canvasJSON.fontArt">{{y}}</option>

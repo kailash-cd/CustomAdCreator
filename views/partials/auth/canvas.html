@@ -32,7 +32,7 @@
     }
     th{
 
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid #888888;
 
     }
     .errorClass {
@@ -46,13 +46,15 @@
 <div ng-include src="'/partials/shared/navbar.html'"></div>
 
 <div>
-    <table style="border: 1px solid black; width:100%; height:479px; table-layout: fixed">
+    <table style="border: 2px solid #888888;; width:100%; height:479px; table-layout: fixed">
+        <tr style="background-color: #f5f5f5">
         <th style="width:50%;">Editor</th>
         <th style="width:20%;">Toolkit</th>
         <th style="width:30%;">Templates</th>
-        <tr style="" >
-            <td style="width:50%;height: 100%;background-color: #d2b5b5;">
-
+        </tr>
+        <tr>
+            <td style="width:50%;height: 100%;background-color: rgba(226, 124, 19, 0.75);">
+                   {{canvasJSON.textToolkitMargin}}
                 <div ng-show="canvasJSON.editToolkit" class="wrapper" style="margin-left:175px;margin-bottom: 221px;">
                     <span style="margin-left:{{canvasJSON.widthCanvas-130}}px" class="glyphicon glyphicon-edit" title="edit"></span>
                     <div class="toolkitIcon" style="color: whitesmoke; width: 200px;height:60px ;">
@@ -73,12 +75,15 @@
                         r-directions="['right','bottom', 'left', 'top']"
 
                      ng-class='{errorClass:canvasJSON.errorMessage}'
-                         style="margin-top: 250px; margin-left:75px;max-width:500px;max-height:300px;  width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;background-size:100% auto;background-repeat:no-repeat;vertical-align: middle;table-layout: fixed">
+                         style="margin-top: 250px; margin-left:75px;max-width:500px;max-height:300px;
+                         width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;
+                         background-size:100% auto;background-repeat:no-repeat;vertical-align: middle;table-layout: fixed">
                     <div><span tookit role="maincanvas"></span></div>
 
 
                     <!--image div start-->
-                    <div ng-show="canvasJSON.newImage" ng-repeat=" i in canvasJSON.canvasLayer[0].images" draggable enabled="true" style="position: absolute">
+                    <div ng-show="canvasJSON.newImage" ng-repeat=" i in canvasJSON.canvasLayer[0].images" draggable enabled="true"
+                         style="position: absolute">
 
                         <div
                                 id= {{'image-'+($index+1)}}
@@ -97,16 +102,22 @@
                     <!--image div end-->
                     <!--Text Editor div start-->
 
-                    <div id="editTextBox" style="position: absolute" draggable enabled="true" ng-repeat="t in canvasJSON.canvasLayer[0].text">
-                        <div  id="{{'textBoxResizable-'+($index+1)}}" resizable
+                    <div id="editTextBox"   style="position: absolute" draggable enabled="true" ng-repeat="t in canvasJSON.canvasLayer[0].text">
+                        <div  id="{{'textBoxResizable-'+($index+1)}}"
+                              ng-mouseleave="textToolkitPosition()"
+                              resizable
                               resize-enable="true"
-                              r-directions="['right','bottom','left','top']" ng-mouseover="resizeBoxId('textBoxResizable-'+($index+1))" style="width: {{canvasJSON.textBoxWidth}}px;height: {{canvasJSON.textBoxHeight}}px;background-color: transparent;margin-top:initial;min-height: 23px;min-width: 30px;max-width:{{canvasJSON.widthCanvas}}px;max-height: {{canvasJSON.heightCanvas}}px " >
+                              r-directions="['right','bottom','left','top']" ng-mouseover="resizeBoxId('textBoxResizable-'+($index+1))"
+                              style="width: {{canvasJSON.textBoxWidth}}px;height: {{canvasJSON.textBoxHeight}}px;
+                              background-color: transparent;margin-top:initial;min-height: 23px;min-width: 30px;
+                              max-width:{{canvasJSON.widthCanvas}}px;max-height: {{canvasJSON.heightCanvas}}px " >
 
                             <div
                                     id="{{'textBox-'+($index+1)}}"
-                                    ng-mouseover="createTextBoxId('textBox-'+($index+1))" ng-show="canvasJSON.newTextBox" editable-text="canvasJSON.canvasLayer[0].text[$index].value"
+                                    ng-mouseover="createTextBoxId('textBox-'+($index+1))"
+                                    ng-show="canvasJSON.newTextBox" editable-text="canvasJSON.canvasLayer[0].text[$index].value"
                                     style="
-                        font-size: {{canvasJSON.fontSize}}px; word-wrap: break-word;overflow:
+                         word-wrap: break-word;overflow:
                          hidden ;
                          box-sizing: border-box;padding: 2px;overflow: hidden;overflow-y: hidden;
                            " >{{t.value||'empty'}}
@@ -125,9 +136,9 @@
                 <!--main canvas div end-->
 
             </td>
-            <td style="width:20%; height: 100%;background-color: lightgray ">
+            <td style="width:20%; height: 100%;background-color: rgb(225,225,225) ">
 
-                <div style="border:2px solid black; display:inline-block;width:100%; height: 100%; ">
+                <div style="border-right:2px solid #888888;border-left: 2px solid #888888; display:inline-block;width:100%; height: 100%; ">
                     Width:<input  type="number"  ng-model="canvasJSON.widthCanvas" ng-keyup="checkOut()" ng-keypress="checkOut()" ng-mouseup="checkOut()" ng-mousedown="checkOut()" ng-keydown="checkOut()"><br><br>
                     Height:<input type="number"  ng-model="canvasJSON.heightCanvas" ng-keyup="checkOut()" ng-keypress="checkOut()" ng-mouseup="checkOut()" ng-keydown="checkOut()" ng-mousedown="checkOut()"><br>
                    <hr><br>
@@ -141,7 +152,7 @@
 
                 </div>
             </td>
-            <td style="width:30%;height: 100%;background-color: linen;" >
+            <td style="width:30%;height: 100%;background-color: #f5f5f5;" >
 
                   <!--<image src="{{image}}" width="300px" height="45px" alt="image not upload" ng-model="image"/>-->
                 <div  class="preview">

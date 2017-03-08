@@ -59,8 +59,12 @@ define(['angular'],function(angular){
                 "newTextBoxId":"textBox-0",
                 "textBoxHeight":30,
                 "textBoxWidth":300,
-                "textTookitMargin":30,
+                "textToolkitMargin":40,
                 "textBoxResizeId":"textBoxResizable-0"
+            },
+            $scope.dynamicSize = {
+                'width' : 350,
+                'height' : 250,
             }
             // $scope.canvasJSON.canvasLayer[0].images.push({id:1, type:"image", formatting:{font:"arial", size:"12px", color:"red"}});
             // {"text":[{"id":1, "value":"This is test", formatting: {"font":"arial", size:12}},
@@ -68,7 +72,6 @@ define(['angular'],function(angular){
             // canvasLayer[0].text.push({id:3, value:canvasJson.editableMessage, formatting:{''}});
             // canvasLayer[0].text[$index].value
             // cavasLayer[0].text[$index].value
-
 
 
 
@@ -191,10 +194,7 @@ define(['angular'],function(angular){
                 }
             })
             //resize element code begins
-            $scope.dynamicSize = {
-                'width' : 350,
-                'height' : 250
-            }
+
 
             $scope.flexbox = true;
             $scope.size = {};
@@ -413,7 +413,18 @@ define(['angular'],function(angular){
                  $scope.canvasJSON.textBoxResizeId=tbId;
 
             }
+            /*textBox toolkie margin*/
+           $scope.textToolkitPosition=function(){
 
+              var element= document.getElementById($scope.newTextBoxId);
+              if(element!=null) {
+                  var positionInfo = element.getBoundingClientRect();
+                  var height = positionInfo.height;
+                  $scope.canvasJSON.textToolkitMargin = height + 10;
+                  $log.info("textToolkitmargin---------:::___", $scope.canvasJSON.textToolkitMargin);
+                  $log.info("textboxheight::::::::", height);
+              }
+           }
         }
     ])
     return newModule;

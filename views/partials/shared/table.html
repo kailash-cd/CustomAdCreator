@@ -1,32 +1,97 @@
 <style>
-    #table{
-        width: 100%;
+    td{
+        border:1px solid black;
+        padding:0px;
+    }
+    th{
+        border:1px solid black;
+        padding:8px;
+        background-color: #1b6d85;
+        color:whitesmoke;
 
     }
-    tr,th,td{
+    tr{
+        background-color: white;
+    }
+    table{
+        left: 23%;
+        width: 80%;
         border: 1px solid black;
+        margin-left: 10%;
+    }
+    .table-shadow{
+        margin-top: 10px;
+        display: block; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+    }
+    /* Add Animation */
+    @-webkit-keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+    }
+
+    @keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+    }
+    .tableBox{
+        margin: 0px;
+        border: none;
+        width:150px;
+        height: 40px;
     }
 
 </style>
-<table id="table" >
-    <tr>
-        <th>BusinessName</th>
-        <th>Street</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip</th>
-        <th>Country</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
-    </tr>
-    <tr ng-repeat="i in csvJSON">
-        <td>{{i.businessName}}</td>
-        <td>{{i.street}}</td>
-        <td>{{i.city}}</td>
-        <td>{{i.state}}</td>
-        <td>{{i.zip}}</td>
-        <td>{{i.country}}</td>
-        <td>{{i.latitude}}</td>
-        <td>{{i.longitude}}</td>
-    </tr>
-</table>
+<div class="table-shadow" >
+    <div style="margin-bottom: 50px">
+        <span style="color: white;
+        font-size: 20px; margin-left: 100px;
+        margin-top: 0px" title="close"
+
+              ng-click="closeTable(tableName)"><b><font size="5">X</font></b></span>
+        <button style="z-index:10;margin-right: 20px;width: 150px; float: right;background-color: whitesmoke;color: #761c19" ng-click="addBlankRow(tableName)">
+            Insert Records
+        </button>
+    </div>
+    <div>
+        <table >
+            <tr>
+                <th colspan="9" style=" text-align: center; background-color: whitesmoke; padding:10px; color: black;> < font size=; font-size: 177%; font-weight: 100; ">
+                    <font size="5">{{tableName}}</font></th></tr>
+            <tr>
+                <th>Business</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Country</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Delete</th>
+            </tr>
+            <tr ng-repeat="x in viewList track by $index">
+                <td><input class="tableBox" type="text" ng-model="x.business"></td>
+                <td><input class="tableBox" type="text" ng-model="x.street"></td>
+                <td><input class="tableBox" type="text" ng-model="x.city"></td>
+                <td><input class="tableBox" type="text" ng-model="x.state"></td>
+                <td><input  style="width: 80px;" class="tableBox" type="text" ng-model="x.zip"></td>
+                <td><input style="width: 80px;" class="tableBox" type="text" ng-model="x.country"></td>
+                <td><input class="tableBox" type="text" ng-model="x.lat"></td>
+                <td><input class="tableBox" type="text" ng-model="x.long"></td>
+                <td><button  class="glyphicon glyphicon-trash" style="color: black;background: white;height: 9%;" ng-click="removeRow(tableName ,$index)"></button></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+<input type="file" style="visibility: hidden;" ng-model-instant id="fileToUpload" name="file" accept=".csv" onchange="angular.element(this).scope().uplaodFile(event)" />
