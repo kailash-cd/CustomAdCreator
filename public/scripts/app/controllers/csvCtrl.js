@@ -7,6 +7,7 @@ define(['angular'],function(angular){
     newModule.controller('csvCtrl', ['$scope', '$location','$log','DataServices','Util','$http',
         function($scope, $location,$log,DataServices,Util,$http) {
             $log.info("Welcome CSV CTRL");
+            $log.info("Welcome",window.innerHeight);
             $scope.addressList = [];
             $scope.dataHeader =[];
             $scope.tempHeader =[];
@@ -17,8 +18,11 @@ define(['angular'],function(angular){
             $scope.list =[];
             $scope.csvFile ={};
             $scope.fileHeader ={};
-            var from = 0,toVal =0,  fileRow;
-
+            $scope.csvFile["Custom Data"] =[{"":""}];
+            $scope.fileHeader["Custom Data"] =["Business","Street","State","City","Zip","Country"];
+            $scope.showCheckBox =false;
+            var from = 0,toVal =0;
+            console.log($scope.csvFile);
             $scope.selectHeader = function (){
                 if($scope.business){
                     if($scope.dataHeader.indexOf("business") == -1){
@@ -119,65 +123,23 @@ define(['angular'],function(angular){
 
                 console.log($scope.tempHeader);
                 $scope.dataHeader = $scope.setHeader($scope.tempHeader);
-                $log.info($scope.dataHeader);
+                $log.info("dataHeaders",$scope.dataHeader);
 
             }
-            /*file upload function*/
-            $scope.fileUpload=function () {
-                document.getElementById('fileToUpload').click();
-            }
-
-            /*            /!*progress bar function*!/
-             $scope.progressBarReader=function (data) {
-             $scope.buttonName ="Geo coding..."
-             $log.info("progress bar called");
-             var elm = document.getElementById('myBar');
-             var w = 0;
-             var interval = setInterval(speed, 10);
-             function speed() {
-             if(data.status!='failure') {
-             document.getElementById('progressNumber').innerHTML=" ";
-             if (w >= 100) {
-             clearInterval(interval);
-             var e= document.getElementById('progressNumber');
-             e.style.marginLeft='520px'
-             e.innerHTML = "<font id='progressFont' color='green'>Uploaded successfully</font>"
-             $scope.$apply(function () {
-             $scope.buttonName ="View/Edit Data";
-             })
-             setTimeout(function () {
-             document.getElementById('progressFont').innerHTML="<font color='white'>loading....</font>";
-             document.getElementById('myProgress').style.visibility="hidden";
-             e.style.marginLeft='560px'
-             e.style.visibility="hidden";
-             elm.style.width=0;
-             w=0;
-
-             $log.info("file addressing",$scope.fileAddressing);
-
-             },1000);
-
-
-             }
-             else {
-             w++;
-             elm.style.width = w + '%';
-             document.getElementById('progressNumber').innerText = w + '%';
-             }
-             }else
-             {
-             document.getElementById('progressNumber').innerHTML="<font color='red'>failed<font>";
-             }
-             }
-             }*/
-
 
             $scope.overLayClose =function (evt) {
                 if(evt.target.id === "overlay"){
                     $scope.closeTable($scope.tableName)
                     resetDispalyField($scope.tableName);
                 };
+            }
 
+            $scope.closePopup =function (evt) {
+                console.log("target is" ,evt.target.id);
+                if(evt.target.id == "main" || evt.target.id == undefined||evt.target.id == "Container"){
+                    $scope.showCheckBox =false;
+                    $log.info("Check Boxes Hide",$scope.showCheckBox);
+                };
             }
 
             angular.element("body").on('keydown',function (e) {
@@ -185,6 +147,7 @@ define(['angular'],function(angular){
                 if(!angular.element("#overlay").hasClass("ng-hide") && e.which == 27 ){
                     resetDispalyField($scope.tableName);
                     $scope.tableShow =false;
+                    $scope.showCheckBox =false;
                     angular.element("#overlay").addClass("ng-hide");
                     $log.info("Popup Closed");
                     $log.info("Esc Key Code Fired",e.which);
@@ -193,17 +156,17 @@ define(['angular'],function(angular){
 
             /*table view function*/
             $scope.viewTable=function (fName) {
+                $log.info("View Table For :",fName);
                 angular.element("#overlay").removeClass("ng-hide");
                 $scope.tableName =fName;
                 $scope.viewList = $scope.csvFile[fName];
                 getDisplayField(fName);
-                $scope.tableShow =true;
-
-
             }
 
 
             function getDisplayField(field) {
+                $log.info("Get Display Field Called For :",$scope.fileHeader);
+                resetDispalyField(field);
                 if(field != "Custom Data"){
                     for(var i=0;i<$scope.fileHeader[field].length;i++){
                         if($scope.fileHeader[field][i]=="business") {
@@ -231,17 +194,24 @@ define(['angular'],function(angular){
                     $scope.showZip =true;
                     $scope.showCountry =true;
                     $scope.showState =true;
+                    $scope.showCity =true;
                 }
+                /*                safeApply();*/
+                $scope.tableShow =true;
+                console.log("Displaying","Business",$scope.showBussiness,"Street",$scope.showStreet,"Zip:",$scope.showZip,"COUNTRY" ,$scope.showCountry,"state",$scope.showState)
             }
 
             function resetDispalyField(field) {
+                console.log("Reseting",field);
                 if(field != "Custom Data"){
                     $scope.showBussiness =false;
                     $scope.showStreet =false;
                     $scope.showZip =false;
                     $scope.showCountry =false;
-                    $scope.showState =false;
+                    $scope.showCity =false;
+
                 }
+                $scope.showCheckBox =false;
             }
 
             $scope.formatAddress =function(tempData){
@@ -251,8 +221,18 @@ define(['angular'],function(angular){
                 for(var i=0;i<keys.length; i++){
                     for(var j=0;j<addresskeys.length; j++){
                         if(addresskeys[j].toLowerCase() === keys[i].toLowerCase()){
-                            address.lat=tempData[keys[i]].split(",")[0];
-                            address.long=tempData[keys[i]].split(",")[1];
+                            if(parseFloat(tempData[keys[i]].split(",")[0])==0.0){
+                                address.lat="";
+                            }else {
+                                address.lat=parseFloat(tempData[keys[i]].split(",")[0]);
+                            }
+
+                            if(parseFloat(tempData[keys[i]].split(",")[1])==0.0){
+                                address.long="";
+                            }else {
+                                address.long=parseFloat(tempData[keys[i]].split(",")[1]);
+                            }
+
                             for(var l=0;l<$scope.tempAddress[addresskeys[j]].length;l++){
                                 if($scope.tempAddress[addresskeys[j]][l].field == "business"){
                                     address.business =$scope.tempAddress[addresskeys[j]][l].value;
@@ -397,18 +377,20 @@ define(['angular'],function(angular){
                     console.log("Total Value Is heigher",toVal ,$scope.addressContent.length);
                     $scope.csvFile[$scope.fileName] =  $scope.list;
                     $scope.fileHeader[$scope.fileName] =  $scope.dataHeader;
-
+                    $scope.dataHeader=[];
                     $scope.addressContent =[];
                     $scope.list =[];
                     $log.info($scope.csvFile);
+                    $scope.fileProgress="";
+                    showMsg("File Uploaded Successfully","success");
                     $log.info($scope.fileHeader);
                     toVal = 0;
                     from =0;
-                    document.getElementById("uploadBtn").className =' ';
+                    /*                    document.getElementById("uploadBtn").className =' ';*/
                     return
                 }else {
+                    showMsg("Please Wait While Uploading..","progress");
                     console.log(angular.element("#btnUpload"));
-                    document.getElementById("uploadBtn").className ='m-progress';
                     console.log("toValue Incremented",toVal,"From value",from);
                     toVal = toVal + 100;
                 }
@@ -424,7 +406,6 @@ define(['angular'],function(angular){
 
             function getLatLong(){
                 if (!$scope.lat && !$scope.long && $scope.addressChunk.length > 0) {
-
                     $http({
                         method: 'POST',
                         url: '/api/getApi',
@@ -432,7 +413,6 @@ define(['angular'],function(angular){
                         headers: {"Content-Type": "application/json"},
                     }).success(function (data, status, header, config) {
                         $log.info("Geo Data",data);
-                        /*   $scope.fileAddressing.push({"fileName":$scope.fileName,"fileRow":fileRow});*/
                         if(data["data"]){
                             $scope.formatAddress(data["data"]);
                         }
@@ -445,6 +425,8 @@ define(['angular'],function(angular){
                         document.getElementById('progressNumber').innerHTML="<font color='red'>GeoCode failed<font>";
 
                     })
+                }else {
+
                 }
             }
             $scope.addCustom = function () {
@@ -488,15 +470,15 @@ define(['angular'],function(angular){
                     if (!$scope.csvFile[keyField][i].lat && !$scope.csvFile[keyField][i].long) {
                         var tempRow = " ";
                         tempRow = $scope.evaluateKeyField($scope.csvFile[keyField][i]);
-                        if(tempRow !=undefined){
+                        if(tempRow != undefined){
                             tempAdrsContent.push(tempRow);
                         }
                         console.log(tempAdrsContent);
-                        if (tempAdrsContent[0] == undefined) {
-                            $scope.tableShow = false;
-                            return;
-                        }
                     }
+                }
+                if (tempAdrsContent[0] == undefined) {
+                    $scope.tableShow = false;
+                    return;
                 }
                 if (!$scope.lat && !$scope.long && tempAdrsContent.length > 0 && tempAdrsContent != undefined ) {
                     console.log("Address Contect Length :",tempAdrsContent.length);
@@ -526,9 +508,18 @@ define(['angular'],function(angular){
                                             console.log("key",keys[i]);
                                             console.log("address",addressKey);
                                             console.log("In progress.......")
-
-                                            $scope.csvFile[keyField][k].lat = latLongData[keys[i]].split(",")[0];
-                                            $scope.csvFile[keyField][k].long = latLongData[keys[i]].split(",")[1];
+                                            if(parseFloat(latLongData[keys[i]].split(",")[0]) == 0.0){
+                                                $scope.csvFile[keyField][k].lat ="";
+                                            }else {
+                                                $scope.csvFile[keyField][k].lat = parseFloat(latLongData[keys[i]].split(",")[0]);
+                                            }
+                                            if(parseFloat(latLongData[keys[i]].split(",")[1]) == 0.0){
+                                                $scope.csvFile[keyField][k].long ="";
+                                            }else {
+                                                $scope.csvFile[keyField][k].long = parseFloat(latLongData[keys[i]].split(",")[1]);
+                                            }
+                                            /*                                                  $scope.csvFile[keyField][k].lat = parseFloat(latLongData[keys[i]].split(",")[0]);
+                                             $scope.csvFile[keyField][k].long = parseFloat(latLongData[keys[i]].split(",")[1]);*/
                                         }
                                     }
                                 }
@@ -543,50 +534,119 @@ define(['angular'],function(angular){
                 $scope.tableShow=false;
             }
 
+            $scope.showHeaders =function () {
+                console.log("show Header Clicked")
+                if($scope.showCheckBox){
+                    $scope.showCheckBox =false;
+                    console.log("CheckBox Visible")
+                }else {
+                    console.log("CheckBox are Not Visible")
+                    $scope.showCheckBox =true;
+                }
+            }
 
-            $scope.uplaodFile=function(evt){
+            function safeApply() {
+                if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                    $scope.$apply();
+                }
+            }
+
+            function showMsg(text,type) {
+                console.log("Show",type,"Msg" );
+                if(type ==="error"){
+                    $scope.fileError=text;
+                    safeApply();
+                    console.log($scope.fileError);
+                    setTimeout(function () {
+                        $scope.fileError="";
+                        safeApply();
+                    },2000)
+                }
+                if(type ==="progress"){
+                    $scope.fileProgress=text;
+
+                }
+                if(type ==="success"){
+                    safeApply();
+                    $scope.fileSuccess=text;
+                    setTimeout(function () {
+                        $scope.fileSuccess="";
+                        safeApply();
+                    },2000)
+                }
+            }
+
+            function checkFile(fileName,fileExt,fileData,fileHeader) {
+                if(fileExt != "csv"){
+                    $log.info("File Is Not CSV Type");
+                    showMsg("File Is Not CSV Type","error");
+                    return;
+                }
+                if (fileData !=undefined && fileData.length >0){
+                    $log.info("Checking Files");
+                    if(fileData[0].length < fileHeader.length)
+                    {
+                        console.log(fileData.length < fileHeader.length);
+                        $log.info("data Header",fileHeader.length);
+                        $log.info("addressList[0]",fileData.length);
+                        console.log("File Header Is Invalid");
+                        showMsg("Header Mismatch","error");
+                        return;
+                    }
+                }else{
+                    $log.info("File Length",fileData.length);
+                    showMsg("No Records To Process","error");
+                    console.log("File Is Empty");
+                    return;
+                }
+            }
+            var uplaodFile =function (evt){
                 console.log("Files Upload Changed");
+                $scope.showCheckBox =false;
                 if(!$scope.business&& !$scope.street&& !$scope.city&& !$scope.state && !$scope.country && !$scope.latitude && !$scope.long){
                     console.log("Every Thing is False");
-                    $scope.business =true;
+                    $scope.country =true;
                     $scope.street =true;
                     $scope.city =true;
                     $scope.state =true;
                     $scope.zip =true;
                     $scope.selectHeader();
                 }
+
                 console.log(evt);
                 var file= evt.target.files[0];
                 $scope.fileName = file.name;
                 $scope.fileExt = file.name.split(".")[1];
-
-                if($scope.fileExt != "csv"){
-                    $log.error("File Is Not CSV Type");
-                    $scope.fileError = "File Is Not CSV Type"
-                    return;
-                }
-
                 $log.info($scope.fileExt);
-
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     try {
                         $scope.addressList =  $scope.CSVToArray(e.target.result);
                         $log.info("-----CSV To JSON------",$scope.addressList);
                         var csvData=e.target.result;
-                        var allTextLines=csvData.split(/\r\n|\n/);
-                        fileRow=allTextLines.length-1;
-                        /*
-                         if($scope.addressList[0].length<$scope.dataHeader.length)
-                         {
-                         var error = document.getElementById('progressNumber');
-                         error.innerHTML="<font color='red'>file formatting error<font>";
+                        checkFile($scope.fileName,$scope.fileExt,$scope.addressList,$scope.dataHeader);
 
-                         }
-                         */
+                        if($scope.business && $scope.street && $scope.city && $scope.state && $scope.country && $scope.lat && $scope.long && $scope.addressList[0].length ==8){
+                            $log.info("All Header Present");
+                            var list =[]
+                            for(var i=0;i<$scope.addressList.length;i++){
+                                var fileRow =$scope.addressList[i];
+                                list.push({business:fileRow[0],street:fileRow[1],city:fileRow[2],state:fileRow[3],zip:fileRow[4],country:fileRow[5],lat:parseFloat(fileRow[6]),long:parseFloat(fileRow[7])})
+                                console.log("List Parsing :",list);
+                            }
+                            $scope.csvFile[$scope.fileName ]=list;
+                            $scope.fileHeader[$scope.fileName ] =["business","street","state","city","zip","country","latitude","longitude"];
+                            console.log($scope.csvFile);
+                            console.log("Exiting All Header");
+                            safeApply();
+                            return;
+                        }
+                        console.log($scope.addressList[0].length < $scope.dataHeader.length);
+                        $log.info("data Header",$scope.dataHeader.length);
+                        $log.info("addressList[0]",$scope.addressList[0].length);
                         $log.info($scope.addressList.length);
                         if($scope.addressList.length > 0) {
-                            document.getElementById("uploadBtn").className ='m-progress';
+                            /!*   document.getElementById("uploadBtn").className ='m-progress';*!/
                             for (var i = 0; i < $scope.addressList.length; i++) {
                                 $log.info($scope.addressList[i]);
                                 if ($scope.business) {
@@ -620,18 +680,29 @@ define(['angular'],function(angular){
                             }
                             $log.info("Final Content", $scope.addressContent);
                             getNextChunk();
-                        }else {
-                            document.getElementById('progressNumber').innerHTML="<font color='red'>File Is Empty<font>";
-                            $log.error("File Is Empty");
-                            return;
                         }
-
                     }
                     catch (error){
+                        console("Exception Occured while Reading");
                     }
 
                 };
                 reader.readAsText(file);
+            }
+            $scope.fileUpload=function () {
+                $scope.showCheckBox =false;
+                var x = document.createElement("INPUT");
+                x.setAttribute("type", "file");
+                x.setAttribute("id", "fileToUpload");
+                x.setAttribute("accept", ".csv");
+                x.click();
+                x.addEventListener(
+                    'change',
+                    uplaodFile,
+                    false
+                );
+
+
             }
         }
     ]);

@@ -11,7 +11,7 @@ define(['angular'],function(angular){
                 rWidth: "=",
                 rHeight: "=",
                 rFlex: "=",
-                resizeEnable:"="
+                resizeEnable:"=",
             },
             link: function(scope, element, attr) {
 
@@ -23,6 +23,15 @@ define(['angular'],function(angular){
                 });
                 scope.$watch('rHeight', function(value){
                     element[0].style.height = scope.rHeight + 'px';
+                    var t=document.getElementById('textBoxToolkit');
+                    if(t!=null)
+                    {
+                        t.style.top=(scope.rHeight+10)+"px";
+                        $log.info("rHeight",scope.rHeight+10);
+                    }
+
+
+
                 });
 
                 element.addClass('resizable');

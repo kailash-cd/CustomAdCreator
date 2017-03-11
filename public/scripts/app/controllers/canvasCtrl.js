@@ -1,6 +1,6 @@
 define(['angular'],function(angular){
     'use strict';
-    var newModule = angular.module('canvasCtrl',["xeditable"]);
+    var newModule = angular.module('canvasCtrl',["xeditable","angular-img-cropper"]);
 
     newModule.controller('canvasCtrl', ['$scope','$rootScope','$compile', '$location','$log','$timeout','DataServices','Util','$http',
         function ($scope,$rootScope,$compile, $location,$log,$timeout,DataServices,Util,$http) {
@@ -14,8 +14,8 @@ define(['angular'],function(angular){
                 },
                 "openCroppableImage":false,
                 "editableMessage":"write your message here and drag any where",
-                "widthCanvas":300,
-                "heightCanvas":250,
+                "widthCanvas":450,
+                "heightCanvas":350,
                 "colorPickerCanvasBackground":"red",
 
                 "colorPickerFontColor":"black",
@@ -59,8 +59,9 @@ define(['angular'],function(angular){
                 "newTextBoxId":"textBox-0",
                 "textBoxHeight":30,
                 "textBoxWidth":300,
-                "textToolkitMargin":40,
-                "textBoxResizeId":"textBoxResizable-0"
+                "textBoxResizeId":"textBoxResizable-0",
+
+
             },
             $scope.dynamicSize = {
                 'width' : 350,
@@ -81,17 +82,17 @@ define(['angular'],function(angular){
                 $scope.checkOut=function()
                 {
                     var msg="";
-                    if(parseInt($scope.canvasJSON.widthCanvas)>500 || parseInt($scope.canvasJSON.widthCanvas)<250)
+                    if(parseInt($scope.canvasJSON.widthCanvas)>450 || parseInt($scope.canvasJSON.widthCanvas)<250)
                     {
-                        msg="min to max width can be 250px to 500px";
-                        $scope.canvasJSON.widthCanvas=300;
+                        msg="min to max width can be 250px to 450px";
+                        $scope.canvasJSON.widthCanvas=450;
 
                     }
                      else
-                    if(parseInt($scope.canvasJSON.heightCanvas)>500||parseInt($scope.canvasJSON.heightCanvas)<50)
+                    if(parseInt($scope.canvasJSON.heightCanvas)>350||parseInt($scope.canvasJSON.heightCanvas)<50)
                     {
-                        msg="min to max height can be 50px to 500px ";
-                        $scope.canvasJSON.heightCanvas=250;
+                        msg="min to max height can be 50px to 350px ";
+                        $scope.canvasJSON.heightCanvas=350;
                     }
                     else
                     {
@@ -235,6 +236,13 @@ define(['angular'],function(angular){
                   document.getElementById('maincanvas').style.backgroundImage="url()";
                   document.getElementById('maincanvas').style.backgroundColor="white";
               }
+              /*image refresh function*/
+              $scope.imageRefresh=function () {
+                   $log.info("image refresh function is working");
+                   $log.info($scope.canvasJSON.newImageId);
+                  document.getElementById($scope.canvasJSON.newImageId).style.backgroundImage="url('./images/placeholder.png')";
+              }
+
               /*createIdFunction start*/
                  $scope.createIdFunction=function(dynamicDivId)
                 {
@@ -250,16 +258,16 @@ define(['angular'],function(angular){
                     });
 
                     window.openFile = function (event) {
-                        var input = event.target;
+                        var file = event.target.files[0];
 
                         var reader = new FileReader();
                         reader.onload = function () {
                             $scope.canvasJSON.imagePath = reader.result;
-
                             document.getElementById(canvasLayerId).style.backgroundImage = "url(" + $scope.canvasJSON.imagePath + ")";
-
                         };
-                        reader.readAsDataURL(input.files[0]);
+                        var imageUrl=reader.readAsDataURL(file);
+
+
                     };
                 }
 
@@ -273,15 +281,10 @@ define(['angular'],function(angular){
                         //                                     "layerId":$scope.canvasJSON.dynamicImageId,
                         //                                     "layerIndex":($scope.canvasJSON.canvasLayer.length+1) });
                         //             $log.info("layerId::",$scope.canvasJSON.canvasLayer.layerId);
-
                           $scope.canvasJSON.editToolkit=true;
                           $scope.canvasJSON.newImage=true;
-                           // $scope.canvasJSON.count=$scope.canvasJSON.count+1;
                           $scope.canvasJSON.canvasLayer[0].images.push({"imageId":$scope.canvasJSON.newImageId,"type":"Image"});
                           $log.info("ImageId in Json::::",$scope.canvasJSON.canvasLayer[0].images);
-
-                          // $log.info("layer Id",$scope.canvasJSON.canvasLayer.layerId);
-                          // $log.info("layerType",$scope.canvasJSON.canvasLayer.layerType);
 
                    }
 
@@ -299,9 +302,17 @@ define(['angular'],function(angular){
                 $scope.openCroppableImage=true;
 
             }
+            /*watching for image crop*/
+
+                $scope.$watch("cropper.croppedImage",function () {
+                    document.getElementById($scope.canvasJSON.newImageId).style.backgroundImage="url("+$scope.cropper.croppedImage+")"
+
+                });
+
             $scope.closeCroppableImage=function () {
                 $scope.openCroppableImage=false;
             }
+
             /*editable text code*/
             $scope.editableTextMessage=function () {
                 $scope.canvasJSON.maincanvasHoverEnable=" ";
@@ -323,7 +334,8 @@ define(['angular'],function(angular){
                 var checkNull=document.getElementById($scope.canvasJSON.textBoxResizeId);
                 if(checkNull!=null) {
                     document.getElementById($scope.canvasJSON.textBoxResizeId).style.backgroundColor = $scope.canvasJSON.fontBackgroundColor
-                    // document.getElementById($scope.canvasJSON.newTextBoxId).style.border="1px solid "+$scope.canvasJSON.fontBackgroundColor;
+
+                    document.getElementById($scope.canvasJSON.textBoxResizeId).style.border="1px solid "+$scope.canvasJSON.fontBackgroundColor;
                 }
             });
                /*font background color change function end*/
@@ -369,9 +381,9 @@ define(['angular'],function(angular){
             $scope.$watch("canvasJSON.fontSize",function () {
                 var checkNull=document.getElementById($scope.canvasJSON.newTextBoxId);
                 if(checkNull!=null) {
-                    document.getElementById($scope.canvasJSON.newTextBoxId).style.fontSize=$scope.canvasJSON.fontSize;
+                    document.getElementById($scope.canvasJSON.newTextBoxId).style.fontSize=$scope.canvasJSON.fontSize+"px";
                    // var result= $scope.canvasJSON.editableMessage.fontsize($scope.canvasJSON.fontSize);
-                   //   document.getElementById($scope.canvasJSON.newTextBoxId).innerHTML=result;
+                   //   document.getElementById($scope.canvasJSON.newTextBoxId).innerH  TML=result;
 
                     $log.info("fontsize",$scope.canvasJSON.fontSize);
                 }
@@ -404,7 +416,7 @@ define(['angular'],function(angular){
             $scope.textBoxRefresh=function () {
                 document.getElementById($scope.canvasJSON.textBoxResizeId).style.backgroundColor="transparent";
                 document.getElementById($scope.canvasJSON.newTextBoxId).style.color="#2a7ccc";
-                document.getElementById($scope.canvasJSON.newTextBoxId).style.border=" ";
+                document.getElementById($scope.canvasJSON.textBoxResizeId).style.border="1px solid beige";
 
 
             }
@@ -413,18 +425,10 @@ define(['angular'],function(angular){
                  $scope.canvasJSON.textBoxResizeId=tbId;
 
             }
-            /*textBox toolkie margin*/
-           $scope.textToolkitPosition=function(){
+            $scope.$watch("textBoxHeight",function () {
+                $log.info("height changed");
+            });
 
-              var element= document.getElementById($scope.newTextBoxId);
-              if(element!=null) {
-                  var positionInfo = element.getBoundingClientRect();
-                  var height = positionInfo.height;
-                  $scope.canvasJSON.textToolkitMargin = height + 10;
-                  $log.info("textToolkitmargin---------:::___", $scope.canvasJSON.textToolkitMargin);
-                  $log.info("textboxheight::::::::", height);
-              }
-           }
         }
     ])
     return newModule;

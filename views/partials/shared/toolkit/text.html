@@ -7,11 +7,11 @@
         height: 36px;
         background: rgba(51, 46, 46, 0.68);
         opacity: 2;
-        z-index: -1;
+        z-index: -90;
         position: absolute;
         cursor: pointer;
         transition: .2s;
-        top:{{canvasJSON.textToolkitMargin}}px;
+        top:40px;
 
     }
 
@@ -22,7 +22,7 @@
         height:18px;
     }
 </style>
-<div  class="textIcon" >
+<div  class="textIcon" id="textBoxToolkit" >
     <p style="color:whitesmoke;margin-top: 4%"><span   class="glyphicon glyphicon-text-size" ng-click="canvasJSON.fontSizeOption=!canvasJSON.fontSizeOption" title="text-size"></span>&nbsp;
         &nbsp;&nbsp;<span ng-click="canvasJSON.fontOption =! canvasJSON.fontOption;changeFontStyle()" class="glyphicon glyphicon-font" title="font-face"></span>
         &nbsp;&nbsp;&nbsp;<span ng-click="fontColorChange()"class="glyphicon glyphicon-text-color" title="text-color"></span>&nbsp;&nbsp;&nbsp;<span ng-click="openFontBackgroundChooser()"class="glyphicon glyphicon-text-background" title="text-background"></span>&nbsp;

@@ -1,4 +1,181 @@
 <style>
+    body{
+        font-family: "Segoe UI",Arial,sans-serif;
+    }
+    .displayCheckBox{
+        display: block;
+        margin-top: 3px;
+        margin-left: 75%;
+        width: 170px;
+        border: 1px solid #f08519;
+        font-size: 12px !important;
+        position: absolute;
+        background: whitesmoke;
+    }
+
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .location{
+        font-size: 200%;
+        margin-left: 42%;
+    }
+    button{
+        padding: 10px;
+        border:none;
+        color: whitesmoke;
+        border-radius: 8px;
+        background-color: #f08519;
+        width: 100%;
+        height: 40px;
+        font-family: "Lucida Grande", "Arial", sans-serif;
+        font-size: larger;
+        border: 1px solid #f08519;
+    }
+
+    button:hover{
+        background: white;
+        color: #f08519;
+        border: 1px solid #f08519;
+    }
+    .fontName{
+        font-size: 18px;
+    }
+
+    @-webkit-keyframes ld {
+        0%   { transform: rotate(0deg) scale(1); }
+        50%  { transform: rotate(180deg) scale(1.1); }
+        100% { transform: rotate(360deg) scale(1); }
+    }
+    @-moz-keyframes ld {
+        0%   { transform: rotate(0deg) scale(1); }
+        50%  { transform: rotate(180deg) scale(1.1); }
+        100% { transform: rotate(360deg) scale(1); }
+    }
+    @-o-keyframes ld {
+        0%   { transform: rotate(0deg) scale(1); }
+        50%  { transform: rotate(180deg) scale(1.1); }
+        100% { transform: rotate(360deg) scale(1); }
+    }
+    @keyframes ld {
+        0%   { transform: rotate(0deg) scale(1); }
+        50%  { transform: rotate(180deg) scale(1.1); }
+        100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .m-progress {
+        position: relative;
+        color: transparent !important;
+        text-shadow: none !important;
+    }
+
+    .m-progress:hover,
+    .m-progress:active,
+    .m-progress:focus {
+        cursor: default;
+        color: transparent;
+        outline: none !important;
+        box-shadow: none;
+    }
+    .btn{
+        width: 9%;
+        background: #f08519;
+    }
+    .m-progress:before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        background: transparent;
+        border: 1px solid #fff;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        box-sizing: border-box;
+        top: 50%;
+        left: 50%;
+        margin-top: -12px;
+        margin-left: -12px;
+        width: 24px;
+        height: 24px;
+        animation:ld 0.5s ease-in-out infinite;
+    }
+
+    .csvPageHeader
+    {  float: left;
+        background-color: black;
+        color:white;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+    }
+    #myBar{
+        width:0%;
+        background-color: #5bc0de;
+        height: 20px;
+    }
+    #myProgress{
+        width: 25%;
+        background-color: #ddd;
+    }
+    .visible{
+        display: block;
+    }
+    .notVisible{
+        display: none;
+    }
+    .displayCheckBox label{
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: 400;
+        font-size: 136%;
+    }
+    .displayCheckBox input[type="checkbox"]{
+        height: 13px;
+        width: 19px;
+    }
+    .popupheader{
+        background: #f08519;
+        color: white;
+        width: 100%;
+        font-size: 136%;
+    }
+    .dataHeader{
+        display: flex;
+        color: darkgrey;
+    }
+    .fileTitle{
+        font-size: 130%;
+        font-weight: 500;
+        color: #f08519;
+    }
+    .upldBtn{
+        cursor: pointer;
+        color: #f08519;
+        font-size: 105%;
+        font-weight: 800;
+        margin-left: 5%;
+    }
+    .fileHeaders{
+        display: inline-block;
+        margin-top: 5%;
+        margin-left: 65%;
+        width: 25%;
+    }
+    .arrow-right {
+        width: 0;
+        height: 0;
+        border-top: 60px solid transparent;
+        border-bottom: 60px solid transparent;
+
+        border-left: 60px solid green;
+    }
     .csvRecordsTable
     {
         margin-top: 181px;
@@ -7,64 +184,183 @@
         border: 1px solid black
 
     }
-    th,td{
-
-        padding: 10px;
+    .tableContainer th,td{
+        padding: 5px;
     }
-    th{
+    .tableContainer th{
         background-color: #f08519;
         text-align: center;
         color: whitesmoke;
     }
-    tr:nth-child(odd)
-    {
-        background-color:lightgray;
-    }
-    tr,td,th{
+    .tableContainer tr:nth-child(even) {background: rgba(204, 204, 204, 0.13)}
+    .tableContainer tr:nth-child(odd) {background: white}
+    .tableContainer tr,td,th{
         border: 1px solid black;
         text-align: center;
     }
     .tableContainer{
-        margin-top: 140px;
+        margin-top: 1%;
     }
-    button{
-        width: 150px;
-        height: 50px;
-        background-color: grey;
-        border-radius: 5px;
+
+    .tableContainer button{
+        padding: 10px;
+        border: none;
+        color: #f08519;
+        height: 40px;
+        font-family: "Lucida Grande", "Arial", sans-serif;
+        background: none;
+        width: inherit;
+    }
+    .error{
+        cursor: pointer;
+        color: white;
+        font-size: 108%;
+        font-weight: 800;
+        border: 1px solid;
+        border-radius: 10px;
+        padding: 8px;
+        background: rgba(255, 0, 0, 0.55);
+    }
+    .showMsg{
+        position: absolute;
+        align-items: center;
+        margin-top: 80px;
+        margin-left: 45%;
+        width: 200px;
+    }
+
+    .showMsg .m-progress:before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        background: rgba(0, 128, 0, 0.45);
+        border: 1px solid #fff;
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        box-sizing: border-box;
+        top: 50%;
+        left: 10%;
+        margin-top: -12px;
+        margin-left: -12px;
+        width: 24px;
+        height: 24px;
+        animation:ld 0.5s ease-in-out infinite;
+    }
+    .progressMsg{
+        background: rgba(0, 128, 0, 0.45);
+        width: 160%;
+        border: none;
+        margin-left: -30%;
+    }
+    .showMsg .m-progress {
+        position: relative;
+        color: white !important;
+    }
+    .showMsg button:hover {
+        background: rgba(0, 128, 0, 0.45);
+        border: 1px solid rgba(0, 128, 0, 0.45);
+        border-top-color: transparent;
+        border-bottom-color: transparent;
+    }
+    .viewEdit .m-progress:before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        background: transparent;
+        border: 1px solid #fff;
+        border-top-color: #f08519;
+        border-bottom-color: #f08519;
+        border-radius: 50%;
+        box-sizing: border-box;
+        top: 50%;
+        left: 50%;
+        margin-top: -3px;
+        margin-left: -0px;
+        width: 15px;
+        height: 15px;
+        animation: ld 0.5s ease-in-out infinite;
+    }
+    .viewProgress{
+        width:10%
     }
 </style>
-<div class="tableContainer">
-    <table class="csvRecordsTable">
-        <tr>
-            <th>Sr</th>
-            <th>FileName</th>
-            <th>Headers</th>
-            <th>Actions</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>shiv.csv<br>0 records</td>
-            <td>street, city,state,zip,country</td>
-            <td><button>view/edit data</button></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>ram.csv</td>
-            <td>street, city,state,zip,country</td>
-            <td><button>view</button></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>rahim.csv</td>
-            <td>street, city,state,zip,country</td>
-            <td><button>view</button></td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>tata.csv</td>
-            <td>street, city,state,zip,country</td>
-            <td><button>view</button></td>
-        </tr>
-    </table>
+<div ng-click="closePopup($event)" id="main">
+    <div class="csvPageHeader" >
+        <img style="float:left;width: 100px;height: 50px;" src="/images/cd_logo.png">
+    </div>
+    <div class="showMsg">
+        <span class="error" ng-show="fileError">! {{fileError}}</span>
+        <button class="m-progress progressMsg" ng-show="fileProgress"><span style="margin-left: 8px">{{fileProgress}}</span></button>
+        <button class="progressMsg" ng-show="fileSuccess"><span style="margin-left: 8px">{{fileSuccess}}</span></button>
+    </div>
+
+    <div class="fileHeaders">
+        <span   class="upldBtn" ng-click="fileUpload()">UPLOAD CSV</span>
+        <span class="upldBtn" id="checkBoxHead" ng-click="showHeaders()"><span ng-show="!showCheckBox">&#9654;</span><span ng-show="showCheckBox">&#9660;</span> HEADER</span>
+    </div>
+
+    <div class="displayCheckBox" id="checkBoxContainer" ng-show="showCheckBox">
+        <div class="popupheader" >CSV File Format</div>
+        <input type="checkbox" ng-model="business" ng-change="selectHeader()"><label >Business</label><br>
+        <input type="checkbox" ng-model="street" ng-change="selectHeader()">&nbsp;<label >Street</label><br>
+        <input type="checkbox" ng-model="city" ng-change="selectHeader()">&nbsp;<label >City</label><br>
+        <input type="checkbox" ng-model="state" ng-change="selectHeader()">&nbsp;<label >State</label><br>
+        <input type="checkbox" ng-model="zip" ng-change="selectHeader()">&nbsp;<label >Zip</label><br>
+        <input type="checkbox" ng-model="country" ng-change="selectHeader()">&nbsp;<label >Country</label><br>
+        <input type="checkbox" ng-model="lat" ng-change="selectHeader()">&nbsp;<label >Latitude</label><br>
+        <input type="checkbox" ng-model="long" ng-change="selectHeader()">&nbsp;<label >Longitude</label>
+    </div>
+    <div class="tableContainer" id="Container">
+        <table class="csvRecordsTable"  id="dataTable" ng-class-odd="'oddClass'">
+            <tr>
+                <th>Sr No</th>
+                <th>FILE NAME</th>
+                <th>HEADERS</th>
+                <th>ACTION</th>
+            </tr>
+            <tr ng-repeat="(key, value) in csvFile track by $index">
+                <td>{{$index +1}}</td>
+                <td>{{key}}</td>
+                <td>
+                    <div class="dataHeader">
+                        <div  ng-repeat="head in fileHeader[key]" >
+                            <span style="padding: 2px">{{head}}&nbsp;</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="viewEdit">
+                    <button id="{{key}}" class="viewProgress" ></button>
+                    <button  ng-click="viewTable(key)">View/Edit Data</button>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div >
+        <!--      <span class="location">LOCATION DATA</span>
+          </div>
+          <div id="myProgress"  style="margin-left: 430px;visibility: hidden">
+              <div id="myBar"></div>
+          </div>
+
+          <div ng-class="customData"> <span class="fileTitle">Custom Data:</span>&nbsp;Contains&nbsp;{{(csvFile["Custom Data"].length > 0)?(csvFile["Custom Data"].length):"0"}}&nbsp;Records</font><button id="btnUpload" style="width: 150px; float: right;margin-right: 15px;" ng-click="addCustom()">View/Edit Data</button><hr><br></div>
+          <div  ng-repeat="(key, value) in csvFile">
+              <div><span class="fileTitle">{{key}} :</b></span>&nbsp;Contains&nbsp;{{value.length}}&nbsp;Records
+                  <div class="dataHeader" ng-if="key != 'Custom Data'"> Headers :
+                      <div  ng-repeat="head in fileHeader[key]" >
+                        <span style="padding: 2px">{{head}}&nbsp;</span>
+                      </div>
+                  </div>
+                  <button id="{{key}}" style="width: 150px; float: right;margin-right: 15px;" ng-click="viewTable(key)">View/Edit Data</button><hr><br></div>
+          </div>
+
+          &lt;!&ndash; table code&ndash;&gt;
+          <div ng-show="tableShow" style="margin-top: 60px" ng-include src="'/partials/shared/table.html'"></div>-->
+    </div>
+
+    <!--
+        <input type="file" style="visibility: hidden;" ng-model-instant id="fileToUpload" name="file" accept=".csv" onchange="uplaodFile(event)" />
+    -->
+    <div ng-show="tableShow" style="margin-top: 60px" ng-include src="'/partials/shared/table.html'"></div>
 </div>

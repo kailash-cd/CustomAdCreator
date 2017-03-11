@@ -14,6 +14,7 @@ define([
     'tookit',
     'xeditable',
     'csvCtrl',
+    'poiCsvCtrl',
 
 
 
@@ -35,7 +36,7 @@ define([
         'tookit',
         'xeditable',
         'csvCtrl',
-
+        'poiCsvCtrl',
 
     ]);
 
@@ -66,6 +67,10 @@ define([
                 templateUrl: 'partials/shared/CSVDemo.html',
                 controller: 'csvCtrl',
                 access: { requiredLogin: false }
+            }). when('/poiUpld',{
+                templateUrl:'partials/shared/poiCsvUpload.html',
+                controller:'poiCsvCtrl',
+                access:{requiredLogin:false}
             }).
                 otherwise({
                     redirectTo: '/home'

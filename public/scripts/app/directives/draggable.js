@@ -26,9 +26,9 @@ directive('draggable', ['$document','$log' , function($document,$log) {
                     initialMouseY = $event.clientY;
                     $document.bind('mousemove', mousemove);
                     $document.bind('mouseup', mouseup);
-                   /* $event.target.select();
-                    $event.target.input();*/
-                    
+                    $event.target.select();
+
+
 
                     return false;
                 });

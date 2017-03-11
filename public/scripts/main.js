@@ -9,7 +9,7 @@ require.config({
 		'LocalStorageModule' : 'angular-local-storage/dist/angular-local-storage.min',
         'ngTouch':'ngTouch/ngTouch',
         'nvd3ChartDirectives':'charts/angularjs-nvd3-directives.min',
-        'angular-img-cropper':'imageCropper/angular-img-cropper',
+        'angular-img-cropper':'cropImage/angular-img-cropper.min',
         'xeditable':'xeditable/xeditable',
 
         /*Controllers*/
@@ -18,7 +18,7 @@ require.config({
         'canvasCtrl':'../app/controllers/canvasCtrl',
          'domResizeCtrl':'../app/controllers/domResizeCtrl',
         'csvCtrl':'../app/controllers/csvCtrl',
-
+        'poiCsvCtrl':'../app/controllers/poiCsvCtrl',
 
         /*Services*/
         'Util':'../app/services/Util',

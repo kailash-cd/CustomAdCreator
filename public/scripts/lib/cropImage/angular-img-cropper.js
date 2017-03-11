@@ -1,4 +1,4 @@
-angular.module('angular-img-cropper',[]).directive("imageCropper", ['$document', '$window', 'imageCropperDataShare', function ($document, $window, imageCropperDataShare) {
+angular.module('angular-img-cropper', []).directive("imageCropper", ['$log','$document', '$window', 'imageCropperDataShare', function ($log,$document, $window, imageCropperDataShare) {
     return {
         scope: {
             image: "=",
@@ -14,6 +14,7 @@ angular.module('angular-img-cropper',[]).directive("imageCropper", ['$document',
         restrict: "A",
         link: function (scope, element, attrs) {
             var crop;
+            $log.info("image in cropDirective:::::",scope.image);
             var __extends = __extends || function (d, b) {
                     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
                     function __() {
@@ -377,7 +378,7 @@ angular.module('angular-img-cropper',[]).directive("imageCropper", ['$document',
                     this.keepAspect = keepAspect;
                     this.aspectRatio = height / width;
                     this.draw(this.ctx);
-                    this.croppedImage = new Image();
+                    this.croppedImage =new Image();
                     this.currentlyInteracting = false;
 
                     angular.element(window)
@@ -1327,7 +1328,7 @@ angular.module('angular-img-cropper',[]).directive("imageCropper", ['$document',
     };
 }]);
 
-angular.module('angular-img-cropper',[]).directive("imgCropperFileread", ['$timeout', function ($timeout) {
+angular.module('angular-img-cropper').directive("imgCropperFileread", ['$timeout', function ($timeout) {
     return {
         scope: {
             image: "="
@@ -1348,7 +1349,7 @@ angular.module('angular-img-cropper',[]).directive("imgCropperFileread", ['$time
     };
 }]);
 
-angular.module('angular-img-cropper',[]).directive('imgCropperFilereadCall', function factory() {
+angular.module('angular-img-cropper').directive('imgCropperFilereadCall', function factory() {
     return{
         scope: {
             control: '='
@@ -1366,7 +1367,7 @@ angular.module('angular-img-cropper',[]).directive('imgCropperFilereadCall', fun
     };
 });
 
-angular.module('angular-img-cropper',[]).factory("imageCropperDataShare", function () {
+angular.module('angular-img-cropper').factory("imageCropperDataShare", function () {
     var share = {};
     var pressed;
     var over;
