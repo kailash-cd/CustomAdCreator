@@ -64,10 +64,10 @@ define(['angular'],function(angular){
 
 
             },
-            $scope.dynamicSize = {
-                'width' : 350,
-                'height' : 250,
-            }
+                $scope.dynamicSize = {
+                    'width' : 350,
+                    'height' : 250,
+                }
             // $scope.canvasJSON.canvasLayer[0].images.push({id:1, type:"image", formatting:{font:"arial", size:"12px", color:"red"}});
             // {"text":[{"id":1, "value":"This is test", formatting: {"font":"arial", size:12}},
             // {"id":2, "value":"this is test2", formatting: {"font":"roboto", size:18}}]},
@@ -79,39 +79,39 @@ define(['angular'],function(angular){
 
 
 
-                 /*canvas size check function*/
-                $scope.checkOut=function()
+            /*canvas size check function*/
+            $scope.checkOut=function()
+            {
+                var msg="";
+                if(parseInt($scope.canvasJSON.widthCanvas)>450 || parseInt($scope.canvasJSON.widthCanvas)<250)
                 {
-                    var msg="";
-                    if(parseInt($scope.canvasJSON.widthCanvas)>450 || parseInt($scope.canvasJSON.widthCanvas)<250)
-                    {
-                        msg="min to max width can be 250px to 450px";
-                        $scope.canvasJSON.widthCanvas=450;
-
-                    }
-                     else
-                    if(parseInt($scope.canvasJSON.heightCanvas)>350||parseInt($scope.canvasJSON.heightCanvas)<50)
-                    {
-                        msg="min to max height can be 50px to 350px ";
-                        $scope.canvasJSON.heightCanvas=350;
-                    }
-                    else
-                    {
-
-                    }
-                    document.getElementById("demo").innerText=msg;
-
+                    msg="min to max width can be 250px to 450px";
+                    $scope.canvasJSON.widthCanvas=450;
 
                 }
-                /* pop up close funtion*/
-                  $scope.closeAlert=function()
-                  {
-                      $scope.canvasJSON.errorMessage="";
-                  }
+                else
+                if(parseInt($scope.canvasJSON.heightCanvas)>350||parseInt($scope.canvasJSON.heightCanvas)<50)
+                {
+                    msg="min to max height can be 50px to 350px ";
+                    $scope.canvasJSON.heightCanvas=350;
+                }
+                else
+                {
 
-   /* here is variable height and width declaration*/
+                }
+                document.getElementById("demo").innerText=msg;
 
-/*=================================================*/
+
+            }
+            /* pop up close funtion*/
+            $scope.closeAlert=function()
+            {
+                $scope.canvasJSON.errorMessage="";
+            }
+
+            /* here is variable height and width declaration*/
+
+            /*=================================================*/
             $scope.templateChecker=function (id) {
                 var element = document.getElementById(id);
                 var positionInfo = element.getBoundingClientRect();
@@ -139,7 +139,7 @@ define(['angular'],function(angular){
                     "dimensions",
                     positionInfo
                 )
-              //  var height = positionInfo.height;
+                //  var height = positionInfo.height;
                 var width = positionInfo.width;
                 $scope.canvasJSON.templateWidth=width;
                 $scope.canvasJSON.templateHeight=height;
@@ -215,94 +215,94 @@ define(['angular'],function(angular){
             });
             //resize element code ends
             /*
-            *   divlistener function for resize any div
-            *   */
+             *   divlistener function for resize any div
+             *   */
             $scope.divListener=function(divId)
             {
                 $log.info("divId is ::: ",divId)
                 if(divId =="maincanvas")
-                 {
-                     $log.info("div lister is working");
-                     $scope.canvasJSON.domBoolsJSON.resizeEnableTemplate =true;
-                     $log.info("$scope.canvasJSON.domBoolsJSON.resizeEnableTemplate ::: ",$scope.canvasJSON.domBoolsJSON.resizeEnableTemplate)
-                 }
+                {
+                    $log.info("div lister is working");
+                    $scope.canvasJSON.domBoolsJSON.resizeEnableTemplate =true;
+                    $log.info("$scope.canvasJSON.domBoolsJSON.resizeEnableTemplate ::: ",$scope.canvasJSON.domBoolsJSON.resizeEnableTemplate)
+                }
             }
             /* main canvas refresh*/
-              $scope.mainCanvasRefresh=function()
-              {
-                  $log.info("main canvas refresh function is working");
-                  document.getElementById('maincanvas').style.backgroundImage="url()";
-                  document.getElementById('maincanvas').style.backgroundColor="white";
-              }
-              /*image refresh function*/
-              $scope.imageRefresh=function () {
-                   $log.info("image refresh function is working");
-                   $log.info($scope.canvasJSON.newImageId);
-                  document.getElementById($scope.canvasJSON.newImageId).style.backgroundImage="url('./images/placeholder.png')";
-              }
+            $scope.mainCanvasRefresh=function()
+            {
+                $log.info("main canvas refresh function is working");
+                document.getElementById('maincanvas').style.backgroundImage="url()";
+                document.getElementById('maincanvas').style.backgroundColor="white";
+            }
+            /*image refresh function*/
+            $scope.imageRefresh=function () {
+                $log.info("image refresh function is working");
+                $log.info($scope.canvasJSON.newImageId);
+                document.getElementById($scope.canvasJSON.newImageId).style.backgroundImage="url('./images/placeholder.png')";
+            }
 
-              /*createIdFunction start*/
-                 $scope.createIdFunction=function(dynamicDivId)
-                {
-                    $log.info("new dynamic id",dynamicDivId);
-                     $scope.canvasJSON.newImageId=dynamicDivId;
-                     var i=document.getElementById(dynamicDivId);
-                      $scope.i=i.getBoundingClientRect();
-                     /* $scope.imageH=$scope.i.height;
-                     $log.info("height",$scope.imageH);
-                     $scope.imageW=$scope.i.width;
-                     $log.info("width",$scope.imageW);*/
-                }
-              /*createidFunction end*/
+            /*createIdFunction start*/
+            $scope.createIdFunction=function(dynamicDivId)
+            {
+                $log.info("new dynamic id",dynamicDivId);
+                $scope.canvasJSON.newImageId=dynamicDivId;
+                var i=document.getElementById(dynamicDivId);
+                $scope.i=i.getBoundingClientRect();
+                /* $scope.imageH=$scope.i.height;
+                 $log.info("height",$scope.imageH);
+                 $scope.imageW=$scope.i.width;
+                 $log.info("width",$scope.imageW);*/
+            }
+            /*createidFunction end*/
             /*main canvas image upload*/
-                $scope.imageUploadFunction=function (canvasLayerId) {
-                    $log.info("file chooser is working");
-                    $timeout(function () {
-                        document.getElementById('imageId').click();
-                    });
+            $scope.imageUploadFunction=function (canvasLayerId) {
+                $log.info("file chooser is working");
+                $timeout(function () {
+                    document.getElementById('imageId').click();
+                });
 
-                    window.openFile = function (event) {
-                        var file = event.target.files[0];
+                window.openFile = function (event) {
+                    var file = event.target.files[0];
 
-                        var reader = new FileReader();
-                        reader.onload = function () {
-                             var i=new Image();
-                             i.src=reader.result;
-                             i.setAttribute('id',"imgtag");
-                            i.setAttribute('src',reader.result);
-                            $log.info("clientWidth",i.width);
-                            $log.info("clientHeight",i.height);
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        var i=new Image();
+                        i.src=reader.result;
+                        i.setAttribute('id',"imgtag");
+                        i.setAttribute('src',reader.result);
+                        $log.info("clientWidth",i.width);
+                        $log.info("clientHeight",i.height);
 
-                             $log.info('image is',i);
-                            $scope.bounds.right = i.width;
-                            $scope.bounds.bottom = i.height;
-                            $scope.canvasJSON.imagePath = reader.result;
+                        $log.info('image is',i);
+                        $scope.bounds.right = i.width;
+                        $scope.bounds.bottom = i.height;
+                        $scope.canvasJSON.imagePath = reader.result;
 
-                            document.getElementById(canvasLayerId).style.backgroundImage = "url(" + $scope.canvasJSON.imagePath + ")";
-                        };
-                        var imageUrl=reader.readAsDataURL(file);
-
-
+                        document.getElementById(canvasLayerId).style.backgroundImage = "url(" + $scope.canvasJSON.imagePath + ")";
                     };
-                }
+                    var imageUrl=reader.readAsDataURL(file);
 
-                /* create imagePlaceHolder function start*/
-                   $scope.createPlaceHolder=function()
-                   { $log.info("createPlaceHolder function is working");
 
-                        $scope.canvasJSON.maincanvasHoverEnable=" ";
-                        // $scope.canvasJSON.canvasLayer.push({
-                        //                                     "layerType":"Image",
-                        //                                     "layerId":$scope.canvasJSON.dynamicImageId,
-                        //                                     "layerIndex":($scope.canvasJSON.canvasLayer.length+1)
-                       // "layerData":""});
-                        //             $log.info("layerId::",$scope.canvasJSON.canvasLayer.layerId);
-                          $scope.canvasJSON.editToolkit=true;
-                          $scope.canvasJSON.newImage=true;
-                          $scope.canvasJSON.canvasLayer[0].images.push({"imageId":$scope.canvasJSON.newImageId,"type":"Image"});
-                          $log.info("ImageId in Json::::",$scope.canvasJSON.canvasLayer[0].images);
+                };
+            }
 
-                   }
+            /* create imagePlaceHolder function start*/
+            $scope.createPlaceHolder=function()
+            { $log.info("createPlaceHolder function is working");
+
+                $scope.canvasJSON.maincanvasHoverEnable=" ";
+                // $scope.canvasJSON.canvasLayer.push({
+                //                                     "layerType":"Image",
+                //                                     "layerId":$scope.canvasJSON.dynamicImageId,
+                //                                     "layerIndex":($scope.canvasJSON.canvasLayer.length+1)
+                // "layerData":""});
+                //             $log.info("layerId::",$scope.canvasJSON.canvasLayer.layerId);
+                $scope.canvasJSON.editToolkit=true;
+                $scope.canvasJSON.newImage=true;
+                $scope.canvasJSON.canvasLayer[0].images.push({"imageId":$scope.canvasJSON.newImageId,"type":"Image"});
+                $log.info("ImageId in Json::::",$scope.canvasJSON.canvasLayer[0].images);
+
+            }
 
             /* image crop  code start
              */
@@ -325,26 +325,26 @@ define(['angular'],function(angular){
             }
             /*watching for image crop*/
 
-                $scope.$watch("cropper.croppedImage",function () {
+            $scope.$watch("cropper.croppedImage",function () {
 
-                    var e=document.getElementById($scope.canvasJSON.newImageId);
-                    if(e!=null) {
-                        e.style.backgroundImage = "url(" + $scope.cropper.croppedImage + ")";
-                    }
+                var e=document.getElementById($scope.canvasJSON.newImageId);
+                if(e!=null) {
+                    e.style.backgroundImage = "url(" + $scope.cropper.croppedImage + ")";
+                }
 
-                });
+            });
 
             $scope.closeCroppableImage=function (event) {
 
-                 if(event.target.id=="modelCrop")
-                 {
-                     $scope.openCroppableImage=false;
-                 }
-                 else
-                     if(event.target.id=="buttonCrop")
-                     {
-                        $scope.openCroppableImage=false;
-                     }
+                if(event.target.id=="modelCrop")
+                {
+                    $scope.openCroppableImage=false;
+                }
+                else
+                if(event.target.id=="buttonCrop")
+                {
+                    $scope.openCroppableImage=false;
+                }
 
             }
 
@@ -373,7 +373,7 @@ define(['angular'],function(angular){
                     document.getElementById($scope.canvasJSON.textBoxResizeId).style.border="1px solid "+$scope.canvasJSON.fontBackgroundColor;
                 }
             });
-               /*font background color change function end*/
+            /*font background color change function end*/
             /*editable text enable on image*/
             $scope.enableTextOnImage=function()
             {
@@ -390,7 +390,7 @@ define(['angular'],function(angular){
                 $timeout(function () {
                     document.getElementById('maincanvasbackground').click();
                 });
-               $log.info("This is maincanvasBackgroundFunction");
+                $log.info("This is maincanvasBackgroundFunction");
 
             }
             $scope.$watch("canvasJSON.canvasBackground",function () {
@@ -417,8 +417,8 @@ define(['angular'],function(angular){
                 var checkNull=document.getElementById($scope.canvasJSON.newTextBoxId);
                 if(checkNull!=null) {
                     document.getElementById($scope.canvasJSON.newTextBoxId).style.fontSize=$scope.canvasJSON.fontSize+"px";
-                   // var result= $scope.canvasJSON.editableMessage.fontsize($scope.canvasJSON.fontSize);
-                   //   document.getElementById($scope.canvasJSON.newTextBoxId).innerH  TML=result;
+                    // var result= $scope.canvasJSON.editableMessage.fontsize($scope.canvasJSON.fontSize);
+                    //   document.getElementById($scope.canvasJSON.newTextBoxId).innerH  TML=result;
 
                     $log.info("fontsize",$scope.canvasJSON.fontSize);
                 }
@@ -427,10 +427,10 @@ define(['angular'],function(angular){
             /*font face change function start*/
             $scope.$watch("canvasJSON.selectFont",function () {
 
-               var checkNull =document.getElementById($scope.canvasJSON.newTextBoxId);
-                 if(checkNull!=null) {
-                     document.getElementById($scope.canvasJSON.newTextBoxId).style.fontFamily = $scope.canvasJSON.selectFont
-                 }
+                var checkNull =document.getElementById($scope.canvasJSON.newTextBoxId);
+                if(checkNull!=null) {
+                    document.getElementById($scope.canvasJSON.newTextBoxId).style.fontFamily = $scope.canvasJSON.selectFont
+                }
             });
             /*font face change function end*/
             $scope.deleteImage=function(){
@@ -457,12 +457,28 @@ define(['angular'],function(angular){
             }
             $scope.resizeBoxId=function(tbId)
             {
-                 $scope.canvasJSON.textBoxResizeId=tbId;
+                $scope.canvasJSON.textBoxResizeId=tbId;
 
             }
             $scope.$watch("textBoxHeight",function () {
                 $log.info("height changed");
             });
+
+
+            //banner corasouls begins ----
+                $scope.canvasJSON.bannerImageBool = 0;
+                var index=1;
+                $scope.plusIndex = function(n)
+                { index=index+n;
+                    showImage(index);
+                }
+                showImage(1);
+                function showImage(n) {
+                    $scope.canvasJSON.bannerImageBool = n;
+                    $log.debug("image index to show is ::: ",n);
+
+                }
+            //banner corasouls ends ----
 
 
         }

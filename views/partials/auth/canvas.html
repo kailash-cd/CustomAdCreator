@@ -1,18 +1,17 @@
-
 <style>
 
     .placeholderImage:{{canvasJSON.imageHoverEnable}}{
-                    z-index: 50;
-                    visibility: visible;
-                    transition: .5s;
+        z-index: 50;
+        visibility: visible;
+        transition: .5s;
 
 
-                }
+    }
     #maincanvas:{{canvasJSON.maincanvasHoverEnable}}
     {
         z-index: 2;
         visibility: visible;
-         transition: .5s;
+        transition: .5s;
 
     }
     #editTextBox:hover
@@ -22,11 +21,11 @@
         transition: .5s;
     }
 
-     body{
-         margin: 0px;
-         padding: 0;
+    body{
+        margin: 0px;
+        padding: 0;
 
-     }
+    }
     input {
         width: 65%;
     }
@@ -43,138 +42,140 @@
 <div ng-if="canvasJSON.errorMessage" ng-include src="'/partials/shared/errorMessage.html'"></div>
 <div ng-if="openCroppableImage" ng-include src="'/partials/shared/crop.html'"></div>
 <div style="width: 99.8%;height: 100%;">
-<div ng-include src="'/partials/shared/navbar.html'"></div>
+    <div ng-include src="'/partials/shared/navbar.html'"></div>
 
-<div>
-    <table style="border: 2px solid #888888;; width:100%; height:505px; table-layout: fixed">
-        <tr style="background-color: #f5f5f5">
-        <th style="width:50%;">Editor</th>
-        <th style="width:20%;">Toolkit</th>
-        <th style="width:30%;">Templates</th>
-        </tr>
-        <tr>
-            <td style="width:50%;height: 100%;background-color: #ec9848;z-index: 1;">
-                <div ng-show="canvasJSON.editToolkit" class="wrapper" style="margin-left:{{canvasJSON.widthCanvas-167}}px;margin-bottom:360px;">
-                    <span style="margin-left:202px" class="glyphicon glyphicon-edit" title="edit"></span>
-                    <div class="toolkitIcon" style="color: whitesmoke; width: 200px;height:45px ;">
+    <div>
+        <table style="border: 2px solid #888888;; width:100%; height:505px; table-layout: fixed">
+            <tr style="background-color: #f5f5f5">
+                <th style="width:50%;">Editor</th>
+                <th style="width:20%;">Toolkit</th>
+                <th style="width:30%;">Templates</th>
+            </tr>
+            <tr>
+                <td style="width:50%;height: 100%;background-color: #ec9848;z-index: 1;">
+                    <div ng-show="canvasJSON.editToolkit" class="wrapper" style="margin-left:{{canvasJSON.widthCanvas-167}}px;margin-bottom:360px;">
+                        <span style="margin-left:202px" class="glyphicon glyphicon-edit" title="edit"></span>
+                        <div class="toolkitIcon" style="color: whitesmoke; width: 200px;height:45px ;">
                         <span tookit role="maincanvas" >
                         </span>
+                        </div>
                     </div>
-                </div>
-                <!--main canvas div start-->
-                <div
-                         id="maincanvas"
+                    <!--main canvas div start-->
+                    <div
+                            id="maincanvas"
 
-                         ng-dblclick="divListener('maincanvas')"
-                        resizable
+                            ng-dblclick="divListener('maincanvas')"
+                            resizable
 
-                        resize-enable="canvasJSON.domBoolsJSON.resizeEnableTemplate"
+                            resize-enable="canvasJSON.domBoolsJSON.resizeEnableTemplate"
 
-                        r-directions="['right','bottom', 'left', 'top']"
+                            r-directions="['right','bottom', 'left', 'top']"
 
-                     ng-class='{errorClass:canvasJSON.errorMessage}'
-                         style="margin-top: 170px; margin-left:55px;max-width:450px;max-height:350px;
+                            ng-class='{errorClass:canvasJSON.errorMessage}'
+                            style="margin-top: 170px; margin-left:55px;max-width:450px;max-height:350px;
                          width:{{canvasJSON.widthCanvas}}px;height:{{canvasJSON.heightCanvas}}px;
                          background-size:100% auto;background-repeat:no-repeat;vertical-align: middle;table-layout: fixed">
-                    <div><span tookit role="maincanvas"></span></div>
+                        <div><span tookit role="maincanvas"></span></div>
 
 
-                    <!--image div start-->
-                    <div ng-show="canvasJSON.newImage" ng-repeat=" i in canvasJSON.canvasLayer[0].images"
-                         draggable enabled="true"
-                         style="position: absolute">
+                        <!--image div start-->
+                        <div ng-show="canvasJSON.newImage" ng-repeat=" i in canvasJSON.canvasLayer[0].images"
+                             draggable enabled="true"
+                             style="position: absolute">
 
-                        <div
-                                id= {{'image-'+($index+1)}}
-                                resizable
-                                resize-enable="true"
-                                r-directions="['right','bottom', 'left', 'top']"
-                                class="placeholderImage"
-                                ng-mouseover="createIdFunction('image-'+($index+1))"
-                                ng-mouseleave="enableHoverOnImage()"
-                                style="margin-top: 0px;min-width: 50px;min-height: 60px;
+                            <div
+                                    id= {{'image-'+($index+1)}}
+                                    resizable
+                                    resize-enable="true"
+                                    r-directions="['right','bottom', 'left', 'top']"
+                                    class="placeholderImage"
+                                    ng-mouseover="createIdFunction('image-'+($index+1))"
+                                    ng-mouseleave="enableHoverOnImage()"
+                                    style="margin-top: 0px;min-width: 50px;min-height: 60px;
                                 max-width:{{canvasJSON.widthCanvas}}px;
                                 max-height:{{canvasJSON.heightCanvas}}px;background-repeat: no-repeat;
                                 background-size: 100% auto;background-position:center;width:{{canvasJSON.imageWidth}}px;
                                 height:{{canvasJSON.imageHeight-100}}px;background-image: url({{canvasJSON.imagePlaceHolder}})">
-                            <div  tookit role="image"></div>
+                                <div  tookit role="image"></div>
 
 
+                            </div>
                         </div>
-                    </div>
-                    <!--image div end-->
-                    <!--Text Editor div start-->
+                        <!--image div end-->
+                        <!--Text Editor div start-->
 
-                    <div id="editTextBox"   style="position: absolute" draggable enabled="true" ng-repeat="t in canvasJSON.canvasLayer[0].text">
-                        <div  id="{{'textBoxResizable-'+($index+1)}}"
-                              ng-mouseleave="textToolkitPosition()"
-                              resizable
-                              resize-enable="true"
-                              r-height="dynamicSize.height"
-                              r-directions="['right','bottom','left','top']" ng-mouseover="resizeBoxId('textBoxResizable-'+($index+1))"
-                              style=" border:1px solid beige;width: {{canvasJSON.textBoxWidth}}px;height: {{canvasJSON.textBoxHeight}}px;
+                        <div id="editTextBox"   style="position: absolute" draggable enabled="true" ng-repeat="t in canvasJSON.canvasLayer[0].text">
+                            <div  id="{{'textBoxResizable-'+($index+1)}}"
+                                  ng-mouseleave="textToolkitPosition()"
+                                  resizable
+                                  resize-enable="true"
+                                  r-height="dynamicSize.height"
+                                  r-directions="['right','bottom','left','top']" ng-mouseover="resizeBoxId('textBoxResizable-'+($index+1))"
+                                  style=" border:1px solid beige;width: {{canvasJSON.textBoxWidth}}px;height: {{canvasJSON.textBoxHeight}}px;
                               background-color: transparent;margin-top:initial;min-height: 23px;min-width: 30px;
                               max-width:{{canvasJSON.widthCanvas}}px;max-height: {{canvasJSON.heightCanvas}}px;
                               word-wrap: break-word;">
 
-                            <div
-                                    id="{{'textBox-'+($index+1)}}"
+                                <div
+                                        id="{{'textBox-'+($index+1)}}"
 
-                                    ng-mouseover="createTextBoxId('textBox-'+($index+1));"
-                                    ng-show="canvasJSON.newTextBox" editable-text="canvasJSON.canvasLayer[0].text[$index].value"
-                                    style="max-height:30px;
+                                        ng-mouseover="createTextBoxId('textBox-'+($index+1));"
+                                        ng-show="canvasJSON.newTextBox" editable-text="canvasJSON.canvasLayer[0].text[$index].value"
+                                        style="max-height:30px;
                          word-wrap: break-word;
                          box-sizing: border-box;
                          padding: 2px;
                          overflow: hidden;
 
                            " >{{t.value||'empty'}}
+                                </div>
+                                <div tookit role="text"></div>
                             </div>
-                            <div tookit role="text"></div>
+
+                        </div>
+
+
+
+
+
+                        <!--Text Editor div end-->
+                    </div>
+                    <!--main canvas div end-->
+
+                </td>
+                <td style="width:20%; height: 100%;background-color: rgb(225,225,225) ">
+
+                    <div style=" border-right:2px solid #888888;border-left: 2px solid #888888; display:inline-block;width:100%; height: 100%; ">
+                        Width:<input  type="number" style="margin-top: 10px;" ng-model="canvasJSON.widthCanvas" ng-blur="checkOut()" ng-mouseleave="checkOut()"><br><br>
+                        Height:<input type="number"  ng-model="canvasJSON.heightCanvas" ng-blur="checkOut()" ng-mouseleave="checkOut()"><br>
+                        <hr><br>
+                        <span id="demo" style="color:red;"></span>
+                        <div>
+                            <button ng-click="showmap=1" >Free Draw</button>
+                            <button style="background-color: dimgrey;color:white; max-width:80px;font-size: 12px; text-align:center;" ng-repeat="x in canvasJSON.buttonName" ng-click="show($index)">{{x}}</button>
+                            <hr><br>
+
                         </div>
 
                     </div>
+                </td>
+                <td style="width:30%;height: 100%;background-color: #f5f5f5;" >
 
+                    <!--<image src="{{image}}" width="300px" height="45px" alt="image not upload" ng-model="image"/>-->
+                    <div >
 
-
-
-
-                    <!--Text Editor div end-->
-                </div>
-                <!--main canvas div end-->
-
-            </td>
-            <td style="width:20%; height: 100%;background-color: rgb(225,225,225) ">
-
-                <div style=" border-right:2px solid #888888;border-left: 2px solid #888888; display:inline-block;width:100%; height: 100%; ">
-                    Width:<input  type="number" style="margin-top: 10px;" ng-model="canvasJSON.widthCanvas" ng-blur="checkOut()" ng-mouseleave="checkOut()"><br><br>
-                    Height:<input type="number"  ng-model="canvasJSON.heightCanvas" ng-blur="checkOut()" ng-mouseleave="checkOut()"><br>
-                   <hr><br>
-                    <span id="demo" style="color:red;"></span>
-                    <div>
-
-                    <button style="background-color: dimgrey;color:white; max-width:80px;font-size: 12px; text-align:center;" ng-repeat="x in canvasJSON.buttonName" ng-click="show($index)">{{x}}</button>
-                        <hr><br>
-
+                        <!--<div draggable enabled="canvasJSON.domBoolsJSON.enableTemplate"    ng-include src="'/partials/shared/headshot.html'"   ng-show="canvasJSON.booleans == 0"></div>-->
+                        <!--<div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   ng-include src="'/partials/shared/clientLogo.html'"   ng-show="canvasJSON.booleans == 1"></div>-->
+                        <!--<div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   ng-include src="'/partials/shared/description.html'" ng-show="canvasJSON.booleans == 2"></div>-->
+                        <div ng-show="!showmap"  ng-include src="'/partials/shared/banner.html'"></div>
+                        <div ng-model="showmap" ng-init="showmap=0"  ng-include src="'/partials/shared/map.html'"></div>
+                        <!--<div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   ng-include src="'/partials/shared/button.html'"      ng-show="canvasJSON.booleans == 4"></div>-->
                     </div>
-
-                </div>
-            </td>
-            <td style="width:30%;height: 100%;background-color: #f5f5f5;" >
-
-                  <!--<image src="{{image}}" width="300px" height="45px" alt="image not upload" ng-model="image"/>-->
-                <div >
-                 <!--<div draggable enabled="canvasJSON.domBoolsJSON.enableTemplate"    ng-include src="'/partials/shared/headshot.html'"   ng-show="canvasJSON.booleans == 0"></div>-->
-                <!--<div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   ng-include src="'/partials/shared/clientLogo.html'"   ng-show="canvasJSON.booleans == 1"></div>-->
-                <!--<div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   ng-include src="'/partials/shared/description.html'" ng-show="canvasJSON.booleans == 2"></div>-->
-                <div   ng-include src="'/partials/shared/banner.html'"></div>
-                <!--<div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   ng-include src="'/partials/shared/button.html'"      ng-show="canvasJSON.booleans == 4"></div>-->
-                </div>
-            </td>
-        </tr>
-    </table>
+                </td>
+            </tr>
+        </table>
 
 
-</div>
-<div ng-include src="'/partials/shared/footer.html'"></div>
+    </div>
+    <div ng-include src="'/partials/shared/footer.html'"></div>
 </div>

@@ -25,6 +25,7 @@ require.config({
         'DataServices':'../app/services/DataServices',
         /*Directive*/
         'draggable':'../app/directives/draggable',
+        'chalkfd':'../app/directives/chalkfd',
         'resizable':'../app/directives/resizable',
         'tookit':'../app/directives/tookit',
         'dynamic':'../app/directives/dynamic',

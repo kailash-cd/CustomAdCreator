@@ -43,34 +43,17 @@
         margin-left: 25px;
     }
 </style>
-<div id="slideContainer">
-<img class="slide" src="./images/i1.png">
-<img class="slide" src="./images/i2.png">
- <img class="slide" src="./images/i3.png">
- <img class="slide" src="./images/i4.png">
+<div>
+    <div id="slideContainer">
+        <img ng-show="canvasJSON.bannerImageBool == 1" class="slide" src="./images/i1.png">
+        <img ng-show="canvasJSON.bannerImageBool == 2" class="slide" src="./images/i2.png">
+        <img ng-show="canvasJSON.bannerImageBool == 3" class="slide" src="./images/i3.png">
+        <img ng-show="canvasJSON.bannerImageBool == 4" class="slide" src="./images/i4.png">
+    </div>
+    <div class="btnContainer">
+        <button class="btn" id="btn1" ng-click="plusIndex(-1)" title="previous">&#10094;</button>
+        <button class="btn" id="btn3">select</button>&nbsp;
+        <button class="btn" id="btn2" ng-click="plusIndex(1)" title="next">&#10095;</button>
+    </div>
 </div>
-<div class="btnContainer">
-    <button class="btn" id="btn1" onclick="plusIndex(-1)" title="previous">&#10094;</button>
-    <button class="btn" id="btn3">select</button>&nbsp;
-    <button class="btn" id="btn2" onclick="plusIndex(1)" title="next">&#10095;</button>
-</div>
-<script>
-    var index=1;
-    function plusIndex(n)
-    { index=index+n;
-        showImage(index);
-    }
-    showImage(1);
-    function showImage(n) {
-        var x=document.getElementsByClassName('slide');
-        if(n>x.length){index=1}
-        if(n<1){index=x.length}
-        for(var i=0;i<x.length;i++){
-            x[i].style.display="none";
-        }
-        x[index-1].style.display="block"
-
-    }
-
-</script>
 
