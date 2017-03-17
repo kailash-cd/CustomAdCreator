@@ -70,18 +70,18 @@
     }
 </style>
 <!-- The Modal -->
-<div class="modal">
+<div class="modal" id="modelCrop" ng-click="closeCroppableImage($event)">
     <!-- Modal content -->
     <div class="modal-content">
         <div class="modal-header">
-            <span class="close" ng-click="closeCroppableImage()">&times;</span>
+            <span class="close" id="buttonCrop" ng-click="closeCroppableImage($event)">&times;</span>
             <h2>Crop Your Image</h2>
         </div>
         <div class="main-body">
             <div  style="display: inline-block;">
             <canvas width="500"  height="300" id="canvas"
                     image-cropper image="canvasJSON.imagePath" cropped-image="cropper.croppedImage"
-                    crop-width="400" crop-height="200" keep-aspect="true" touch-radius="30"
+                    keep-aspect="true" touch-radius="20" crop-width="400" crop-height="200"
                     crop-area-bounds="bounds"></canvas>
             </div>
             <div  style="display: inline-block;

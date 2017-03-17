@@ -1,4 +1,76 @@
 
+<!--
 <div  style="width:300px;height: 200px;">
     <img id="temp4"   ng-mouseleave="templateChecker('temp4')" src="./images/banner.jpg" alt="image not available" width="300px" height="150px"/>
+</div>-->
+<style>
+    #slideContainer
+    {
+         width: 350px;
+         height: 300px;
+        border: 1px solid black;
+        margin: 0 auto;
+        position: relative;
+    }
+    #slideContainer>img
+    {
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+
+    }
+
+
+    .btn{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 25px;
+    }
+    #btn1{
+        position: relative;
+
+    }
+    #btn3{
+        width: 200px;
+        position: relative;
+        border-radius: 10px;
+    }
+    .btnContainer{
+        margin-top: 20px;
+        margin-left: 25px;
+    }
+</style>
+<div id="slideContainer">
+<img class="slide" src="./images/i1.png">
+<img class="slide" src="./images/i2.png">
+ <img class="slide" src="./images/i3.png">
+ <img class="slide" src="./images/i4.png">
 </div>
+<div class="btnContainer">
+    <button class="btn" id="btn1" onclick="plusIndex(-1)" title="previous">&#10094;</button>
+    <button class="btn" id="btn3">select</button>&nbsp;
+    <button class="btn" id="btn2" onclick="plusIndex(1)" title="next">&#10095;</button>
+</div>
+<script>
+    var index=1;
+    function plusIndex(n)
+    { index=index+n;
+        showImage(index);
+    }
+    showImage(1);
+    function showImage(n) {
+        var x=document.getElementsByClassName('slide');
+        if(n>x.length){index=1}
+        if(n<1){index=x.length}
+        for(var i=0;i<x.length;i++){
+            x[i].style.display="none";
+        }
+        x[index-1].style.display="block"
+
+    }
+
+</script>
+

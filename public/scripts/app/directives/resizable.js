@@ -22,12 +22,16 @@ define(['angular'],function(angular){
                     element[0].style.width = scope.rWidth + 'px';
                 });
                 scope.$watch('rHeight', function(value){
+                    $log.info(element);
                     element[0].style.height = scope.rHeight + 'px';
+
                     var t=document.getElementById('textBoxToolkit');
                     if(t!=null)
-                    {
-                        t.style.top=(scope.rHeight+10)+"px";
-                        $log.info("rHeight",scope.rHeight+10);
+                    {   if((scope.rHeight+10)>=23) {
+                        t.style.top =
+                            (scope.rHeight + 10) + "px";
+                        $log.info("rHeight", scope.rHeight + 10);
+                    }
                     }
 
 

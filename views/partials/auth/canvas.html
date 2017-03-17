@@ -92,7 +92,7 @@
                                 class="placeholderImage"
                                 ng-mouseover="createIdFunction('image-'+($index+1))"
                                 ng-mouseleave="enableHoverOnImage()"
-                                style="margin-top: 34px;min-width: 50px;min-height: 60px;
+                                style="margin-top: 0px;min-width: 50px;min-height: 60px;
                                 max-width:{{canvasJSON.widthCanvas}}px;
                                 max-height:{{canvasJSON.heightCanvas}}px;background-repeat: no-repeat;
                                 background-size: 100% auto;background-position:center;width:{{canvasJSON.imageWidth}}px;
@@ -110,6 +110,7 @@
                               ng-mouseleave="textToolkitPosition()"
                               resizable
                               resize-enable="true"
+                              r-height="dynamicSize.height"
                               r-directions="['right','bottom','left','top']" ng-mouseover="resizeBoxId('textBoxResizable-'+($index+1))"
                               style=" border:1px solid beige;width: {{canvasJSON.textBoxWidth}}px;height: {{canvasJSON.textBoxHeight}}px;
                               background-color: transparent;margin-top:initial;min-height: 23px;min-width: 30px;
@@ -121,7 +122,7 @@
 
                                     ng-mouseover="createTextBoxId('textBox-'+($index+1));"
                                     ng-show="canvasJSON.newTextBox" editable-text="canvasJSON.canvasLayer[0].text[$index].value"
-                                    style="
+                                    style="max-height:30px;
                          word-wrap: break-word;
                          box-sizing: border-box;
                          padding: 2px;
@@ -162,12 +163,12 @@
             <td style="width:30%;height: 100%;background-color: #f5f5f5;" >
 
                   <!--<image src="{{image}}" width="300px" height="45px" alt="image not upload" ng-model="image"/>-->
-                <div  class="preview">
-                    <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   class="pre" ng-include src="'/partials/shared/headshot.html'"   ng-show="canvasJSON.booleans == 0"></div>
-                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   class="pre"ng-include src="'/partials/shared/clientLogo.html'"   ng-show="canvasJSON.booleans == 1"></div>
-                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"  class="pre" ng-include src="'/partials/shared/description.html'" ng-show="canvasJSON.booleans == 2"></div>
-                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"  class="pre" ng-include src="'/partials/shared/banner.html'"      ng-show="canvasJSON.booleans == 3"></div>
-                <div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"  class="pre" ng-include src="'/partials/shared/button.html'"      ng-show="canvasJSON.booleans == 4"></div>
+                <div >
+                 <!--<div draggable enabled="canvasJSON.domBoolsJSON.enableTemplate"    ng-include src="'/partials/shared/headshot.html'"   ng-show="canvasJSON.booleans == 0"></div>-->
+                <!--<div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   ng-include src="'/partials/shared/clientLogo.html'"   ng-show="canvasJSON.booleans == 1"></div>-->
+                <!--<div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   ng-include src="'/partials/shared/description.html'" ng-show="canvasJSON.booleans == 2"></div>-->
+                <div   ng-include src="'/partials/shared/banner.html'"></div>
+                <!--<div draggable enabled = "canvasJSON.domBoolsJSON.enableTemplate"   ng-include src="'/partials/shared/button.html'"      ng-show="canvasJSON.booleans == 4"></div>-->
                 </div>
             </td>
         </tr>

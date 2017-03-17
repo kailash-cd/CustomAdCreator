@@ -6,7 +6,8 @@ define(['angular'],function(angular){
         function ($scope,$rootScope,$compile, $location,$log,$timeout,DataServices,Util,$http) {
             $log.info("At canvasCtrl");
             $scope.canvasJSON = {
-                "buttonName":['headShot','clientLogo','description','banner','clickButton'],
+
+                "slideImage":['i1.png','i2.png','i3.png','i4.png'],
                 "booleans": 0,
                 "domBoolsJSON":{
                     "enableTemplate":true,
@@ -147,9 +148,6 @@ define(['angular'],function(angular){
 
 
 
-            $scope.show=function (index) {
-               $scope.canvasJSON.booleans = index;
-            }
 
 
             /*waching function  for checking background and text color*/
@@ -248,6 +246,12 @@ define(['angular'],function(angular){
                 {
                     $log.info("new dynamic id",dynamicDivId);
                      $scope.canvasJSON.newImageId=dynamicDivId;
+                     var i=document.getElementById(dynamicDivId);
+                      $scope.i=i.getBoundingClientRect();
+                     /* $scope.imageH=$scope.i.height;
+                     $log.info("height",$scope.imageH);
+                     $scope.imageW=$scope.i.width;
+                     $log.info("width",$scope.imageW);*/
                 }
               /*createidFunction end*/
             /*main canvas image upload*/
@@ -262,7 +266,18 @@ define(['angular'],function(angular){
 
                         var reader = new FileReader();
                         reader.onload = function () {
+                             var i=new Image();
+                             i.src=reader.result;
+                             i.setAttribute('id',"imgtag");
+                            i.setAttribute('src',reader.result);
+                            $log.info("clientWidth",i.width);
+                            $log.info("clientHeight",i.height);
+
+                             $log.info('image is',i);
+                            $scope.bounds.right = i.width;
+                            $scope.bounds.bottom = i.height;
                             $scope.canvasJSON.imagePath = reader.result;
+
                             document.getElementById(canvasLayerId).style.backgroundImage = "url(" + $scope.canvasJSON.imagePath + ")";
                         };
                         var imageUrl=reader.readAsDataURL(file);
@@ -279,7 +294,8 @@ define(['angular'],function(angular){
                         // $scope.canvasJSON.canvasLayer.push({
                         //                                     "layerType":"Image",
                         //                                     "layerId":$scope.canvasJSON.dynamicImageId,
-                        //                                     "layerIndex":($scope.canvasJSON.canvasLayer.length+1) });
+                        //                                     "layerIndex":($scope.canvasJSON.canvasLayer.length+1)
+                       // "layerData":""});
                         //             $log.info("layerId::",$scope.canvasJSON.canvasLayer.layerId);
                           $scope.canvasJSON.editToolkit=true;
                           $scope.canvasJSON.newImage=true;
@@ -291,26 +307,45 @@ define(['angular'],function(angular){
             /* image crop  code start
              */
             $scope.cropper = {};
+
             $scope.cropper.sourceImage = null;
             $scope.cropper.croppedImage   = null;
             $scope.bounds = {};
-            $scope.bounds.left = 0;
-            $scope.bounds.right = 0;
+            $scope.bounds.left =0;
+            // $scope.bounds.right = 0;
             $scope.bounds.top = 0;
-            $scope.bounds.bottom = 0;
+            // $scope.bounds.bottom = 200;
             $scope.cropImage=function () {
                 $scope.openCroppableImage=true;
+                $log.warn("cropheight",$scope.imageH);
+                $scope.imageW=$scope.i.width;
+                $log.warn("cropwidth",$scope.imageW);
+
 
             }
             /*watching for image crop*/
 
                 $scope.$watch("cropper.croppedImage",function () {
-                    document.getElementById($scope.canvasJSON.newImageId).style.backgroundImage="url("+$scope.cropper.croppedImage+")"
+
+                    var e=document.getElementById($scope.canvasJSON.newImageId);
+                    if(e!=null) {
+                        e.style.backgroundImage = "url(" + $scope.cropper.croppedImage + ")";
+                    }
 
                 });
 
-            $scope.closeCroppableImage=function () {
-                $scope.openCroppableImage=false;
+            $scope.closeCroppableImage=function (event) {
+
+                 if(event.target.id=="modelCrop")
+                 {
+                     $scope.openCroppableImage=false;
+                 }
+                 else
+                     if(event.target.id=="buttonCrop")
+                     {
+                        $scope.openCroppableImage=false;
+                     }
+
             }
 
             /*editable text code*/
@@ -428,6 +463,7 @@ define(['angular'],function(angular){
             $scope.$watch("textBoxHeight",function () {
                 $log.info("height changed");
             });
+
 
         }
     ])

@@ -11,7 +11,7 @@
         left: 23%;
         width: 80%;
         border: 1px solid black;
-        margin: 0 auto;
+        margin-left: 10%;
     }
     table th {
 
@@ -33,6 +33,7 @@
         color: rgba(240, 25, 25, 0.87);
         background: white;
         height: 9%;
+        border: none;
     }
     .fileHeader{
         text-align: center;
@@ -57,9 +58,6 @@
         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 
     }
-    #removeBtn button:hover{
-
-    }
     /* Add Animation */
     @-webkit-keyframes animatetop {
         from {top:-300px; opacity:0}
@@ -81,11 +79,10 @@
         font-size: 20px;
         float: right;
         cursor: pointer;
-        margin-right: 10%;
+        margin-right: 8%;
     }
-    .centerAlign{
-        margin-left: 14%;
-    }
+
+
 </style>
 <div class="table-shadow" id="overlay" ng-click="overLayClose($event)" ng-show="tableShow">
     <div style="margin-bottom: 50px">
@@ -97,8 +94,8 @@
         <table >
             <tr>
                 <th colspan="9"  class="fileHeader">
-                    <span class="centerAlign">{{tableName.toUpperCase()}}</span> <button class="insertRecordBtn" ng-click="addBlankRow(tableName)">
-                    Add Records
+                    {{tableName.toUpperCase()}} <button class="insertRecordBtn" ng-click="addBlankRow(tableName)">
+                    Insert Records
                 </button></th></tr>
             <tr>
                 <th ng-if="showBussiness" >BUSINESS</th>
@@ -118,11 +115,12 @@
                 <td ng-if="showState"><input class="tableBox" type="text" ng-model="x.state"></td>
                 <td ng-if="showZip"><input  style="width: 80px;" class="tableBox" type="text" ng-model="x.zip"></td>
                 <td ng-if="showCountry"><input style="width: 80px;" class="tableBox" type="text" ng-model="x.country"></td>
-                <td><input class="tableBox" type="number" ng-model="x.lat"></td>
-                <td><input class="tableBox" type="number" ng-model="x.long"></td>
-                <td id="removeBtn"><span  class="glyphicon glyphicon-trash removeBtn" ng-click="removeRow(tableName ,$index)"></span></td>
+                <td><input class="tableBox" type="text" ng-model="x.lat"></td>
+                <td><input class="tableBox" type="text" ng-model="x.long"></td>
+                <td><button  class="glyphicon glyphicon-trash removeBtn" ng-click="removeRow(tableName ,$index)"></button></td>
             </tr>
 
         </table>
     </div>
 </div>
+<input type="file" style="visibility: hidden;" ng-model-instant id="fileToUpload" name="file" accept=".csv" onchange="angular.element(this).scope().uplaodFile(event)" />

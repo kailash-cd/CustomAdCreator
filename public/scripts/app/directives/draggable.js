@@ -13,7 +13,7 @@ directive('draggable', ['$document','$log' , function($document,$log) {
             enabled: '='
         },
         link: function(scope, elm, attrs) {
-            var startX, startY, initialMouseX, initialMouseY;
+            var startX, startY, initialMouseX, initialMouseY,widthDifference,heightDifference;
             elm.css({position: 'absolute'});
             $log.debug("dragable enabled status ::",scope.enabled);
             if(scope.enabled) {
@@ -21,7 +21,10 @@ directive('draggable', ['$document','$log' , function($document,$log) {
                 elm.bind('mousedown', function($event) {
 
                     startX = elm.prop('offsetLeft');
+
+                    widthDifference=document.getElementById('maincanvas').clientWidth-elm[0].childNodes[1].clientWidth;
                     startY = elm.prop('offsetTop');
+                    heightDifference=document.getElementById('maincanvas').clientHeight-elm[0].childNodes[1].clientHeight;
                     initialMouseX = $event.clientX;
                     initialMouseY = $event.clientY;
                     $document.bind('mousemove', mousemove);
@@ -39,12 +42,17 @@ directive('draggable', ['$document','$log' , function($document,$log) {
             function mousemove($event) {
                 var dx = $event.clientX - initialMouseX;
                 var dy = $event.clientY - initialMouseY;
+                if(((startX+dx<=widthDifference && startX+dx>=0) && (startY+dy<=heightDifference && startY+dy>=0))) {
+                          elm.css({
 
-                elm.css({
-                    top:  startY + dy + 'px',
-                    left: startX + dx + 'px'
-                });
-                return false;
+                              top: startY + dy + 'px',
+                              left: startX + dx + 'px',
+
+                          });
+                      }
+                          return false;
+
+
             }
 
             function mouseup() {

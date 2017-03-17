@@ -37,7 +37,7 @@
 .nvd3 .x  .nv-axis .nv-axisMaxMin text,
 .nvd3 .x2 .nv-axis .nv-axisMaxMin text,
 .nvd3 .x3 .nv-axis .nv-axisMaxMin text {
-    text-anchor: middle
+    text-anchor: middle;
         fill:#eee;
 }
 
@@ -368,7 +368,7 @@ svg.nvd3-svg {
     stroke-opacity: .7;
 }
 
-.nvd3 .nv-parallelCoordinates-brush .extent 
+.nvd3 .nv-parallelCoordinates-brush .extent
 {
     fill: #fff;
     fill-opacity: .6;
@@ -387,7 +387,7 @@ svg.nvd3-svg {
   stroke: black;
   stroke-width: 1;
   stroke-opacity: 1;
-  stroke-dasharray: 5, 5; 
+  stroke-dasharray: 5, 5;
 }
 .nvd3.nv-pie path {
     stroke-opacity: 0;
