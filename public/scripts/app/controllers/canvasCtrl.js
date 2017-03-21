@@ -13,6 +13,7 @@ define(['angular'],function(angular){
                     "enableTemplate":true,
                     "resizeEnableTemplate":false
                 },
+                "plugins":1,
                 "openCroppableImage":false,
                 "editableMessage":"write your message here and drag any where",
                 "widthCanvas":450,

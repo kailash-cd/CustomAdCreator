@@ -24,7 +24,6 @@ define([
 
     var mainApp =  angular.module('mainApp', [
         'ngRoute',
-        'ngTouch',
         'DataServices',
         'Util',
         'navbarCtrl',

@@ -7,7 +7,6 @@ require.config({
         'angularRoute' : 'angular-route/angular-route.min',
         'jquery' : 'jquery/dist/jquery.min',	
 		'LocalStorageModule' : 'angular-local-storage/dist/angular-local-storage.min',
-        'ngTouch':'ngTouch/ngTouch',
         'nvd3ChartDirectives':'charts/angularjs-nvd3-directives.min',
         'angular-img-cropper':'cropImage/angular-img-cropper',
         'xeditable':'xeditable/xeditable',
@@ -46,10 +45,6 @@ require.config({
             deps: ['angular'],
             exports : 'LocalStorageModule'
         },
-		'ngTouch' :{
-            deps: ['angular'],
-            exports : 'ngTouch'
-        },
         'xeditable' :{
             deps: ['angular'],
             exports : 'xeditable'
@@ -61,7 +56,7 @@ require.config({
 });
 
 
-require(['require','angular','angularRoute','LocalStorageModule','ngTouch','app','xeditable'], function () {
+require(['require','angular','angularRoute','LocalStorageModule','app','xeditable'], function () {
     angular.element(document).ready(function() {
         angular.bootstrap(document, ['mainApp']);
     });
