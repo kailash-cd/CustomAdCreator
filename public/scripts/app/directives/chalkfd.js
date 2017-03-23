@@ -4,7 +4,7 @@
 'use strict';
 
 angular.module('chalkfd', []).
-directive('chalkfd', ['$document','$log','DataSerliazerService','$timeout', function($document,$log,DataSerliazerService,$timeout) {
+directive('chalkfd', ['$document','$log','Util','$timeout', function($document,$log,Util,$timeout) {
 
     var scopeargs = {
         centerLat: '@centerLat',
@@ -176,7 +176,7 @@ directive('chalkfd', ['$document','$log','DataSerliazerService','$timeout', func
                     function deleteNewSavedPoly() {
                         $log.debug("deleting")
                         var savedPolygon = [];
-                        if (!DataSerliazerService.isVoid(PolygonArray)) {
+                        if (!Util.isVoid(PolygonArray)) {
                             for (var i = 0; i < PolygonArray.length; i++) {
                                 PolygonArray[i].setMap(null);
                             }
@@ -210,7 +210,7 @@ directive('chalkfd', ['$document','$log','DataSerliazerService','$timeout', func
                             scope.geoFencingData.ShapeidServer = Shapeid;
                             scope.geoFencingData.AllShapeLocServer = AllShapeLoc;
                             scope.geoFencingData.freeDrawingZoom = map.getZoom();
-                            if (!DataSerliazerService.isVoid(scope.geoFencingData.freeDrawingData)) {
+                            if (!Util.isVoid(scope.geoFencingData.freeDrawingData)) {
                                 for (var t = 0; t < scope.geoFencingData.freeDrawingData.length; t++) {
                                     $log.debug(scope.geoFencingData.freeDrawingData[t].type)
                                     if (scope.geoFencingData.freeDrawingData[t].type === "ractangle") {
@@ -279,7 +279,7 @@ directive('chalkfd', ['$document','$log','DataSerliazerService','$timeout', func
                                 polygon.setEditable(false);
                             });
                             google.maps.event.addListener(polygon, 'click', function (event) {
-                                if (!DataSerliazerService.isVoid(infowindow11)) {
+                                if (!Util.isVoid(infowindow11)) {
                                     infowindow11.close();
                                 }
                             });
@@ -300,7 +300,7 @@ directive('chalkfd', ['$document','$log','DataSerliazerService','$timeout', func
                                 scope.allShape[i].west = west;
                             });
                             google.maps.event.addListener(polygon, 'click', function (event) {
-                                if (!DataSerliazerService.isVoid(infowindow11)) {
+                                if (!Util.isVoid(infowindow11)) {
                                     infowindow11.close();
                                 }
                             });
@@ -316,7 +316,7 @@ directive('chalkfd', ['$document','$log','DataSerliazerService','$timeout', func
                                 //$log.debug("shapes data is ",scope.allShape)
                             });
                             google.maps.event.addListener(polygon, 'dragend', function () {
-                                if (!DataSerliazerService.isVoid(infowindow11)) {
+                                if (!Util.isVoid(infowindow11)) {
                                     infowindow11.close();
                                 }
                                 var radius = polygon.getRadius();
@@ -424,7 +424,7 @@ directive('chalkfd', ['$document','$log','DataSerliazerService','$timeout', func
                         }
                     };
                     function deleteSelectedShape() {
-                        if(!DataSerliazerService.isVoid(trackPolygon)){
+                        if(!Util.isVoid(trackPolygon)){
                             var polyshape = scope.allShape[trackPolygon];
                             //$log.debug("--- with lwngth poly shape is ", polyshape.id);
                             if (polyshape.type === "polygon" && polyshape.positions.length <= 2) {
@@ -490,7 +490,7 @@ directive('chalkfd', ['$document','$log','DataSerliazerService','$timeout', func
                     }
                     function StartDrawing() {
                         $log.debug("in start drawing ", polygonid);
-                        if (!DataSerliazerService.isVoid(freeCenterlat) && !DataSerliazerService.isVoid(freeCenterlong)) {
+                        if (!Util.isVoid(freeCenterlat) && !Util.isVoid(freeCenterlong)) {
                             freeCenterlat = parseFloat(freeCenterlat);
                             freeCenterlong = parseFloat(freeCenterlong);
                             SetCenter(freeCenterlat, freeCenterlong);
