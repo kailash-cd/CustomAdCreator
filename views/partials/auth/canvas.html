@@ -164,7 +164,8 @@
                     <div >
                         <div ng-if="canvasJSON.plugins == 1"  ng-include src="'/partials/shared/banner.html'"></div>
                         <!--<div ng-if="canvasJSON.plugins == 2"  ng-include src="'/partials/shared/map.html'"></div>-->
-                        <div chalkfd enabled="true" ng-if="canvasJSON.plugins == 2"></div>
+                        <div  chalkfd enabled="true" ng-if="canvasJSON.plugins == 2"></div>
+                        <!--<div isolate-scope-with-controller chalkfd enabled="true" ng-if="canvasJSON.plugins == 2"></div>-->
                     </div>
                 </td>
             </tr>
